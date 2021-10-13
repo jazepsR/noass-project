@@ -16,4 +16,6 @@ MonoBehaviour:
   possibleBgColors:
   - {r: 0.37008414, g: 0.27727836, b: 0.6320754, a: 1}
   possibleGames: 01000000
+  possibleDestinations: 01000000
   DisplayName: Citrons
+  isHazard: 0

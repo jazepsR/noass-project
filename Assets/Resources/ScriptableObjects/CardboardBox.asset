@@ -16,5 +16,6 @@ MonoBehaviour:
   possibleBgColors:
   - {r: 0.9433962, g: 0.8784771, b: 0.21804914, a: 1}
   possibleGames: 01000000
+  possibleDestinations: 02000000
   DisplayName: Kartona Kaste
   isHazard: 0

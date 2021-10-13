@@ -16,5 +16,6 @@ MonoBehaviour:
   possibleBgColors:
   - {r: 0.29568705, g: 0.6313726, b: 0.2784314, a: 1}
   possibleGames: 01000000
+  possibleDestinations: 02000000
   DisplayName: "Mikro\u010Dips"
   isHazard: 0

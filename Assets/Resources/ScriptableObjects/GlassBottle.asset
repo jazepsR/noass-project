@@ -16,5 +16,6 @@ MonoBehaviour:
   possibleBgColors:
   - {r: 0.2784314, g: 0.44256845, b: 0.6313726, a: 1}
   possibleGames: 01000000
+  possibleDestinations: 02000000
   DisplayName: Stikla Pudele
   isHazard: 0

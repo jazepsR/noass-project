@@ -65,6 +65,7 @@ public class CarGameController : MonoBehaviour
                 break;
             case carGameState.DestinationSelect:
                 receiptAnimator.SetBool("on", false);
+                Snapcontroller.instance.CalculateTypeDistribution();
                 currentCar.StartDriveAway();
                 break;
             default:

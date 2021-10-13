@@ -11,9 +11,11 @@ public class Snapcontroller : MonoBehaviour
     public int trashPointCount;
     private List<SnapPoint> snapPoints;
     public float snapDistance = 50f;
+    public static Snapcontroller instance;
     // Start is called before the first frame update
     void Awake()
     {
+        instance = this;
         Initialize();
     }
     private void Initialize()
@@ -30,6 +32,7 @@ public class Snapcontroller : MonoBehaviour
             SnapPoint snap = Instantiate(snapPointPrefab, trashSnapPointParent);
             snap.isTrash = true;
             snapPoints.Add(snap);
+
         }
     }
 
@@ -49,6 +52,39 @@ public class Snapcontroller : MonoBehaviour
     {
         
     }
+    public void CalculateTypeDistribution()
+    {
+        Dictionary<Destination, int> currentDistribution = new Dictionary<Destination, int>();
+        foreach (SnapPoint snapPoint in snapPoints)
+        {
+            if(!snapPoint.isTrash && snapPoint.occupied)
+            {
+               Destination[] destinations=  snapPoint.content.GetComponent<TileScript>().data.possibleDestinations;
+                currentDistribution = AddToDestinationList(currentDistribution, destinations);
+            }
+        }
+        Debug.LogError("HALT");
+    }
+
+    public Dictionary<Destination, int> AddToDestinationList(Dictionary<Destination, int> destinationList, Destination[] destinationsToAdd)
+    {
+        if (destinationsToAdd.Length > 0)
+        {
+            foreach (Destination dest in destinationsToAdd)
+            {
+                if (destinationList.ContainsKey(dest))
+                {
+                    destinationList[dest] = destinationList[dest] + 1;
+                }
+                else
+                {
+                    destinationList.Add(dest, 1);
+                }
+            }
+        }
+        return destinationList;
+    }
+
 
     public void OnDragEnded(Draggable draggable)
     {
