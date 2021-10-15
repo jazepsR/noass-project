@@ -16,6 +16,6 @@ MonoBehaviour:
   possibleBgColors:
   - {r: 1, g: 0.5235849, b: 0.5235849, a: 1}
   possibleGames: 01000000
-  possibleDestinations: 01000000
+  possibleDestinations: 02000000
   DisplayName: "Ban\u0101ns"
   isHazard: 0

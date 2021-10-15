@@ -5,11 +5,8 @@ using UnityEngine;
 public class Snapcontroller : MonoBehaviour
 {
     public SnapPoint snapPointPrefab;
-    public Transform regularSnapPointParent;
-    public int regularPointCount;
-    public Transform trashSnapPointParent;
-    public int trashPointCount;
-    private List<SnapPoint> snapPoints;
+    public SnapPointSpawnData[] spawnPoints;
+    [HideInInspector]  public List<SnapPoint> snapPoints;
     public float snapDistance = 50f;
     public static Snapcontroller instance;
     // Start is called before the first frame update
@@ -20,25 +17,35 @@ public class Snapcontroller : MonoBehaviour
     }
     private void Initialize()
     {
+        SpawnAllSnapPoints();
+    }
+    private void SpawnAllSnapPoints()
+    {
         snapPoints = new List<SnapPoint>();
-        for (int i = 0; i < regularPointCount; i++)
+        foreach(SnapPointSpawnData data in spawnPoints)
         {
-           SnapPoint snap= Instantiate(snapPointPrefab, regularSnapPointParent);
-            snap.isTrash = false;
-            snapPoints.Add(snap);
-        }
-        for(int i=0; i<trashPointCount;i++)
-        {
-            SnapPoint snap = Instantiate(snapPointPrefab, trashSnapPointParent);
-            snap.isTrash = true;
-            snapPoints.Add(snap);
-
+            SpawnSnapPoints(data, snapPoints);
         }
     }
 
-    public void TryToAssignTile(Draggable draggable)
+
+    private void SpawnSnapPoints(SnapPointSpawnData data, List<SnapPoint> pointlist = null)
     {
-        foreach(SnapPoint snapPoint in snapPoints)
+        for(int i=0; i<data.pointCount;i++)
+        {
+            SnapPoint snap = Instantiate(snapPointPrefab, data.spawnPoint);
+            snap.isTrash = data.isTrash;
+            if (pointlist != null)
+            {
+                pointlist.Add(snap);
+            }
+        }
+
+    }
+
+    public void TryToAssignTile(Draggable draggable, List<SnapPoint> possiblePoints)
+    {
+        foreach(SnapPoint snapPoint in possiblePoints)
         {
             if(!snapPoint.occupied && !snapPoint.isTrash)
             {
@@ -52,38 +59,7 @@ public class Snapcontroller : MonoBehaviour
     {
         
     }
-    public void CalculateTypeDistribution()
-    {
-        Dictionary<Destination, int> currentDistribution = new Dictionary<Destination, int>();
-        foreach (SnapPoint snapPoint in snapPoints)
-        {
-            if(!snapPoint.isTrash && snapPoint.occupied)
-            {
-               Destination[] destinations=  snapPoint.content.GetComponent<TileScript>().data.possibleDestinations;
-                currentDistribution = AddToDestinationList(currentDistribution, destinations);
-            }
-        }
-        Debug.LogError("HALT");
-    }
-
-    public Dictionary<Destination, int> AddToDestinationList(Dictionary<Destination, int> destinationList, Destination[] destinationsToAdd)
-    {
-        if (destinationsToAdd.Length > 0)
-        {
-            foreach (Destination dest in destinationsToAdd)
-            {
-                if (destinationList.ContainsKey(dest))
-                {
-                    destinationList[dest] = destinationList[dest] + 1;
-                }
-                else
-                {
-                    destinationList.Add(dest, 1);
-                }
-            }
-        }
-        return destinationList;
-    }
+ 
 
 
     public void OnDragEnded(Draggable draggable)
@@ -140,4 +116,13 @@ public class Snapcontroller : MonoBehaviour
             snapPoint.ReleaseDraggable();
         }
     }
+}
+
+[System.Serializable]
+public class SnapPointSpawnData
+{
+    public Transform spawnPoint;
+    public int pointCount;
+    public bool isTrash;
+
 }

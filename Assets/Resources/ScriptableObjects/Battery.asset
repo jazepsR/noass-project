@@ -16,5 +16,6 @@ MonoBehaviour:
   possibleBgColors:
   - {r: 0.7790292, g: 0.9433962, b: 0.7075472, a: 1}
   possibleGames: 01000000
+  possibleDestinations: 03000000
   DisplayName: Baterija
   isHazard: 1

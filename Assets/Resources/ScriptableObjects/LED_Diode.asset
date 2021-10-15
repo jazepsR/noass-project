@@ -16,6 +16,6 @@ MonoBehaviour:
   possibleBgColors:
   - {r: 0.21960783, g: 0.94509804, b: 0.2318332, a: 1}
   possibleGames: 01000000
-  possibleDestinations: 02000000
+  possibleDestinations: 01000000
   DisplayName: LED Diode
   isHazard: 0

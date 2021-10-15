@@ -21,17 +21,25 @@ public class TileGenerator : MonoBehaviour
       //  GenerateTiles();
     }
 
-    public void GenerateTiles()
+    public void GenerateTiles(int tileCount, List<SnapPoint> possibleTargetPoints = null)
     {
         ClearTiles();
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < tileCount; i++)
         {
-            TileScript tileObj = Instantiate(tilePrefab, tileParent);
-            tileObj.SetupTileScript(ResourceLoader.instance.tileTypes[Random.Range(0, ResourceLoader.instance.tileTypes.Count)]);
-            tileObj.GetComponent<Draggable>().dragEndedCallback = snapcontroller.OnDragEnded;
-            snapcontroller.TryToAssignTile(tileObj.GetComponent<Draggable>());
-            tiles.Add(tileObj);
+            GenerateTile(possibleTargetPoints);
         }
+    }
+
+    public void GenerateTile(List<SnapPoint> possibleTargetPoints= null )
+    {
+        TileScript tileObj = Instantiate(tilePrefab, tileParent);
+        tileObj.SetupTileScript(ResourceLoader.instance.tileTypes[Random.Range(0, ResourceLoader.instance.tileTypes.Count)]);
+        tileObj.GetComponent<Draggable>().dragEndedCallback = snapcontroller.OnDragEnded;
+        if (possibleTargetPoints != null)
+        {
+            snapcontroller.TryToAssignTile(tileObj.GetComponent<Draggable>(), possibleTargetPoints);
+        }
+        tiles.Add(tileObj);
     }
 
     public void ClearTiles()

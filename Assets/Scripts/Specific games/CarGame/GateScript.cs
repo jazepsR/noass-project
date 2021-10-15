@@ -14,9 +14,10 @@ public class GateScript : MonoBehaviour
         CarGameController.Instance.SetGameState(carGameState.TileMatching);
     }
 
-    public void ClickGateEndButton()
+    public void ClickGateEndButton(int destination)
     {
-        CarGameController.Instance.SetGameState(carGameState.DestinationSelect);
+        CarGameController.Instance.SetDestination((Destination)destination);
+       // CarGameController.Instance.SetGameState(carGameState.DestinationSelect);
     }
 
     private void Update()
