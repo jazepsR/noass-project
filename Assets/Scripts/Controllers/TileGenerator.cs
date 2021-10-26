@@ -9,6 +9,8 @@ public class TileGenerator : MonoBehaviour
     Snapcontroller snapcontroller;
     public static TileGenerator instance;
     private List<TileScript> tiles = new List<TileScript>();
+    [HideInInspector] public List<Destination> possibleDestinations;
+    public List<TileScriptable> tileTypes;
     // Start is called before the first frame update
 
     private void Awake()
@@ -18,28 +20,90 @@ public class TileGenerator : MonoBehaviour
     }
     void Start()
     {
-      //  GenerateTiles();
+        GeneratePossibleDestinationList();
     }
 
-    public void GenerateTiles(int tileCount, List<SnapPoint> possibleTargetPoints = null)
+    private void GeneratePossibleDestinationList()
     {
-        ClearTiles();
-        for (int i = 0; i < tileCount; i++)
+        possibleDestinations = new List<Destination>();
+        foreach (TileScriptable tileData in tileTypes)
         {
-            GenerateTile(possibleTargetPoints);
+            foreach(Destination destination in tileData.possibleDestinations)
+            {
+                if(!possibleDestinations.Contains(destination))
+                {
+                    possibleDestinations.Add(destination);
+                }
+            }
         }
     }
 
-    public void GenerateTile(List<SnapPoint> possibleTargetPoints= null )
+    public void GenerateTiles(int tileCount, List<SnapPoint> possibleTargetPoints = null, Destination mainDestination = Destination.Empty)
+    {
+        ClearTiles();
+        var list = GenerateDestinationList(possibleDestinations, tileCount, mainDestination);
+        for (int i = 0; i < tileCount; i++)
+        {           
+            GenerateTile(list[i],possibleTargetPoints);
+        }
+    }
+
+
+    public List<Destination> GenerateDestinationList(List<Destination> destinations, int tileCount, Destination mainDestination = Destination.Empty)
+    {
+        List<Destination> destinationList = new List<Destination>();
+        if(mainDestination == Destination.Empty)
+        {
+            for(int i =0;i<tileCount;i++)
+            {
+                destinationList.Add(destinations[Random.Range(0, destinations.Count)]);
+            }
+        }
+        else
+        {
+            int mainTileCount = (int)((float)tileCount * 0.6f);
+            for (int i = 0; i < tileCount; i++)
+            {
+                if (i < mainTileCount)
+                {
+                    destinationList.Add(mainDestination);
+                }
+                else
+                {
+                    destinationList.Add(destinations[Random.Range(0, destinations.Count)]);
+                }
+            }
+        }
+        destinationList = Helpers.ShuffleList(destinationList);
+        return destinationList;
+    }
+
+    public void GenerateTile(Destination destination, List<SnapPoint> possibleTargetPoints= null )
     {
         TileScript tileObj = Instantiate(tilePrefab, tileParent);
-        tileObj.SetupTileScript(ResourceLoader.instance.tileTypes[Random.Range(0, ResourceLoader.instance.tileTypes.Count)]);
+        tileObj.SetupTileScript(GetTileDataByDestination(destination));
         tileObj.GetComponent<Draggable>().dragEndedCallback = snapcontroller.OnDragEnded;
         if (possibleTargetPoints != null)
         {
             snapcontroller.TryToAssignTile(tileObj.GetComponent<Draggable>(), possibleTargetPoints);
         }
         tiles.Add(tileObj);
+    }
+
+    private TileScriptable GetTileDataByDestination(Destination destination)
+    {
+        tileTypes = Helpers.ShuffleList(tileTypes);
+        foreach(TileScriptable tileScript in tileTypes)
+        {
+            foreach(Destination dest in tileScript.possibleDestinations)
+            {
+                if (dest == destination)
+                {
+                    return tileScript;
+                }
+            }
+        }
+        return null;
     }
 
     public void ClearTiles()
@@ -51,10 +115,5 @@ public class TileGenerator : MonoBehaviour
         }
         tiles = new List<TileScript>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
        
-    }
 }

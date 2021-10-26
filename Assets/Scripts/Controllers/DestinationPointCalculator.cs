@@ -19,6 +19,19 @@ public class DestinationPointCalculator : MonoBehaviour
         currentDistribution.TryGetValue(destination, out count);
         return count;
     }
+
+    public int GetTypeCountInDistribution(Destination[] destinations, List<SnapPoint> snapPoints)
+    {
+        CalculateTypeDistribution(snapPoints);
+        int count = 0;
+        foreach (Destination destination in destinations)
+        {
+            int currentCount = 0;
+            currentDistribution.TryGetValue(destination, out currentCount);
+            count += currentCount;
+        }
+        return count;
+    }
     public void CalculateTypeDistribution(List<SnapPoint> snapPoints)
     {
         currentDistribution = new Dictionary<Destination, int>();

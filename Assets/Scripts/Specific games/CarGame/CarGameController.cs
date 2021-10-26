@@ -16,6 +16,8 @@ public class CarGameController : MonoBehaviour
     public int pointsForHazard= -25;
     int currentScore = 0;
     bool haveTimePressure = true;
+    Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzive };
+    public Destination activeDestination = Destination.Empty;
 
     public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();
     private Destination selectedDestination;
@@ -111,16 +113,28 @@ public class CarGameController : MonoBehaviour
                 EnableGateButtons();
                 break;
             case carGameState.TileMatching:
+                activeDestination = possibleDestinations[Random.Range(0, possibleDestinations.Length)];
                 receiptAnimator.SetBool("on", true);
-                TileGenerator.instance.GenerateTiles(12, Snapcontroller.instance.snapPoints);
+                TileGenerator.instance.GenerateTiles(12, Snapcontroller.instance.snapPoints, activeDestination);
                 break;
             case carGameState.DestinationSelect:
-                receiptAnimator.SetBool("on", false);
-                int count = DestinationPointCalculator.instance.GetTypeCountInDistribution(selectedDestination, Snapcontroller.instance.snapPoints);
-                int hazardCount = DestinationPointCalculator.instance.GetTypeCountInDistribution(Destination.Hazard, Snapcontroller.instance.snapPoints);
-                UpdateRoundedButtons(count, selectedDestination);
-                UpdateScore(count * pointsForCorrectDestination+hazardCount*pointsForHazard);
-                currentCar.StartDriveAway();
+                List<Destination> incorrectDestinations = Helpers.CopyList(TileGenerator.instance.possibleDestinations);
+                incorrectDestinations.Remove(activeDestination);
+                if (DestinationPointCalculator.instance.GetTypeCountInDistribution(incorrectDestinations.ToArray(), Snapcontroller.instance.snapPoints) == 0 &&
+                    activeDestination == selectedDestination)
+                {
+                    receiptAnimator.SetBool("on", false);
+                    int count = DestinationPointCalculator.instance.GetTypeCountInDistribution(activeDestination, Snapcontroller.instance.snapPoints);
+                    // int hazardCount = DestinationPointCalculator.instance.GetTypeCountInDistribution(Destination.Hazard, Snapcontroller.instance.snapPoints);
+                    UpdateRoundedButtons(count, selectedDestination);
+                    UpdateScore(count * pointsForCorrectDestination);// + hazardCount * pointsForHazard);
+                    currentCar.StartDriveAway();
+                }
+                else
+                {
+                    UpdateScore(pointsForHazard);
+                }
+
                 break;
             default:
                 break;
