@@ -142,6 +142,8 @@ GameObject:
   - component: {fileID: 1972235057459697033}
   - component: {fileID: 7024753020675029087}
   - component: {fileID: 4455897791209280512}
+  - component: {fileID: 1169451962}
+  - component: {fileID: 1169451963}
   m_Layer: 5
   m_Name: ControlPanel
   m_TagString: Untagged
@@ -208,6 +210,44 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!223 &1169451962
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527633008483043758}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
+--- !u!114 &1169451963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527633008483043758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &1187232089644658579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -215,6 +255,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1866034886}
     m_Modifications:
+    - target: {fileID: 932489455446251695, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_Color.b
+      value: 0.03137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 932489455446251695, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 932489455446251695, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9803922
+      objectReference: {fileID: 0}
     - target: {fileID: 2445396843160237269, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -299,6 +351,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickGateEndButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GateScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_text
+      value: KALNS
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2326868684715051194, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
     - target: {fileID: 8812361791037034866, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
       propertyPath: m_Name
       value: CircleButton (2)
@@ -400,6 +492,14 @@ PrefabInstance:
     - target: {fileID: 2445396843160237269, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8812361791037034866, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
       propertyPath: m_Name
@@ -511,6 +611,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 610a1af48eb808f4a802ef730a9190f2, type: 3}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Color.b
+      value: 0.03137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.144
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509308060548263496, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: destination
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244296445476416499, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244296445476416499, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 610a1af48eb808f4a802ef730a9190f2, type: 3}
+    - target: {fileID: 3244296445476416499, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539352100864124393, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_text
+      value: KALNS
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539352100864124393, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
+    - target: {fileID: 4539352100864124393, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2326868684715051194, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
 --- !u!224 &534803374179580269 stripped
@@ -525,6 +677,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1866034886}
     m_Modifications:
+    - target: {fileID: 932489455446251695, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_Color.g
+      value: 0.63529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 932489455446251695, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9960785
+      objectReference: {fileID: 0}
     - target: {fileID: 2445396843160237269, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -609,6 +769,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickGateEndButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GateScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_text
+      value: "M\u0112BELES"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2326868684715051194, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
     - target: {fileID: 8812361791037034866, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
       propertyPath: m_Name
       value: CircleButton (1)
@@ -715,6 +911,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 610a1af48eb808f4a802ef730a9190f2, type: 3}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Color.g
+      value: 0.63529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.144
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244296445476416499, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244296445476416499, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 610a1af48eb808f4a802ef730a9190f2, type: 3}
+    - target: {fileID: 3244296445476416499, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539352100864124393, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_text
+      value: "M\u0112BELES"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539352100864124393, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
+    - target: {fileID: 4539352100864124393, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2326868684715051194, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
 --- !u!224 &534803373180639170 stripped
@@ -817,6 +1061,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 610a1af48eb808f4a802ef730a9190f2, type: 3}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Color.g
+      value: 0.92549026
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Color.r
+      value: 0.24705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.144
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342645193383319723, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2509308060548263496, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: destination
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244296445476416499, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244296445476416499, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 610a1af48eb808f4a802ef730a9190f2, type: 3}
+    - target: {fileID: 3244296445476416499, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539352100864124393, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_text
+      value: "SADZ\u012AVE"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539352100864124393, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
+    - target: {fileID: 4539352100864124393, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2326868684715051194, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ccf4effb176b3542b3f6e6bc0030521, type: 3}
 --- !u!224 &2378134862363672298 stripped
@@ -831,6 +1127,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1866034886}
     m_Modifications:
+    - target: {fileID: 932489455446251695, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 932489455446251695, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_Color.g
+      value: 0.92549026
+      objectReference: {fileID: 0}
+    - target: {fileID: 932489455446251695, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_Color.r
+      value: 0.24705884
+      objectReference: {fileID: 0}
     - target: {fileID: 2445396843160237269, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -915,6 +1223,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickGateEndButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GateScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729309727046697732, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_text
+      value: "SADZ\u012AVE"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
+    - target: {fileID: 6336972123815126382, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2326868684715051194, guid: a8fcf97c476574e4a8f8da7b69b6f3d3, type: 2}
     - target: {fileID: 8812361791037034866, guid: 002597468bd96e64f9e01cb5f5416bc4, type: 3}
       propertyPath: m_Name
       value: CircleButton
