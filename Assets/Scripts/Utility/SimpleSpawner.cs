@@ -10,6 +10,7 @@ public class SimpleSpawner : MonoBehaviour
     // Start is called before the first frame update
     public GameObject SpawnObject()
     {
+
        return Instantiate(objToSpawn, parent);
     }
 }

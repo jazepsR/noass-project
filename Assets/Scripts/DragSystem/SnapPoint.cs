@@ -14,7 +14,7 @@ public class SnapPoint : MonoBehaviour
     {
         if (content && !content.isDragged)
         {
-            content.transform.position = Vector3.Lerp(content.transform.position, transform.position, Time.deltaTime * Var.dragFollowSpeed);
+            content.transform.position = Vector3.Lerp(content.transform.position, transform.position, Time.deltaTime * Snapcontroller.instance.followSpeed);
         }
     }
 

@@ -16,7 +16,7 @@ public class CarGameController : MonoBehaviour
     public int pointsForHazard= -25;
     int currentScore = 0;
     bool haveTimePressure = true;
-    Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzive };
+    Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzives_Atkritumi };
     public Destination activeDestination = Destination.Empty;
 
     public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();

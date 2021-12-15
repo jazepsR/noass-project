@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Latvian (lv)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Latvian (lv)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 631717b6d3d58ae4f94722f821bd6f80
+  m_SerializeEntries:
+  - m_GUID: 92b1ed93d91ec024290255723529cfbd
+    m_Address: LocalizationTable_lv
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-lv
+    - Preload
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: fb37b2bf7bd96324a99db6d28f3cb0cc, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d6e94e2bb1733a24484b64a489c777aa, type: 2}
+    - {fileID: 11400000, guid: 046945bd00857a0418b5bfbaf37f7e3b, type: 2}

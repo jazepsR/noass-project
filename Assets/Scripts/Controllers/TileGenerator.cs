@@ -8,7 +8,7 @@ public class TileGenerator : MonoBehaviour
     public RectTransform tileParent;
     Snapcontroller snapcontroller;
     public static TileGenerator instance;
-    private List<TileScript> tiles = new List<TileScript>();
+    [HideInInspector] public List<TileScript> tiles = new List<TileScript>();
     [HideInInspector] public List<Destination> possibleDestinations;
     public List<TileScriptable> tileTypes;
     // Start is called before the first frame update
@@ -78,15 +78,43 @@ public class TileGenerator : MonoBehaviour
         return destinationList;
     }
 
-    public void GenerateTile(Destination destination, List<SnapPoint> possibleTargetPoints= null )
+    public void GenerateTile(Destination destination, List<SnapPoint> possibleTargetPoints= null , Transform parent = null)
     {
-        TileScript tileObj = Instantiate(tilePrefab, tileParent);
+        TileScript tileObj;
+        if (parent == null)
+        {
+            tileObj = Instantiate(tilePrefab, tileParent);
+        }
+        else
+        {
+            tileObj = Instantiate(tilePrefab, parent);
+        }
+        tileObj.SetupTileScript(GetTileDataByDestination(destination));
+        if (snapcontroller)
+        {
+            tileObj.GetComponent<Draggable>().dragEndedCallback = snapcontroller.OnDragEnded;
+            if (possibleTargetPoints != null)
+            {
+                snapcontroller.TryToAssignTile(tileObj.GetComponent<Draggable>(), possibleTargetPoints);
+            }
+        }
+        tiles.Add(tileObj);
+    }
+
+    public void GenerateTile(Destination destination, SnapPoint targetPoint, Transform parent = null)
+    {
+        TileScript tileObj;
+        if (parent == null)
+        {
+            tileObj = Instantiate(tilePrefab, tileParent);
+        }
+        else
+        {
+            tileObj = Instantiate(tilePrefab, parent);
+        }
         tileObj.SetupTileScript(GetTileDataByDestination(destination));
         tileObj.GetComponent<Draggable>().dragEndedCallback = snapcontroller.OnDragEnded;
-        if (possibleTargetPoints != null)
-        {
-            snapcontroller.TryToAssignTile(tileObj.GetComponent<Draggable>(), possibleTargetPoints);
-        }
+        targetPoint.AssignDraggable(tileObj.GetComponent<Draggable>());
         tiles.Add(tileObj);
     }
 

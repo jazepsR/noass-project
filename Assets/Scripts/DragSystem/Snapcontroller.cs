@@ -9,6 +9,8 @@ public class Snapcontroller : MonoBehaviour
     [HideInInspector]  public List<SnapPoint> snapPoints;
     public float snapDistance = 50f;
     public static Snapcontroller instance;
+    public float followSpeed = 30;
+    public bool canDragTiles= true;
     // Start is called before the first frame update
     void Awake()
     {
@@ -64,34 +66,42 @@ public class Snapcontroller : MonoBehaviour
 
     public void OnDragEnded(Draggable draggable)
     {
-        float closestDistance = float.PositiveInfinity;
-        SnapPoint closestSnapPoint = null;
-        foreach(SnapPoint snapPoint in snapPoints)
+        if (canDragTiles)
         {
-            float dist = Vector3.Distance(snapPoint.transform.position, Input.mousePosition);
-            if (dist<closestDistance)
+            float closestDistance = float.PositiveInfinity;
+            SnapPoint closestSnapPoint = null;
+            foreach (SnapPoint snapPoint in snapPoints)
             {
-                closestDistance = dist;
-                closestSnapPoint = snapPoint;
+                float dist = Vector3.Distance(snapPoint.transform.position, Input.mousePosition);
+                if (dist < closestDistance)
+                {
+                    closestDistance = dist;
+                    closestSnapPoint = snapPoint;
+                }
+            }
+            if (closestDistance < snapDistance && closestSnapPoint != null)
+            {
+                SetSnapPointForDraggable(draggable, closestSnapPoint);
             }
         }
 
-        if(closestDistance< snapDistance && closestSnapPoint!= null)
+    }
+
+    public void SetSnapPointForDraggable(Draggable draggable, SnapPoint snapPoint)
+    {       
+        if (!snapPoint.occupied)
         {
-            if (!closestSnapPoint.occupied)
-            {
-                //regular release
-                ReleaseTile(draggable);
-                closestSnapPoint.AssignDraggable(draggable);
-            }
-            else
-            {
-                //swap
-                Draggable tempDrag = closestSnapPoint.content;
-                SnapPoint tempSnap = draggable.currentSnapPoint;
-                closestSnapPoint.AssignDraggable(draggable);
-                tempSnap.AssignDraggable(tempDrag);
-            }
+            //regular release
+            ReleaseTile(draggable);
+            snapPoint.AssignDraggable(draggable);
+        }
+        else
+        {
+            //swap
+            Draggable tempDrag = snapPoint.content;
+            SnapPoint tempSnap = draggable.currentSnapPoint;
+            snapPoint.AssignDraggable(draggable);
+            tempSnap.AssignDraggable(tempDrag);
         }
 
     }

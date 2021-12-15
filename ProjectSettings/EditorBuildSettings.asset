@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CarGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 8caded943dd78614dac854d848643b80, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: dbc9a0b6f9f110c4d89919c957c535a3, type: 2}

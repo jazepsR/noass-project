@@ -21,9 +21,5 @@ public class TileScript : MonoBehaviour
         icon.sprite = data.image;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }

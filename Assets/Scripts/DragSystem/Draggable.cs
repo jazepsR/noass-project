@@ -11,12 +11,17 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     public DragEndedDelegate dragEndedCallback;
     public SnapPoint currentSnapPoint;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Start()
     {
-        if (isDragged)
+        
+    }
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        if (isDragged && Snapcontroller.instance.canDragTiles)
         {
-            transform.position = Vector3.Lerp(transform.position, Input.mousePosition, Time.deltaTime * Var.dragFollowSpeed);
+            transform.position = Vector3.Lerp(transform.position, Input.mousePosition, Time.deltaTime * Snapcontroller.instance.followSpeed);
         }
     }
 

@@ -19,10 +19,13 @@ public class CarScript : MonoBehaviour
 
     public void OnDriveIn()
     {
-        if (CarGameController.Instance.currentGameState == carGameState.DriveIn)
+        if (CarGameController.Instance)
         {
-            CarGameController.Instance.SetGameState(carGameState.GateSelect);
-            anim.SetTrigger("toGate");            
+            if (CarGameController.Instance.currentGameState == carGameState.DriveIn)
+            {
+                CarGameController.Instance.SetGameState(carGameState.GateSelect);
+                anim.SetTrigger("toGate");
+            }
         }
     }
     public void StartDriveAway()
