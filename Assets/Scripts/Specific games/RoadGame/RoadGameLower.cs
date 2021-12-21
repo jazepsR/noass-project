@@ -60,7 +60,7 @@ public class RoadGameLower : MonoBehaviour
 
     private void CompleteFill()
     {
-        ClawScript.instance.Release(1f);
+       // ClawScript.instance.Release(1f);
         RoadGameController.Instance.SetGameState(roadGameState.Crunch);
     }
 

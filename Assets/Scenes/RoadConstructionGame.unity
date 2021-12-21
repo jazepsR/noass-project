@@ -4961,6 +4961,7 @@ MonoBehaviour:
   grabbedTile: {fileID: 0}
   grabDistance: 25
   grabPoint: {fileID: 1113010337}
+  snapPoint: {fileID: 0}
 --- !u!1 &2125786570
 GameObject:
   m_ObjectHideFlags: 0

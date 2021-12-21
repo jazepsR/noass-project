@@ -9,7 +9,7 @@ public class ClawScript : MonoBehaviour
     public TileScript grabbedTile = null;
     public float grabDistance = 25f;
     public Transform grabPoint;
-    private SnapPoint snapPoint;
+    [HideInInspector] private SnapPoint snapPoint;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -71,6 +71,7 @@ public class ClawScript : MonoBehaviour
 
     public void Release(float timeToLive)
     {
+        Debug.LogError("assses");
         anim.SetTrigger("release");
         snapPoint.content.gameObject.AddComponent<Rigidbody2D>();
         snapPoint.content.enabled = false;

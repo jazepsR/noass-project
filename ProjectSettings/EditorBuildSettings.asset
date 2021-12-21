@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 8d95729bd5c9e154a9bc57fca464be30
+  - enabled: 1
     path: Assets/Scenes/CarGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/EnergyGame.unity
+    guid: 99b9951895d8f2247af96502debf59f7
+  - enabled: 1
+    path: Assets/Scenes/RoadConstructionGame.unity
+    guid: f3ce49652a1810142a56fdc471d4d29f
+  - enabled: 1
+    path: Assets/Scenes/SortingGame.unity
+    guid: ef041f5c0ea022640bef473c0a39129f
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 8caded943dd78614dac854d848643b80, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: dbc9a0b6f9f110c4d89919c957c535a3, type: 2}

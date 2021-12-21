@@ -7,38 +7,60 @@ public class MainMenu : MonoBehaviour
 {
     public PlayerData playerData;
     public CanvasGroup splashScreen;
+    public CanvasGroup profileScreen;
     public float splashScreenFadeTime = 0.4f;
     public Button submitFormButton;
+
+    public GameObject[] screens;
 
     // Start is called before the first frame update
     void Start()
     {
         playerData.ClearPlayerData();
         ValidateFormSubmission();
+        EnableScreens();
+    }
+
+    void EnableScreens()
+    {
+        foreach (GameObject screen in screens)
+        {
+            screen.SetActive(true);
+        }
     }
 
     public void FadeSplashScreen(float target)
     {
-      StartCoroutine(FadeSplash(target));
+      StartCoroutine(FadeSplash(target, splashScreen));
     }
 
-    private IEnumerator FadeSplash(float target)
+    public void FadeProfileScreen(float target)
+    {
+        StartCoroutine(FadeSplash(target, profileScreen));
+    }
+
+    private IEnumerator FadeSplash(float target, CanvasGroup toFade)
     {
       
         float t = 0;
-        float start = splashScreen.alpha;
+        float start = toFade.alpha;
         while (t <1)
         {
-            splashScreen.alpha = Mathf.Lerp(start,target,t);
+            toFade.alpha = Mathf.Lerp(start,target,t);
                 t += Time.deltaTime / splashScreenFadeTime;
             yield return null;
         }
-        splashScreen.alpha =target;
-        splashScreen.gameObject.SetActive(target!=0);
+        toFade.alpha =target;
+        toFade.gameObject.SetActive(target!=0);
     }
+
+
+   
+
+ 
     // Button validation
 
-  
+
 
 
     private void ValidateFormSubmission()

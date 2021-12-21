@@ -10,27 +10,49 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     public delegate void DragEndedDelegate(Draggable draggable);
     public DragEndedDelegate dragEndedCallback;
     public SnapPoint currentSnapPoint;
+    private Animator anim;
+    private bool canDragTile;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
 
     private void Start()
     {
-        
+        canDragTile = Snapcontroller.instance.canDragTiles;
     }
     // Update is called once per frame
     void LateUpdate()
     {
-        if (isDragged && Snapcontroller.instance.canDragTiles)
+        if (isDragged && canDragTile)
         {
             transform.position = Vector3.Lerp(transform.position, Input.mousePosition, Time.deltaTime * Snapcontroller.instance.followSpeed);
         }
     }
 
 
-
-    public void OnDrag(PointerEventData eventData)
+    public void BeginDestroy()
     {
-        
+        canDragTile = false;
+        anim.SetTrigger("destroy");
     }
+
+    public void Destroy()
+    {
+        try
+        {
+            TileGenerator.instance.ClearTile(currentSnapPoint.GetComponent<TileScript>());
+        }
+        catch
+        {
+            Debug.Log("Didn't find tile script");
+        }
+        currentSnapPoint.ReleaseDraggable();
+        Destroy(gameObject);
+    }
+
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -45,5 +67,10 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     {
         dragEndedCallback(this);
         isDragged = false;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+
     }
 }

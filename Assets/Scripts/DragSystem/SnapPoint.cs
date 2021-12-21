@@ -7,6 +7,8 @@ public class SnapPoint : MonoBehaviour
     public bool occupied;
     public Draggable content;
     public bool isTrash = false;
+    public bool disposeInstantly = false;
+    public bool generateInstantly = false;
     // Start is called before 
 
 
@@ -23,20 +25,25 @@ public class SnapPoint : MonoBehaviour
         content = draggable;
         occupied = true;
         draggable.currentSnapPoint = this;
+        if(isTrash && disposeInstantly)
+        {
+            content.BeginDestroy();
+        }
     }
 
 
-    public void ReleaseDraggable()
+   
+
+    public void ReleaseDraggable(bool generateOnRelease = true)
     {
         occupied = false;
         content = null;
-
+        if(!isTrash && generateInstantly && generateOnRelease)
+        {
+            TileGenerator.instance.GenerateTile(TileGenerator.instance.possibleDestinations[Random.Range(0, TileGenerator.instance.possibleDestinations.Count)], this);
+            Debug.LogError("Generating on empty tile!");
+        }
     }
 
-    public Draggable SwapDraggable(Draggable draggable)
-    {
-        Draggable tempDraggable = content;
-        content = draggable;
-        return tempDraggable;
-    }
+
 }

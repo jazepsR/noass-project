@@ -16,11 +16,12 @@ public class TileGenerator : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        snapcontroller = GetComponent<Snapcontroller>();
+        snapcontroller = GetComponent<Snapcontroller>(); 
+        GeneratePossibleDestinationList();
     }
     void Start()
     {
-        GeneratePossibleDestinationList();
+        
     }
 
     private void GeneratePossibleDestinationList()
@@ -142,6 +143,12 @@ public class TileGenerator : MonoBehaviour
             Destroy(tiles[i].gameObject);
         }
         tiles = new List<TileScript>();
+    }
+
+    public void ClearTile(TileScript toDestroy)
+    {
+        tiles.Remove(toDestroy);
+
     }
        
 }

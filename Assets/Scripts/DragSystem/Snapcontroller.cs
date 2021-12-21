@@ -37,6 +37,8 @@ public class Snapcontroller : MonoBehaviour
         {
             SnapPoint snap = Instantiate(snapPointPrefab, data.spawnPoint);
             snap.isTrash = data.isTrash;
+            snap.disposeInstantly = data.disposeInstantly;
+            snap.generateInstantly = data.generateInstantly;
             if (pointlist != null)
             {
                 pointlist.Add(snap);
@@ -123,7 +125,7 @@ public class Snapcontroller : MonoBehaviour
 
         foreach (SnapPoint snapPoint in snapPoints)
         {
-            snapPoint.ReleaseDraggable();
+            snapPoint.ReleaseDraggable(false);
         }
     }
 }
@@ -134,5 +136,7 @@ public class SnapPointSpawnData
     public Transform spawnPoint;
     public int pointCount;
     public bool isTrash;
+    public bool disposeInstantly;
+    public bool generateInstantly;
 
 }
