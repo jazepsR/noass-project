@@ -10,13 +10,17 @@ public class ClawScript : MonoBehaviour
     public float grabDistance = 25f;
     public Transform grabPoint;
     [HideInInspector] private SnapPoint snapPoint;
-    // Start is called before the first frame update
+    [SerializeField] private SnapPoint snapPointTarget;
+    bool swap = false;
+    float defaultSnapSpeed;
+        // Start is called before the first frame update
     private void Awake()
     {
         instance = this;
     }
     void Start()
     {
+        defaultSnapSpeed = Snapcontroller.instance.followSpeed;
         anim = GetComponent<Animator>();
         snapPoint = GetComponentInChildren<SnapPoint>();
     }
@@ -25,11 +29,20 @@ public class ClawScript : MonoBehaviour
     {
         anim.ResetTrigger("release");
         anim.SetTrigger("grab");
+        swap = false;
 
     }
     public void StartDiscard()
     {
         anim.SetTrigger("discard");
+        swap = false;
+
+    }
+
+    public void StartDevliver()
+    {
+        anim.SetTrigger("deliver");
+        swap = true;
 
     }
 
@@ -60,6 +73,7 @@ public class ClawScript : MonoBehaviour
             if (closestDistance < grabDistance && closestTile != null)
             {
                 Snapcontroller.instance.SetSnapPointForDraggable(closestTile.GetComponent<Draggable>(), snapPoint);
+                Snapcontroller.instance.followSpeed = 1000;
             }
         }
         else
@@ -71,14 +85,23 @@ public class ClawScript : MonoBehaviour
 
     public void Release(float timeToLive)
     {
-        Debug.LogError("assses");
         anim.SetTrigger("release");
-        snapPoint.content.gameObject.AddComponent<Rigidbody2D>();
-        snapPoint.content.enabled = false;
-        TileGenerator.instance.tiles.Remove(snapPoint.content.GetComponent<TileScript>());
-        Destroy(snapPoint.content.gameObject, timeToLive);
+        Snapcontroller.instance.followSpeed = defaultSnapSpeed;
+        if (!swap)
+        {
+            snapPoint.content.gameObject.AddComponent<Rigidbody2D>();
+            snapPoint.content.enabled = false;
+            TileGenerator.instance.tiles.Remove(snapPoint.content.GetComponent<TileScript>());
+            Destroy(snapPoint.content.gameObject, timeToLive);
+        }
+        else
+        {
+            if(snapPointTarget!= null)
+            {
+                Snapcontroller.instance.SetSnapPointForDraggable(snapPoint.content, snapPointTarget);
+            }
+        }
         snapPoint.ReleaseDraggable();
-
     }
 
 

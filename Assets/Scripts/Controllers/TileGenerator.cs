@@ -24,6 +24,19 @@ public class TileGenerator : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(1))
+        {
+            Time.timeScale = 4;
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            Time.timeScale = 1;
+        }
+    }
+
     private void GeneratePossibleDestinationList()
     {
         possibleDestinations = new List<Destination>();

@@ -2,51 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public enum energyGameState {  TileMatching, DestinationSelect, End }
+public enum energyGameState { Start, TileMatching, DestinationSelect, GeneratorHeating, GeneratorHeated, End }
 
 public class EnergyGameController : MonoBehaviour
 {
    
-        public energyGameState currentGameState;
-        private SimpleSpawner carSpawner;
-        public static EnergyGameController Instance;
-        public Animator receiptAnimator;
-        public int pointsToCompleteGame = 25;
-        public int pointsForCorrectDestination = 10;
-        public int pointsForHazard = -25;
-        int currentScore = 0;
-        bool haveTimePressure = false;
-        public  Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzives_Atkritumi };
-        public Destination activeDestination = Destination.Empty;
-       public SnapPoint[] heatingPoints;
+    public energyGameState currentGameState;
+    private SimpleSpawner carSpawner;
+    public static EnergyGameController Instance;
+    public Animator receiptAnimator;
+    public int pointsToCompleteGame = 25;
+    public int pointsForCorrectDestination = 10;
+    public int pointsForHazard = -25;
+    int currentScore = 0;
+    bool haveTimePressure = false;
+    public  Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzives_Atkritumi };
+    public Destination activeDestination = Destination.Empty;
+    public SnapPoint[] heatingPoints;
+    public Button generatorButton;
     public Button[] heatingButtons;
-        public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();
-        private Destination selectedDestination;
+    public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();
+    private Destination selectedDestination;
+    public Slider factoryBar;
     public Transform heatingPointParent;
-        private void Awake()
+    private float generatorTime = 2.5f;
+    private void Awake()
+    {
+        Instance = this;
+        carSpawner = GetComponent<SimpleSpawner>();
+        roundedButtons.AddRange(FindObjectsOfType<RoundButtonController>());
+        SetupRoundedButtons();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        SetGameState(energyGameState.Start);
+        UpdateScore(0);
+        if (haveTimePressure)
         {
-            Instance = this;
-            carSpawner = GetComponent<SimpleSpawner>();
-            roundedButtons.AddRange(FindObjectsOfType<RoundButtonController>());
-            SetupRoundedButtons();
+            InvokeRepeating("DecreaseScore", 5, 5);
         }
-        // Start is called before the first frame update
-        void Start()
-        {
-            SetGameState(energyGameState.TileMatching);
-            UpdateScore(0);
-            if (haveTimePressure)
-            {
-                InvokeRepeating("DecreaseScore", 5, 5);
-            }
-            heatingPoints = heatingPointParent.GetComponentsInChildren<SnapPoint>();
-        SetupGreenhouses();
-        }
+        heatingPoints = heatingPointParent.GetComponentsInChildren<SnapPoint>();
+    SetupGreenhouses();
+    }
 
     public void Update()
     {
-        if (currentGameState == energyGameState.TileMatching) ;
-        CheckHeater();
+        if (currentGameState == energyGameState.TileMatching)
+            CheckHeater();
+        foreach(Button button in heatingButtons)
+        {
+            button.interactable = currentGameState == energyGameState.GeneratorHeated;
+        }
+
     }
 
    
@@ -63,19 +71,38 @@ public class EnergyGameController : MonoBehaviour
             }
         }
 
-        foreach(Button heatingButton in heatingButtons)
-        {
-            heatingButton.interactable = heaterReady;
-        }
+        generatorButton.interactable = heaterReady;
 
+    }
+
+    public void HeatGenerator()
+    {
+        foreach (SnapPoint snapPoint in heatingPoints)
+        {
+            snapPoint.content.BeginDestroy();
+        }
+        StartCoroutine(HeatGeneratorCoroutine(1));
+    }
+
+
+    private IEnumerator HeatGeneratorCoroutine(float target)
+    {
+        generatorButton.interactable = false;
+        SetGameState(energyGameState.GeneratorHeating);
+        float t = 0+target;
+        while(Mathf.Abs(target-factoryBar.value)>0.02f)
+        {
+            factoryBar.value = Mathf.Lerp(factoryBar.value, target, Time.deltaTime / generatorTime);
+            yield return null;
+        }
+        factoryBar.value = target;
+        SetGameState(energyGameState.GeneratorHeated);
     }
     public void HeatGreenhouse(int ID)
     {
         roundedButtons[ID].UpdateFill(5);
-        foreach(SnapPoint snapPoint in heatingPoints)
-        {
-            snapPoint.content.BeginDestroy();
-        }
+        SetGameState(energyGameState.TileMatching);
+        factoryBar.value = 0;
     }
 
     public void SetupGreenhouses()
@@ -84,7 +111,6 @@ public class EnergyGameController : MonoBehaviour
         {
             btn.Setup(15);
         }
-
     }
 
 
@@ -119,12 +145,6 @@ public class EnergyGameController : MonoBehaviour
             OnStateStart(carGameState);
         }
 
-        public void EnableGateButtons()
-        {
-
-
-        }
-
         public void SetDestination(Destination destination)
         {
             selectedDestination = destination;
@@ -149,32 +169,43 @@ public class EnergyGameController : MonoBehaviour
         {
             switch (state)
             {
-                case energyGameState.TileMatching:
-                    activeDestination = possibleDestinations[Random.Range(0, possibleDestinations.Length)];
-                    receiptAnimator.SetBool("on", true);
-                    TileGenerator.instance.GenerateTiles(12, Snapcontroller.instance.snapPoints, activeDestination);
-                    break;
-                case energyGameState.DestinationSelect:
-                    List<Destination> incorrectDestinations = Helpers.CopyList(TileGenerator.instance.possibleDestinations);
-                    incorrectDestinations.Remove(activeDestination);
-                    if (DestinationPointCalculator.instance.GetTypeCountInDistribution(incorrectDestinations.ToArray(), Snapcontroller.instance.snapPoints) == 0 &&
-                        activeDestination == selectedDestination)
-                    {
-                        receiptAnimator.SetBool("on", false);
-                        int count = DestinationPointCalculator.instance.GetTypeCountInDistribution(activeDestination, Snapcontroller.instance.snapPoints);
-                        // int hazardCount = DestinationPointCalculator.instance.GetTypeCountInDistribution(Destination.Hazard, Snapcontroller.instance.snapPoints);
-                        UpdateRoundedButtons(count, selectedDestination);
-                        UpdateScore(count * pointsForCorrectDestination);// + hazardCount * pointsForHazard);
-                      //  currentCar.StartDriveAway();
-                    }
-                    else
-                    {
-                        UpdateScore(pointsForHazard);
-                    }
+            case energyGameState.Start:
+                activeDestination = possibleDestinations[Random.Range(0, possibleDestinations.Length)];
+                receiptAnimator.SetBool("on", true);
+                TileGenerator.instance.GenerateTiles(12, Snapcontroller.instance.snapPoints, activeDestination);
+                SetGameState(energyGameState.TileMatching);
+                break;
 
-                    break;
-                default:
-                    break;
+            case energyGameState.TileMatching:
+                break;
+            case energyGameState.GeneratorHeating:
+
+                break;
+            case energyGameState.GeneratorHeated:
+
+                break;
+
+            case energyGameState.DestinationSelect:
+                List<Destination> incorrectDestinations = Helpers.CopyList(TileGenerator.instance.possibleDestinations);
+                incorrectDestinations.Remove(activeDestination);
+                if (DestinationPointCalculator.instance.GetTypeCountInDistribution(incorrectDestinations.ToArray(), Snapcontroller.instance.snapPoints) == 0 &&
+                    activeDestination == selectedDestination)
+                {
+                    receiptAnimator.SetBool("on", false);
+                    int count = DestinationPointCalculator.instance.GetTypeCountInDistribution(activeDestination, Snapcontroller.instance.snapPoints);
+                    // int hazardCount = DestinationPointCalculator.instance.GetTypeCountInDistribution(Destination.Hazard, Snapcontroller.instance.snapPoints);
+                    UpdateRoundedButtons(count, selectedDestination);
+                    UpdateScore(count * pointsForCorrectDestination);// + hazardCount * pointsForHazard);
+                    //  currentCar.StartDriveAway();
+                }
+                else
+                {
+                    UpdateScore(pointsForHazard);
+                }
+
+                break;
+            default:
+                break;
 
             }
 
