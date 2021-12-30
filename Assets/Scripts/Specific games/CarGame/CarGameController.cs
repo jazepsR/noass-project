@@ -15,11 +15,13 @@ public class CarGameController : MonoBehaviour
     public int pointsForCorrectDestination = 10;
     public int pointsForHazard= -25;
     int currentScore = 0;
-    bool haveTimePressure = true;
-    Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzives_Atkritumi };
+    bool haveTimePressure = false;
+    public Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzives_Atkritumi };
     public Destination activeDestination = Destination.Empty;
 
-    public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();
+    public List<RoundButtonController> roundedButtons = new List<RoundButtonController>(); 
+    public AnimatedButton[] destinationButtons;
+    public AnimatedButton gateStartButton;
     private Destination selectedDestination;
     private void Awake()
     {
@@ -38,7 +40,13 @@ public class CarGameController : MonoBehaviour
             InvokeRepeating("DecreaseScore", 5, 5);
         }
     }
-
+    public void ToggleDestinationButtons(bool isActive)
+    {
+        foreach (AnimatedButton btn in destinationButtons)
+        {
+            btn.SetState(isActive);
+        }
+    }
     private void DecreaseScore()
     {
         UpdateScore(-5);
@@ -49,7 +57,7 @@ public class CarGameController : MonoBehaviour
         Debug.Log("currentScore: " + currentScore + " adding: " + updateBy);
         currentScore += updateBy;
         currentScore = Mathf.Max(0, currentScore);
-        TopBarController.instance.UpdateScore(currentScore);
+        TopBarController.instance.UpdateScore(currentScore, updateBy);
     }
 
     void SetupRoundedButtons()
@@ -67,11 +75,7 @@ public class CarGameController : MonoBehaviour
         OnStateStart(carGameState);
     }
 
-    public void EnableGateButtons()
-    {
 
-
-    }
 
     public void SetDestination(Destination destination)
     {
@@ -107,17 +111,21 @@ public class CarGameController : MonoBehaviour
                     currentCar = FindObjectOfType<CarScript>();
                     currentCar.OnDriveIn();
                 }
+                ToggleDestinationButtons(false);
                 break;
             case carGameState.GateSelect:
                 SpawnCar();
-                EnableGateButtons();
+                gateStartButton.SetState(true); 
                 break;
+
             case carGameState.TileMatching:
+                gateStartButton.SetState(false);
                 activeDestination = possibleDestinations[Random.Range(0, possibleDestinations.Length)];
                 receiptAnimator.SetBool("on", true);
                 TileGenerator.instance.GenerateTiles(12, Snapcontroller.instance.snapPoints, activeDestination);
                 break;
             case carGameState.DestinationSelect:
+                ToggleDestinationButtons(true);
                 List<Destination> incorrectDestinations = Helpers.CopyList(TileGenerator.instance.possibleDestinations);
                 incorrectDestinations.Remove(activeDestination);
                 if (DestinationPointCalculator.instance.GetTypeCountInDistribution(incorrectDestinations.ToArray(), Snapcontroller.instance.snapPoints) == 0 &&

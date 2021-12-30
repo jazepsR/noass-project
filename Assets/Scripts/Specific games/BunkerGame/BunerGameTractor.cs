@@ -53,8 +53,16 @@ public class BunerGameTractor : MonoBehaviour
 
     public void CloseGates()
     {
-        BunkerGameController.Instance.bunker1.ToggleBunkerDoor(false);
-        BunkerGameController.Instance.bunker2.ToggleBunkerDoor(false);
+        if (!BunkerGameController.Instance.bunker1.IsEmpty())
+        {
+           BunkerGameController.Instance.bunker1.ToggleBunkerDoor(false);
+        }
+
+
+        if (!BunkerGameController.Instance.bunker2.IsEmpty())
+        {
+            BunkerGameController.Instance.bunker2.ToggleBunkerDoor(false);
+        }
         BunkerGameController.Instance.SetGameState(bunkerGameState.FillConveyor);
     }
 

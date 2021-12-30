@@ -12,17 +12,17 @@ public class RoadGameController : MonoBehaviour
     public CarScript currentCar;
     public GameObject tileAnimator;
     public Transform tiles;
-    private List<Animator> tileAnimators = new List<Animator>();
+    public List<Animator> tileAnimators = new List<Animator>();
     public int pointsToCompleteGame = 25;
     public int pointsForCorrectDestination = 10;
-    public int pointsForHazard= -25;
+    public int pointsForCorrectGrab= -25;
     int currentScore = 0;
-    bool haveTimePressure = true;
-    Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzives_Atkritumi };
-    public Destination activeDestination = Destination.Empty;
-
+    bool haveTimePressure = false;
+    public List<Destination> possibleDestinations;
     public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();
-    private Destination selectedDestination;
+    public AnimatedButton[] destinationButtons;
+    public AnimatedButton grabButton;
+    public AnimatedButton discardButton;
     private void Awake()
     {
         Instance = this;
@@ -39,19 +39,62 @@ public class RoadGameController : MonoBehaviour
         {
             InvokeRepeating("DecreaseScore", 5, 5);
         }
+        ToggleDestinationButtons(false);
+        grabButton.SetState(false);
+        discardButton.SetState(false);
     }
 
     private void DecreaseScore()
     {
         UpdateScore(-5);
     }
-
+    public void ToggleDestinationButtons(bool isActive)
+    {
+        foreach (AnimatedButton btn in destinationButtons)
+        {
+            btn.SetState(isActive);
+        }
+    }
     public void UpdateScore(int updateBy)
     {
         Debug.Log("currentScore: " + currentScore + " adding: " + updateBy);
         currentScore += updateBy;
         currentScore = Mathf.Max(0, currentScore);
-        TopBarController.instance.UpdateScore(currentScore);
+        TopBarController.instance.UpdateScore(currentScore,updateBy);
+    }
+    public void GrabButtonClicked()
+    {
+        if (Helpers.IsTileAcceptable(tileAnimators[0].GetComponentInChildren<TileScript>(), possibleDestinations))
+        {
+            SetGameState(roadGameState.GrabItem);
+            UpdateScore(pointsForCorrectGrab);
+            grabButton.SetClickOutcome(true, 0.5f);
+            grabButton.SetState(false);
+            discardButton.SetState(false);
+        }
+        else
+        {
+            UpdateScore(-pointsForCorrectGrab);
+            grabButton.SetClickOutcome(false, 0.5f);
+        }
+    }
+  
+
+    public void DiscardButtonClicked()
+    {
+        if (!Helpers.IsTileAcceptable(tileAnimators[0].GetComponentInChildren<TileScript>(), possibleDestinations))
+        {
+            SetGameState(roadGameState.DiscardItem);
+            UpdateScore(pointsForCorrectGrab);
+            discardButton.SetClickOutcome(true, 0.5f);
+            grabButton.SetState(false);
+            discardButton.SetState(false);
+        }
+        else
+        {
+            UpdateScore(-pointsForCorrectGrab);
+            discardButton.SetClickOutcome(false, 0.5f);
+        }
     }
 
     void SetupRoundedButtons()
@@ -69,12 +112,6 @@ public class RoadGameController : MonoBehaviour
         OnStateStart(roadGameState);
     }
 
-    public void EnableGateButtons()
-    {
-
-
-    }
-       
 
     public void UpdateRoundedButtons(int increaseBy, Destination destination)
     {
@@ -97,26 +134,7 @@ public class RoadGameController : MonoBehaviour
             anim.SetTrigger("move");
         }
     }
-
-    public bool DestinationSelect(Destination destination)
-    {
-        List<Destination> destinations = new List<Destination>( ClawScript.instance.GetCurrentDestinations());
-        if(destinations.Contains(destination))
-        {
-            ClawScript.instance.Release(2);
-            Debug.LogError("successful release!");
-            SortingGameGate.instance.Open();
-            tileAnimators.RemoveAt(0);
-            AdvanceTiles();
-            Invoke("SetFillState", 2);
-            return true;
-        }
-        else
-        {
-            Debug.LogError("bad release!");
-            return false;
-        }
-    }
+     
 
     private Destination GetDestination()
     {
@@ -146,7 +164,8 @@ public class RoadGameController : MonoBehaviour
                 }
                 break;
             case roadGameState.ClawReady:
-
+                grabButton.SetState(true);
+                discardButton.SetState(true);
                 break;
             case roadGameState.DiscardItem:
                 ClawScript.instance.StartDiscard();
@@ -159,10 +178,11 @@ public class RoadGameController : MonoBehaviour
                 Invoke("SetDestinationState", 2.5f);
                 break;
             case roadGameState.DestinationSelect:
-
+                ToggleDestinationButtons(true);
                 ///UpdateScore(pointsForCorrectDestination);
                 break;
             case roadGameState.Crunch:
+                ToggleDestinationButtons(false);
                 UpdateScore(pointsForCorrectDestination);
                 RoadCrusher.instance.StartCrush();
                 ClawScript.instance.Release(1);

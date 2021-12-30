@@ -5,6 +5,19 @@ using UnityEngine;
 public static class Helpers 
 {
 
+    public static bool IsTileAcceptable(TileScript tile, List<Destination> possibleDestinations)
+    {
+        foreach (Destination dest in tile.data.possibleDestinations)
+        {
+            Debug.LogError("dest: " + dest + " possible: " + string.Join(",", possibleDestinations));
+            if (possibleDestinations.Contains(dest))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static List<T> ShuffleList<T>(this List<T> list)
     {
         var rng = new System.Random();
@@ -29,4 +42,5 @@ public static class Helpers
         }
         return newList;
     }
+
 }

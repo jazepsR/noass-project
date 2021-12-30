@@ -9,11 +9,13 @@ public class BunkerController : MonoBehaviour
     public Slider[] sliders;
     public Animator doorAnim;
     public SnapPoint[] snapPoints;
-    private float processMaterialTime = 10f;
+    private float processMaterialTime = 15f;
+    private bool processing = false;
     // Start is called before the first frame update
     void Start()
     {
         ResetSliders();
+        ToggleBunkerDoor(true);
     }
 
     public SnapPoint GetAvailableSnapPoint()
@@ -49,11 +51,11 @@ public class BunkerController : MonoBehaviour
         }
         else
         {
+            doorAnim.ResetTrigger("open");
             doorAnim.SetTrigger("close");
-            if(!IsEmpty())
+            if(!IsEmpty() && !processing)
             {
                 ProcessMaterials();
-
             }
         }
     }
@@ -71,15 +73,19 @@ public class BunkerController : MonoBehaviour
             float targetVal = Mathf.Min(1,sliders[index].value + Random.Range(0.3f,0.8f));
             StartCoroutine(FillBar(sliders[index], targetVal));
         }
+    }
 
-
+    public bool IsTypeFilled(int id)
+    {
+        return sliders[id].value > 0.97f;
     }
 
     private IEnumerator FillBar(Slider bar, float targetVal)
     {
         float t = 0;
         float startVal = bar.value;
-        while(t<1)
+        processing = true;
+        while(t<=1)
         {
             bar.value = Mathf.Lerp(startVal, targetVal, t);
             t += Time.deltaTime / processMaterialTime;
@@ -93,13 +99,15 @@ public class BunkerController : MonoBehaviour
     {
         if (IsEmpty())
             return;
+        processing = false;
         ToggleBunkerDoor(true);
         foreach(SnapPoint snap in snapPoints)
         {
+            TileGenerator.instance.tiles.Remove(snap.content.GetComponent<TileScript>());
             snap.ReleaseDraggable();
-           Destroy(snap.transform.GetChild(0).gameObject);
-
+            Destroy(snap.transform.GetChild(0).gameObject);
         }
+        BunkerGameController.Instance.ToggleDestinationButtons(true);
     }
 
 

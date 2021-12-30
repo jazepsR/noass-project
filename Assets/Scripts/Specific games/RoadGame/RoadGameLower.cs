@@ -43,24 +43,24 @@ public class RoadGameLower : MonoBehaviour
     public void AddToSmall()
     {
         smallVal = Mathf.Min(maxVal, ++smallVal);
-        CompleteFill();
+        CompleteFill(0);
     }
 
     public void AddToMed()
     {
         medVal = Mathf.Min(maxVal, ++medVal);
-        CompleteFill();
+        CompleteFill(1);
     }
 
     public void AddToBig()
     {
         bigVal = Mathf.Min(maxVal, ++bigVal);
-        CompleteFill();
+        CompleteFill(2);
     }
 
-    private void CompleteFill()
+    private void CompleteFill(int buttonID)
     {
-       // ClawScript.instance.Release(1f);
+        RoadGameController.Instance.destinationButtons[buttonID].SetClickOutcome(true,0.5f);
         RoadGameController.Instance.SetGameState(roadGameState.Crunch);
     }
 

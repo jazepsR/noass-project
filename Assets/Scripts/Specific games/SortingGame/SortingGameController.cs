@@ -17,10 +17,10 @@ public class SortingGameController : MonoBehaviour
     public int pointsForCorrectDestination = 10;
     public int pointsForHazard= -25;
     int currentScore = 0;
-    bool haveTimePressure = true;
+    bool haveTimePressure = false;
     Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzives_Atkritumi };
     public Destination activeDestination = Destination.Empty;
-
+    public AnimatedButton[] destinationButtons;
     public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();
     private Destination selectedDestination;
     private void Awake()
@@ -29,6 +29,14 @@ public class SortingGameController : MonoBehaviour
         carSpawner = GetComponent<SimpleSpawner>();
         roundedButtons.AddRange(FindObjectsOfType<RoundButtonController>());
         SetupRoundedButtons();
+    }
+
+    public void ToggleDestinationButtons(bool isActive)
+    {
+        foreach (AnimatedButton btn in destinationButtons)
+        {
+            btn.SetState(isActive);
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -51,7 +59,7 @@ public class SortingGameController : MonoBehaviour
         Debug.Log("currentScore: " + currentScore + " adding: " + updateBy);
         currentScore += updateBy;
         currentScore = Mathf.Max(0, currentScore);
-        TopBarController.instance.UpdateScore(currentScore);
+        TopBarController.instance.UpdateScore(currentScore,updateBy);
     }
 
     void SetupRoundedButtons()
@@ -69,17 +77,6 @@ public class SortingGameController : MonoBehaviour
         OnStateStart(saortingGameState);
     }
 
-    public void EnableGateButtons()
-    {
-
-
-    }
-
-    /*public void SetDestination(Destination destination)
-    {
-        selectedDestination = destination;
-        OnStateStart(sortingGameState.DestinationSelect);
-    }*/
 
     public void UpdateRoundedButtons(int increaseBy, Destination destination)
     {
@@ -103,22 +100,25 @@ public class SortingGameController : MonoBehaviour
         }
     }
 
-    public bool DestinationSelect(Destination destination)
+    public bool DestinationSelect(Destination destination, int ID)
     {
         List<Destination> destinations = new List<Destination>( ClawScript.instance.GetCurrentDestinations());
         if(destinations.Contains(destination))
         {
             ClawScript.instance.Release(2);
-            Debug.LogError("successful release!");
+            destinationButtons[ID].SetClickOutcome(true, 1f);
             SortingGameGate.instance.Open();
             tileAnimators.RemoveAt(0);
             AdvanceTiles();
             Invoke("SetFillState", 2);
+            UpdateScore(pointsForCorrectDestination);
+            ToggleDestinationButtons(false);
             return true;
         }
         else
         {
-            Debug.LogError("bad release!");
+            UpdateScore(-pointsForCorrectDestination);
+            destinationButtons[ID].SetClickOutcome(false, 1f);
             return false;
         }
 
@@ -135,6 +135,7 @@ public class SortingGameController : MonoBehaviour
         {
             case sortingGameState.DriveIn:               
                 currentCar = SpawnCar().GetComponent<CarScript>();
+                ToggleDestinationButtons(false);
                 Invoke("SetFillState", 2);
                 break;
             case sortingGameState.FillConveyor:
@@ -151,6 +152,7 @@ public class SortingGameController : MonoBehaviour
                 {
                     SetGameState(sortingGameState.GrabItem);
                     ClawScript.instance.StartGrab();
+                    Invoke("SetDestinationSelect", 3);
                 }
                 break;
             case sortingGameState.GrabItem:
@@ -158,7 +160,7 @@ public class SortingGameController : MonoBehaviour
 
                 break;
             case sortingGameState.DestinationSelect:
-                UpdateScore(pointsForCorrectDestination);
+                ToggleDestinationButtons(true);
 
                 break;
             default:
@@ -166,6 +168,10 @@ public class SortingGameController : MonoBehaviour
 
         }
 
+    }
+    private void SetDestinationSelect()
+    {
+        SetGameState(sortingGameState.DestinationSelect);
     }
 
     public GameObject SpawnCar()

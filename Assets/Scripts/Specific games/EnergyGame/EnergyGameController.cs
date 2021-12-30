@@ -11,21 +11,24 @@ public class EnergyGameController : MonoBehaviour
     private SimpleSpawner carSpawner;
     public static EnergyGameController Instance;
     public Animator receiptAnimator;
+    public Animator bubbleAnimator;
     public int pointsToCompleteGame = 25;
     public int pointsForCorrectDestination = 10;
-    public int pointsForHazard = -25;
+    public int pointsForCorrectDiscard = 25;
+    public int pointsForCorrectBurn = 25;
     int currentScore = 0;
     bool haveTimePressure = false;
-    public  Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzives_Atkritumi };
+    public List<Destination> possibleDestinations;
     public Destination activeDestination = Destination.Empty;
     public SnapPoint[] heatingPoints;
-    public Button generatorButton;
-    public Button[] heatingButtons;
+    public AnimatedButton generatorButton;
+    public AnimatedButton[] heatingButtons;
     public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();
     private Destination selectedDestination;
     public Slider factoryBar;
     public Transform heatingPointParent;
     private float generatorTime = 2.5f;
+    bool prevHeat = false;
     private void Awake()
     {
         Instance = this;
@@ -48,12 +51,8 @@ public class EnergyGameController : MonoBehaviour
 
     public void Update()
     {
-        if (currentGameState == energyGameState.TileMatching)
+       // if (currentGameState == energyGameState.TileMatching)
             CheckHeater();
-        foreach(Button button in heatingButtons)
-        {
-            button.interactable = currentGameState == energyGameState.GeneratorHeated;
-        }
 
     }
 
@@ -70,26 +69,49 @@ public class EnergyGameController : MonoBehaviour
                 break;
             }
         }
-
-        generatorButton.interactable = heaterReady;
+        if (prevHeat != heaterReady)
+        {
+            generatorButton.SetState(heaterReady);
+        }
+        prevHeat = heaterReady;
 
     }
 
     public void HeatGenerator()
     {
+        //Check if can be burned
+        bool canBurn =true;
+        int scoreChange = 0;
         foreach (SnapPoint snapPoint in heatingPoints)
         {
-            snapPoint.content.BeginDestroy();
+            if(!Helpers.IsTileAcceptable(snapPoint.content.GetComponent<TileScript>(),possibleDestinations))
+            {
+                canBurn = false;
+                scoreChange -=pointsForCorrectBurn;
+                snapPoint.content.GetComponent<Animator>().SetTrigger("error");
+            }
+
         }
-        StartCoroutine(HeatGeneratorCoroutine(1));
+
+        if (canBurn)
+        {
+            foreach (SnapPoint snapPoint in heatingPoints)
+            {
+                snapPoint.content.BeginDestroy();
+            }
+            StartCoroutine(HeatGeneratorCoroutine(1));
+            scoreChange += pointsForCorrectBurn;
+            bubbleAnimator.SetTrigger("move");
+        }
+        UpdateScore(scoreChange);
+        generatorButton.SetClickOutcome(canBurn, 0.5f);
     }
 
 
     private IEnumerator HeatGeneratorCoroutine(float target)
     {
-        generatorButton.interactable = false;
+        generatorButton.SetState(false);
         SetGameState(energyGameState.GeneratorHeating);
-        float t = 0+target;
         while(Mathf.Abs(target-factoryBar.value)>0.02f)
         {
             factoryBar.value = Mathf.Lerp(factoryBar.value, target, Time.deltaTime / generatorTime);
@@ -101,8 +123,10 @@ public class EnergyGameController : MonoBehaviour
     public void HeatGreenhouse(int ID)
     {
         roundedButtons[ID].UpdateFill(5);
+        heatingButtons[ID].SetClickOutcome(true, 0.5f);
         SetGameState(energyGameState.TileMatching);
         factoryBar.value = 0;
+        UpdateScore(pointsForCorrectDestination);
     }
 
     public void SetupGreenhouses()
@@ -126,7 +150,7 @@ public class EnergyGameController : MonoBehaviour
             currentScore = Mathf.Max(0, currentScore);
             if (TopBarController.instance)
             {
-                TopBarController.instance.UpdateScore(currentScore);
+                TopBarController.instance.UpdateScore(currentScore, updateBy);
             }
         }
 
@@ -170,19 +194,20 @@ public class EnergyGameController : MonoBehaviour
             switch (state)
             {
             case energyGameState.Start:
-                activeDestination = possibleDestinations[Random.Range(0, possibleDestinations.Length)];
+                activeDestination = TileGenerator.instance.possibleDestinations[Random.Range(0, TileGenerator.instance.possibleDestinations.Count)];
                 receiptAnimator.SetBool("on", true);
                 TileGenerator.instance.GenerateTiles(12, Snapcontroller.instance.snapPoints, activeDestination);
                 SetGameState(energyGameState.TileMatching);
                 break;
 
             case energyGameState.TileMatching:
+                ToggleDestinationButtons(false);
                 break;
             case energyGameState.GeneratorHeating:
 
                 break;
             case energyGameState.GeneratorHeated:
-
+                ToggleDestinationButtons(true);
                 break;
 
             case energyGameState.DestinationSelect:
@@ -200,7 +225,7 @@ public class EnergyGameController : MonoBehaviour
                 }
                 else
                 {
-                    UpdateScore(pointsForHazard);
+                    UpdateScore(pointsForCorrectDiscard);
                 }
 
                 break;
@@ -210,8 +235,14 @@ public class EnergyGameController : MonoBehaviour
             }
 
         }
-
-        public GameObject SpawnCar()
+    public void ToggleDestinationButtons(bool isActive)
+    {
+        foreach (AnimatedButton btn in heatingButtons)
+        {
+            btn.SetState(isActive);
+        }
+    }
+    public GameObject SpawnCar()
         {
             return carSpawner.SpawnObject();
         }

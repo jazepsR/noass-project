@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de1afd37f104594b826f41e4baf6215, type: 3}
   m_Name: playerData
   m_EditorClassIdentifier: 
-  firstName: 
-  lastName: 
-  school: 
-  grade: 
-  username: 
+  firstName: Jazeps
+  lastName: R
+  school: RFL
+  grade: 11
+  username: jr

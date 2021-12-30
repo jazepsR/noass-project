@@ -41,7 +41,7 @@ public class SnapPoint : MonoBehaviour
         if(!isTrash && generateInstantly && generateOnRelease)
         {
             TileGenerator.instance.GenerateTile(TileGenerator.instance.possibleDestinations[Random.Range(0, TileGenerator.instance.possibleDestinations.Count)], this);
-            Debug.LogError("Generating on empty tile!");
+          //  Debug.LogError("Generating on empty tile!");
         }
     }
 
