@@ -17,7 +17,19 @@ public static class Helpers
         }
         return false;
     }
-
+    public static bool ListContainsTile(TileScript ts, List<Destination> destinationList)
+    {
+        bool correctType = false;
+        foreach (Destination dest in ts.data.possibleDestinations)
+        {
+            if (destinationList.Contains(dest))
+            {
+                correctType = true;
+                break;
+            }
+        }
+        return correctType;
+    }
     public static List<T> ShuffleList<T>(this List<T> list)
     {
         var rng = new System.Random();

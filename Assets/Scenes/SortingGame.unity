@@ -3308,7 +3308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbedTile: {fileID: 0}
-  grabDistance: 25
+  grabDistance: 100
   grabPoint: {fileID: 1113010337}
   snapPointTarget: {fileID: 0}
 --- !u!1 &2042882887

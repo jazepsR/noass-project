@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TileGenerator : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class TileGenerator : MonoBehaviour
         if (Input.GetMouseButtonUp(1))
         {
             Time.timeScale = 1;
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -153,7 +158,14 @@ public class TileGenerator : MonoBehaviour
         snapcontroller.ReleaseAllTiles();
         for (int i = tiles.Count - 1; i >= 0; i--)
         {
-            Destroy(tiles[i].gameObject);
+            try
+            {
+                Destroy(tiles[i].gameObject);
+            }
+            catch
+            {
+                tiles.RemoveAt(i);
+            }
         }
         tiles = new List<TileScript>();
     }

@@ -9,6 +9,8 @@ public class SnapPoint : MonoBehaviour
     public bool isTrash = false;
     public bool disposeInstantly = false;
     public bool generateInstantly = false;
+    public delegate void DelegateMethod(SnapPoint snap);
+    public DelegateMethod delegatedAssingMethod = null;
     // Start is called before 
 
 
@@ -28,6 +30,10 @@ public class SnapPoint : MonoBehaviour
         if(isTrash && disposeInstantly)
         {
             content.BeginDestroy();
+        }
+        if(delegatedAssingMethod != null)
+        {
+            delegatedAssingMethod(this);
         }
     }
 
