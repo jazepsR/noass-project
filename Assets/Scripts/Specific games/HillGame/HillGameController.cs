@@ -10,7 +10,6 @@ public class HillGameController : MonoBehaviour
     public hillGameState currentGameState;
     private SimpleSpawner carSpawner;
     public static HillGameController Instance;
-    public Animator receiptAnimator;
     public Animator bubbleAnimator;
     public int pointsToCompleteGame = 25;
     public int pointsForCorrectDestination = 10;
@@ -29,6 +28,7 @@ public class HillGameController : MonoBehaviour
     public Sprite sliderFullSprite;
     public float piecesToCompleteLine = 5;
     public AnimatedButton completeButton;
+    bool gameComplete = false;
     private void Awake()
     {
         Instance = this;
@@ -44,15 +44,19 @@ public class HillGameController : MonoBehaviour
         {
             InvokeRepeating("DecreaseScore", 5, 5);
         }
+        TopBarController.instance.delegatedTimeUpMethod = OnGameComplete;
     }
 
-    public void Update()
+   
+    public void OnGameComplete(int timeleft = 0)
     {
-       // if (currentGameState == energyGameState.TileMatching)
-
+        if (!gameComplete)
+        {
+            WinScreen.instance.gameObject.SetActive(true);
+            WinScreen.instance.SetScore(currentScore + timeleft * Var.timeMultiplier);
+            gameComplete = true;
+        }
     }
-     
-  
 
     private void DecreaseScore()
     {
@@ -84,7 +88,6 @@ public class HillGameController : MonoBehaviour
         {
             case hillGameState.Start:
                 activeDestination = TileGenerator.instance.possibleDestinations[Random.Range(0, TileGenerator.instance.possibleDestinations.Count)];
-                receiptAnimator.SetBool("on", true);
                 TileGenerator.instance.GenerateTiles(12, Snapcontroller.instance.snapPoints, activeDestination);
                 SetGameState(hillGameState.TileMatching);
 
@@ -100,7 +103,6 @@ public class HillGameController : MonoBehaviour
                 if (DestinationPointCalculator.instance.GetTypeCountInDistribution(incorrectDestinations.ToArray(), Snapcontroller.instance.snapPoints) == 0 &&
                     activeDestination == selectedDestination)
                 {
-                    receiptAnimator.SetBool("on", false);
                     int count = DestinationPointCalculator.instance.GetTypeCountInDistribution(activeDestination, Snapcontroller.instance.snapPoints);
                     // UpdateScore(count * pointsForCorrectDestination);
                 }

@@ -1,5 +1,8 @@
 fileFormatVersion: 2
 guid: 8af4138bcf125ff4ea34429305360d70
+labels:
+- Metal
+- VartiSkirosana
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

@@ -26,9 +26,14 @@ public class EnergyGameController : MonoBehaviour
     public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();
     private Destination selectedDestination;
     public Slider factoryBar;
+    public Sprite fullBar;
+    public Sprite emptyBar;
+    public Image factoryBarFill;
     public Transform heatingPointParent;
-    private float generatorTime = 2.5f;
+    public GameObject[] fillIcons;
+    private float generatorTime = 1.5f;
     bool prevHeat = false;
+    bool gameComplete = false;
     private void Awake()
     {
         Instance = this;
@@ -39,24 +44,44 @@ public class EnergyGameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetGameState(energyGameState.Start);
-        UpdateScore(0);
-        if (haveTimePressure)
-        {
-            InvokeRepeating("DecreaseScore", 5, 5);
-        }
-        heatingPoints = heatingPointParent.GetComponentsInChildren<SnapPoint>();
+    SetGameState(energyGameState.Start);
+    UpdateScore(0);
+    if (haveTimePressure)
+    {
+        InvokeRepeating("DecreaseScore", 5, 5);
+    }
+    heatingPoints = heatingPointParent.GetComponentsInChildren<SnapPoint>();
     SetupGreenhouses();
+        TopBarController.instance.delegatedTimeUpMethod = OnGameComplete;
     }
 
     public void Update()
     {
        // if (currentGameState == energyGameState.TileMatching)
             CheckHeater();
+        UpdateFillIcons();
+       
 
     }
 
-   
+
+    private void UpdateFillIcons()
+    {
+        for(int i=0;i<fillIcons.Length;i++)
+        {
+            fillIcons[i].SetActive(roundedButtons[i].IsFull());
+        }
+    }
+
+    public void OnGameComplete(int timeleft = 0)
+    {
+        if (!gameComplete)
+        {
+            WinScreen.instance.gameObject.SetActive(true);
+            WinScreen.instance.SetScore(currentScore + timeleft * Var.timeMultiplier);
+            gameComplete = true;
+        }
+    }
 
     private void CheckHeater()
     {
@@ -112,11 +137,13 @@ public class EnergyGameController : MonoBehaviour
     {
         generatorButton.SetState(false);
         SetGameState(energyGameState.GeneratorHeating);
+        factoryBarFill.sprite = emptyBar;
         while(Mathf.Abs(target-factoryBar.value)>0.02f)
         {
             factoryBar.value = Mathf.Lerp(factoryBar.value, target, Time.deltaTime / generatorTime);
             yield return null;
         }
+        factoryBarFill.sprite = fullBar;
         factoryBar.value = target;
         SetGameState(energyGameState.GeneratorHeated);
     }
@@ -127,6 +154,24 @@ public class EnergyGameController : MonoBehaviour
         SetGameState(energyGameState.TileMatching);
         factoryBar.value = 0;
         UpdateScore(pointsForCorrectDestination);
+        if(CheckRoundedButtons())
+        {
+            OnGameComplete(TopBarController.instance.secondsRemaining);
+        }
+    }
+
+    private bool CheckRoundedButtons()
+    {
+        bool buttonsCompleted = true;
+        foreach(RoundButtonController roundButton in roundedButtons)
+        {
+            if(!roundButton.IsFull())
+            {
+                buttonsCompleted = false;
+                break;
+            }
+        }
+        return buttonsCompleted;
     }
 
     public void SetupGreenhouses()
@@ -239,7 +284,14 @@ public class EnergyGameController : MonoBehaviour
     {
         foreach (AnimatedButton btn in heatingButtons)
         {
-            btn.SetState(isActive);
+            if (isActive)
+            {
+                btn.SetState(isActive);
+            }
+            else
+            {
+                btn.SetState(isActive, 1);
+            }
         }
     }
     public GameObject SpawnCar()

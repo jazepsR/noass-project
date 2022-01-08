@@ -23,6 +23,9 @@ public class RoadGameController : MonoBehaviour
     public AnimatedButton[] destinationButtons;
     public AnimatedButton grabButton;
     public AnimatedButton discardButton;
+    public Animator receiveTruckAnim;
+    public List<Animator> additionalAnimators;
+    bool gameComplete = false;
     private void Awake()
     {
         Instance = this;
@@ -42,8 +45,17 @@ public class RoadGameController : MonoBehaviour
         ToggleDestinationButtons(false);
         grabButton.SetState(false);
         discardButton.SetState(false);
+        TopBarController.instance.delegatedTimeUpMethod = OnGameComplete;
     }
-
+    public void OnGameComplete(int timeleft = 0)
+    {
+        if (!gameComplete)
+        {
+            WinScreen.instance.gameObject.SetActive(true);
+            WinScreen.instance.SetScore(currentScore + timeleft * Var.timeMultiplier);
+            gameComplete = true;
+        }
+    }
     private void DecreaseScore()
     {
         UpdateScore(-5);
@@ -52,7 +64,14 @@ public class RoadGameController : MonoBehaviour
     {
         foreach (AnimatedButton btn in destinationButtons)
         {
-            btn.SetState(isActive);
+            if (isActive)
+            {
+                btn.SetState(isActive);
+            }
+            else
+            {
+                btn.SetState(isActive, 1);
+            }
         }
     }
     public void UpdateScore(int updateBy)
@@ -62,6 +81,20 @@ public class RoadGameController : MonoBehaviour
         currentScore = Mathf.Max(0, currentScore);
         TopBarController.instance.UpdateScore(currentScore,updateBy);
     }
+
+    private bool CheckRoundedButtons()
+    {
+        bool buttonsCompleted = true;
+        foreach (RoundButtonController roundButton in roundedButtons)
+        {
+            if (!roundButton.IsFull())
+            {
+                buttonsCompleted = false;
+                break;
+            }
+        }
+        return buttonsCompleted;
+    }
     public void GrabButtonClicked()
     {
         if (Helpers.IsTileAcceptable(tileAnimators[0].GetComponentInChildren<TileScript>(), possibleDestinations))
@@ -70,7 +103,7 @@ public class RoadGameController : MonoBehaviour
             UpdateScore(pointsForCorrectGrab);
             grabButton.SetClickOutcome(true, 0.5f);
             grabButton.SetState(false);
-            discardButton.SetState(false);
+            discardButton.SetState(false,1f);
         }
         else
         {
@@ -87,7 +120,7 @@ public class RoadGameController : MonoBehaviour
             SetGameState(roadGameState.DiscardItem);
             UpdateScore(pointsForCorrectGrab);
             discardButton.SetClickOutcome(true, 0.5f);
-            grabButton.SetState(false);
+            grabButton.SetState(false,1f);
             discardButton.SetState(false);
         }
         else
@@ -133,6 +166,10 @@ public class RoadGameController : MonoBehaviour
         {
             anim.SetTrigger("move");
         }
+        foreach (Animator anim in additionalAnimators)
+        {
+            anim.SetTrigger("move");
+        }
     }
      
 
@@ -157,6 +194,7 @@ public class RoadGameController : MonoBehaviour
                     Snapcontroller.instance.snapPoints.Add(sp);
                     tileAnimators.Add(p.GetComponent<Animator>());
                     Invoke("SetFillState", 2);
+                    receiveTruckAnim.SetTrigger("leave");
                 }
                 else
                 {
@@ -176,6 +214,8 @@ public class RoadGameController : MonoBehaviour
             case roadGameState.GrabItem:
                 ClawScript.instance.StartGrab();
                 Invoke("SetDestinationState", 2.5f);
+                receiveTruckAnim.ResetTrigger("leave");
+                receiveTruckAnim.SetTrigger("toGate");
                 break;
             case roadGameState.DestinationSelect:
                 ToggleDestinationButtons(true);

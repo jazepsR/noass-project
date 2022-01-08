@@ -15,11 +15,14 @@ public class TopBarController : MonoBehaviour
     public PlayerData playerData;
     public string gameNameString;
     public Image nameUnderlay;
+    public Image helpBtnImage;
     public Image scoreUnderlay;
     public TMP_Text pointsGainText;
     public TMP_Text pointsLoseText;
     [SerializeField] private Animator anim;
     public int secondsRemaining = 10;
+    public delegate void DelegateMethod(int timeLeft);
+    public DelegateMethod delegatedTimeUpMethod = null;
     private void Awake()
     {
         instance = this;
@@ -29,19 +32,26 @@ public class TopBarController : MonoBehaviour
     {
         playerName.color = textColor;
         gameName.color = textColor;
-        playerName.text = playerData.firstName.ToUpper()+  " " + playerData.lastName[0] + ".";
+        playerName.text = playerData.username.ToUpper();// playerData.firstName.ToUpper()+  " " + playerData.lastName[0] + ".";
         gameName.text = gameNameString;
         nameUnderlay.color = textColor;
         scoreUnderlay.color = textColor;
-        InvokeRepeating("UpdateTime", 0.1f,1f);
+        helpBtnImage.color = textColor;
+        UpdateTime();
     }
     private void UpdateTime()
     {
         secondsRemaining--;
         if (secondsRemaining == 0)
+        {
+            if(delegatedTimeUpMethod!= null)
+            {
+                delegatedTimeUpMethod(0);
+            }
             return;
+        }
         time.text = secondsRemaining / 60 + ":" + (secondsRemaining % 60).ToString("D2");
-
+        Invoke("UpdateTime",1);
     }
 
     public void UpdateScore(int score, int updateBy)

@@ -12,30 +12,48 @@ public class SortingGameController : MonoBehaviour
     public CarScript currentCar;
     public GameObject tileAnimator;
     public Transform tiles;
+    public List<Animator> additionalAnimators;
     private List<Animator> tileAnimators = new List<Animator>();
     public int pointsToCompleteGame = 25;
     public int pointsForCorrectDestination = 10;
     public int pointsForHazard= -25;
+    public int roundedButtonIncrease = 15;
     int currentScore = 0;
     bool haveTimePressure = false;
     Destination[] possibleDestinations = new Destination[] { Destination.Kalns, Destination.Mebeles, Destination.Sadzives_Atkritumi };
     public Destination activeDestination = Destination.Empty;
     public AnimatedButton[] destinationButtons;
     public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();
-    private Destination selectedDestination;
+    bool gameComplete = false;
     private void Awake()
     {
         Instance = this;
         carSpawner = GetComponent<SimpleSpawner>();
-        roundedButtons.AddRange(FindObjectsOfType<RoundButtonController>());
         SetupRoundedButtons();
     }
 
+
+    public void OnGameComplete(int timeleft = 0)
+    {
+        if (!gameComplete)
+        {
+            WinScreen.instance.gameObject.SetActive(true);
+            WinScreen.instance.SetScore(currentScore + timeleft * Var.timeMultiplier);
+            gameComplete = true;
+        }
+    }
     public void ToggleDestinationButtons(bool isActive)
     {
         foreach (AnimatedButton btn in destinationButtons)
         {
-            btn.SetState(isActive);
+            if (isActive)
+            {
+                btn.SetState(isActive);
+            }
+            else
+            {
+                btn.SetState(isActive, 1);
+            }
         }
     }
     // Start is called before the first frame update
@@ -47,8 +65,27 @@ public class SortingGameController : MonoBehaviour
         {
             InvokeRepeating("DecreaseScore", 5, 5);
         }
+        TopBarController.instance.delegatedTimeUpMethod = OnGameComplete;
+        foreach (RoundButtonController btn in roundedButtons)
+        {
+            btn.Setup(15);
+        }
     }
 
+
+    private bool CheckRoundedButtons()
+    {
+        bool buttonsCompleted = true;
+        foreach (RoundButtonController roundButton in roundedButtons)
+        {
+            if (!roundButton.IsFull())
+            {
+                buttonsCompleted = false;
+                break;
+            }
+        }
+        return buttonsCompleted;
+    }
     private void DecreaseScore()
     {
         UpdateScore(-5);
@@ -98,6 +135,10 @@ public class SortingGameController : MonoBehaviour
         {
             anim.SetTrigger("move");
         }
+        foreach (Animator anim in additionalAnimators)
+        {
+            anim.SetTrigger("move");
+        }
     }
 
     public bool DestinationSelect(Destination destination, int ID)
@@ -107,12 +148,17 @@ public class SortingGameController : MonoBehaviour
         {
             ClawScript.instance.Release(2);
             destinationButtons[ID].SetClickOutcome(true, 1f);
+            roundedButtons[ID].UpdateFill(roundedButtonIncrease);
             SortingGameGate.instance.Open();
             tileAnimators.RemoveAt(0);
             AdvanceTiles();
             Invoke("SetFillState", 2);
             UpdateScore(pointsForCorrectDestination);
             ToggleDestinationButtons(false);
+            if (CheckRoundedButtons())
+            {
+                Invoke("OnGameComplete", 3); 
+            }
             return true;
         }
         else
@@ -146,7 +192,15 @@ public class SortingGameController : MonoBehaviour
                     TileGenerator.instance.GenerateTile(GetDestination(),sp , p.transform);
                     Snapcontroller.instance.snapPoints.Add(sp);
                     tileAnimators.Add(p.GetComponent<Animator>());
-                    Invoke("SetFillState", 2);
+                    if (tileAnimators.Count == 3)
+                    {
+                        SetGameState(sortingGameState.FillConveyor);
+                        AdvanceTiles();
+                    }
+                    else
+                    {
+                        Invoke("SetFillState", 2);
+                    }
                 }
                 else
                 {

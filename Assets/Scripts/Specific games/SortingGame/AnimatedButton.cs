@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnimatedButton : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class AnimatedButton : MonoBehaviour
     private Animator anim;
     private bool inCooldown = false;
     public bool targetState = false;
+    [SerializeField] private Button button;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -38,12 +40,18 @@ public class AnimatedButton : MonoBehaviour
         }
     }
 
-    public void SetState(bool isActive)
+    public void SetState(bool isActive, float delay = 0)
     {
+        button.interactable = isActive;
         targetState = isActive;
         if (inCooldown)
             return;
-        anim.SetBool("enabled", isActive);
+        Invoke("SetAnim", delay);
+    }
+
+    private void SetAnim()
+    {
+        anim.SetBool("enabled", targetState);
     }
 
     private IEnumerator Cooldown(float cooldownTime)

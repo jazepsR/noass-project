@@ -1,0 +1,445 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6896682013087443522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5761120449971421590}
+  - component: {fileID: 8715086092582302918}
+  m_Layer: 0
+  m_Name: tempLevelSelect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5761120449971421590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6896682013087443522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 379.62433, y: 193.89073, z: -363.76004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8715086092582302918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6896682013087443522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1ec0a2bdf57244b86bd7adebf3ee74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelData:
+  - levelName: "V\u0101rti"
+    levelScene: CarGame
+    levelIcon: {fileID: 21300000, guid: dfb69701468ea124990eff3dc9c42af8, type: 3}
+    levelSelection: {fileID: 21300000, guid: b0c78a1e3f6cf5e479dcce5f98fcd29a, type: 3}
+    tutorialSprites:
+    - {fileID: 21300000, guid: d6042996228e9804888c0a7f86ddc57b, type: 3}
+    - {fileID: 21300000, guid: 171cddacf854cc849a9f87f14ec45968, type: 3}
+    - {fileID: 21300000, guid: 0a21d68d386fe2248b5e96e4599213e9, type: 3}
+    - {fileID: 21300000, guid: 1db9b78bdbc1e5a4e94c710a05ee3ce9, type: 3}
+    - {fileID: 21300000, guid: f5716d39b3c84e84e94f7794e3351c8f, type: 3}
+    - {fileID: 21300000, guid: 12f7964df81b3a24d9691f78b2be1c19, type: 3}
+    - {fileID: 21300000, guid: f7616737a0e4a3b4995180c34ad4296b, type: 3}
+    tutorialSpritesEn: []
+    available: 1
+    tileGroups:
+    - groupName: "\u0160\u0137iro\u0161ana"
+      tiles:
+      - {fileID: 11400000, guid: 57e90624783e560409354c2d22405856, type: 2}
+      - {fileID: 11400000, guid: d6a4f82f0be1e6341ac77fe4eca21dfa, type: 2}
+      - {fileID: 11400000, guid: f0952484d97a0864ebfb969ef3c693bf, type: 2}
+      - {fileID: 11400000, guid: 04cd8b050d8fba242b6b393ad7dab30f, type: 2}
+      - {fileID: 11400000, guid: 8a293c8abfb037f489048ec6bb3b24ad, type: 2}
+      - {fileID: 11400000, guid: 2e21ae584db5a8047b19909ee1a28979, type: 2}
+      - {fileID: 11400000, guid: f4eb44a778342fb4b85c3195551d4a78, type: 2}
+      - {fileID: 11400000, guid: 2beeca9c8778ef7469a83ef308efbc4c, type: 2}
+      - {fileID: 11400000, guid: c3a1e6b47f465b6468d4dea8b7765b36, type: 2}
+      - {fileID: 11400000, guid: fa1edbc4b4c53b649be448bada932369, type: 2}
+      - {fileID: 11400000, guid: 5fb048f58f5e82f4784680624002238c, type: 2}
+      - {fileID: 11400000, guid: 23862e3f431bd3542872f7b98b292fad, type: 2}
+      - {fileID: 11400000, guid: b9f142aed8b565046843ab6bb68a15ee, type: 2}
+      - {fileID: 11400000, guid: 711b6e0d0d558854a816caa5d65b87e9, type: 2}
+      - {fileID: 11400000, guid: d543acf8b2d574148aa3c371e0a8f842, type: 2}
+      - {fileID: 11400000, guid: dd100b90f92c851458dd6d55af15669c, type: 2}
+      - {fileID: 11400000, guid: 69d56a8e5e684c9419f9bd3d5eeebf5d, type: 2}
+      - {fileID: 11400000, guid: 8caf16d2b4e997648bb6e91bbd35d871, type: 2}
+      - {fileID: 11400000, guid: 71482329b28d67a4785146356dfa2a37, type: 2}
+      - {fileID: 11400000, guid: 98145ce71a419644d8eebeb1c89df430, type: 2}
+      - {fileID: 11400000, guid: f3749fac126e0e144aff5cf55ac0776d, type: 2}
+      - {fileID: 11400000, guid: 10063956b8a6a3944923c0af6d837818, type: 2}
+      - {fileID: 11400000, guid: f20ead0d3a06b364a90fb380a896ff43, type: 2}
+      - {fileID: 11400000, guid: 8af4138bcf125ff4ea34429305360d70, type: 2}
+      - {fileID: 11400000, guid: 832d8db396f276343a069efd2375dc78, type: 2}
+      - {fileID: 11400000, guid: 356c19514f8927b4cb2681aca0ca2366, type: 2}
+      - {fileID: 11400000, guid: a98687fe8fdb88d4786e0a3905fe67aa, type: 2}
+      - {fileID: 11400000, guid: e1e3bfce1c00a3b4e8bf4a4539e2063c, type: 2}
+      - {fileID: 11400000, guid: baa2437dc2f45df4a86fa67be0ad2fd2, type: 2}
+      - {fileID: 11400000, guid: 43c2faa765b3ba947ba3b4d4dd0ed5e9, type: 2}
+    - groupName: "Ne\u0161\u0137irotie"
+      tiles:
+      - {fileID: 11400000, guid: f2a214a58b467e74fa5b37066f071966, type: 2}
+      - {fileID: 11400000, guid: c32260d7684efdd4caee706b018a24d9, type: 2}
+      - {fileID: 11400000, guid: a2ce66eec79478f4a8ccfa4c18f3c22c, type: 2}
+      - {fileID: 11400000, guid: a34152353ff2bde438368f12d981adb8, type: 2}
+      - {fileID: 11400000, guid: 2126e95b3f33d6547a20e684199baacd, type: 2}
+      - {fileID: 11400000, guid: 6e84c1628f67e4447b371a8dc1432610, type: 2}
+      - {fileID: 11400000, guid: 3d1338a26a300e949a7f9270a026b035, type: 2}
+      - {fileID: 11400000, guid: 354499eae091bbb4fbdf287fd5853627, type: 2}
+      - {fileID: 11400000, guid: a4c40883a96fad5468b13ec2a14170e5, type: 2}
+      - {fileID: 11400000, guid: ab5707ea729415c45ba2607fbb03b533, type: 2}
+      - {fileID: 11400000, guid: 0c14a7e30ff791b4abd0b041c48e86a1, type: 2}
+      - {fileID: 11400000, guid: 2348cc15bdd23784bb3850db3ddc21c0, type: 2}
+      - {fileID: 11400000, guid: 014cc5e370d08934e9317d9c1a831842, type: 2}
+      - {fileID: 11400000, guid: 5418fca37349b2b44bae69b001258d0c, type: 2}
+      - {fileID: 11400000, guid: 01152b1acd50b4f419be890438565680, type: 2}
+      - {fileID: 11400000, guid: e1be8239827f0414eb8e33678185e028, type: 2}
+      - {fileID: 11400000, guid: d85b60b3eaac272469d6eeb45e31f337, type: 2}
+      - {fileID: 11400000, guid: 97cddf67610474943a26b1ee6f5c84ec, type: 2}
+      - {fileID: 11400000, guid: 7a0c39872fd5fac4ea5f359f18cb3356, type: 2}
+      - {fileID: 11400000, guid: 7e5aa49546ac6304fbb6614628efd96b, type: 2}
+    - groupName: "Biolo\u0123ija"
+      tiles:
+      - {fileID: 11400000, guid: 43c2faa765b3ba947ba3b4d4dd0ed5e9, type: 2}
+      - {fileID: 11400000, guid: 57e90624783e560409354c2d22405856, type: 2}
+      - {fileID: 11400000, guid: d6a4f82f0be1e6341ac77fe4eca21dfa, type: 2}
+      - {fileID: 11400000, guid: 04cd8b050d8fba242b6b393ad7dab30f, type: 2}
+      - {fileID: 11400000, guid: 8a293c8abfb037f489048ec6bb3b24ad, type: 2}
+      - {fileID: 11400000, guid: 22151719013c44e499f8a17f3524a36f, type: 2}
+      - {fileID: 11400000, guid: f4eb44a778342fb4b85c3195551d4a78, type: 2}
+      - {fileID: 11400000, guid: 69f396e0b852f4845994c42dafa143ee, type: 2}
+      - {fileID: 11400000, guid: b9f142aed8b565046843ab6bb68a15ee, type: 2}
+      - {fileID: 11400000, guid: baa2437dc2f45df4a86fa67be0ad2fd2, type: 2}
+      - {fileID: 11400000, guid: 446e1331ac75a054584a97dc80082159, type: 2}
+    - groupName: "B\u012Bstamie"
+      tiles:
+      - {fileID: 11400000, guid: 915f7debf25cf3f4aae4f04f5490bd53, type: 2}
+      - {fileID: 11400000, guid: ba998c69f98bc584284c6ee5f8bb8d52, type: 2}
+      - {fileID: 11400000, guid: 5aabb7f56a5136c48bdb3442a88666c8, type: 2}
+      - {fileID: 11400000, guid: 0137f028c7df2cd48ad78c17eccfb615, type: 2}
+      - {fileID: 11400000, guid: 008dbcd82bc3bee4faef3e6bbd7a0a60, type: 2}
+      - {fileID: 11400000, guid: e5842011cf4c67f4dbeccf5d1e684457, type: 2}
+      - {fileID: 11400000, guid: 91eecb892d4ebf14bb50b29bf90e6c96, type: 2}
+      - {fileID: 11400000, guid: 78b07cd9da7f3f3448da72430d249c7f, type: 2}
+      - {fileID: 11400000, guid: c2393be3d6ec87a449c2d0b05d3863a2, type: 2}
+      - {fileID: 11400000, guid: 9958454fc8cbd184f8fbd201e1e5a8e3, type: 2}
+      - {fileID: 11400000, guid: 0021a2f8f80bf4c46af2bc2b2de4729d, type: 2}
+      - {fileID: 11400000, guid: fc54d7cee862b9b4abddf243843fdb4a, type: 2}
+      - {fileID: 11400000, guid: 817af4f0555b90649ba9a37e62212078, type: 2}
+      - {fileID: 11400000, guid: 8835eb99b18f6024bbe28ac979655fe2, type: 2}
+      - {fileID: 11400000, guid: c216005154ddd974788269694c39c2aa, type: 2}
+      - {fileID: 11400000, guid: b46d3370681f274458149e3abda45a4c, type: 2}
+      - {fileID: 11400000, guid: b57771e2982553648bdc5d5555505ab2, type: 2}
+      - {fileID: 11400000, guid: d703e499aa31833488609a234d6d5747, type: 2}
+      - {fileID: 11400000, guid: 834647378228b874a9230ac16e56250f, type: 2}
+  - levelName: "Atkritumu \u0160\u0137iro\u0161ana"
+    levelScene: SortingGame
+    levelIcon: {fileID: 21300000, guid: 37c6e032e30b2874cada70ce7a0105b3, type: 3}
+    levelSelection: {fileID: 21300000, guid: e63745d3c568d4945b8c802a96d4e1e2, type: 3}
+    tutorialSprites:
+    - {fileID: 21300000, guid: bc3c9e83d8cec2145b808bfd49688821, type: 3}
+    - {fileID: 21300000, guid: 655c8c309b0a1354087d9031422c6c34, type: 3}
+    - {fileID: 21300000, guid: 7a3f9080df616d64cb578069034806a9, type: 3}
+    - {fileID: 21300000, guid: 4de8a172ae80af44d8c14855e3157c13, type: 3}
+    - {fileID: 21300000, guid: 69a92c7ed73860341b2d4cdd73e059b6, type: 3}
+    tutorialSpritesEn: []
+    available: 1
+    tileGroups:
+    - groupName: "Pap\u012Brs un Kartons"
+      tiles:
+      - {fileID: 11400000, guid: 98145ce71a419644d8eebeb1c89df430, type: 2}
+      - {fileID: 11400000, guid: f0952484d97a0864ebfb969ef3c693bf, type: 2}
+      - {fileID: 11400000, guid: 2e21ae584db5a8047b19909ee1a28979, type: 2}
+      - {fileID: 11400000, guid: fa1edbc4b4c53b649be448bada932369, type: 2}
+    - groupName: Plastmasa
+      tiles:
+      - {fileID: 11400000, guid: 356c19514f8927b4cb2681aca0ca2366, type: 2}
+      - {fileID: 11400000, guid: 2beeca9c8778ef7469a83ef308efbc4c, type: 2}
+      - {fileID: 11400000, guid: e5842011cf4c67f4dbeccf5d1e684457, type: 2}
+      - {fileID: 11400000, guid: 23862e3f431bd3542872f7b98b292fad, type: 2}
+      - {fileID: 11400000, guid: acbe78efc6301fc49a5d8f9e760b8449, type: 2}
+      - {fileID: 11400000, guid: dd100b90f92c851458dd6d55af15669c, type: 2}
+      - {fileID: 11400000, guid: 69d56a8e5e684c9419f9bd3d5eeebf5d, type: 2}
+      - {fileID: 11400000, guid: f3749fac126e0e144aff5cf55ac0776d, type: 2}
+    - groupName: "Met\u0101ls"
+      tiles:
+      - {fileID: 11400000, guid: 832d8db396f276343a069efd2375dc78, type: 2}
+      - {fileID: 11400000, guid: c3a1e6b47f465b6468d4dea8b7765b36, type: 2}
+      - {fileID: 11400000, guid: 5fb048f58f5e82f4784680624002238c, type: 2}
+      - {fileID: 11400000, guid: 711b6e0d0d558854a816caa5d65b87e9, type: 2}
+      - {fileID: 11400000, guid: d543acf8b2d574148aa3c371e0a8f842, type: 2}
+      - {fileID: 11400000, guid: 8caf16d2b4e997648bb6e91bbd35d871, type: 2}
+      - {fileID: 11400000, guid: 71482329b28d67a4785146356dfa2a37, type: 2}
+      - {fileID: 11400000, guid: 10063956b8a6a3944923c0af6d837818, type: 2}
+      - {fileID: 11400000, guid: f20ead0d3a06b364a90fb380a896ff43, type: 2}
+      - {fileID: 11400000, guid: 8af4138bcf125ff4ea34429305360d70, type: 2}
+    - groupName: BIO Atkritumi
+      tiles:
+      - {fileID: 11400000, guid: 43c2faa765b3ba947ba3b4d4dd0ed5e9, type: 2}
+      - {fileID: 11400000, guid: 446e1331ac75a054584a97dc80082159, type: 2}
+      - {fileID: 11400000, guid: 57e90624783e560409354c2d22405856, type: 2}
+      - {fileID: 11400000, guid: d6a4f82f0be1e6341ac77fe4eca21dfa, type: 2}
+      - {fileID: 11400000, guid: 04cd8b050d8fba242b6b393ad7dab30f, type: 2}
+      - {fileID: 11400000, guid: 8a293c8abfb037f489048ec6bb3b24ad, type: 2}
+      - {fileID: 11400000, guid: 22151719013c44e499f8a17f3524a36f, type: 2}
+      - {fileID: 11400000, guid: f4eb44a778342fb4b85c3195551d4a78, type: 2}
+      - {fileID: 11400000, guid: 69f396e0b852f4845994c42dafa143ee, type: 2}
+      - {fileID: 11400000, guid: b9f142aed8b565046843ab6bb68a15ee, type: 2}
+      - {fileID: 11400000, guid: baa2437dc2f45df4a86fa67be0ad2fd2, type: 2}
+    - groupName: Stikls
+      tiles:
+      - {fileID: 11400000, guid: e1e3bfce1c00a3b4e8bf4a4539e2063c, type: 2}
+      - {fileID: 11400000, guid: c05618ddcb890034db84e1b102581642, type: 2}
+      - {fileID: 11400000, guid: a98687fe8fdb88d4786e0a3905fe67aa, type: 2}
+    - groupName: "Ne\u0161\u0137irotie"
+      tiles:
+      - {fileID: 11400000, guid: 7e5aa49546ac6304fbb6614628efd96b, type: 2}
+      - {fileID: 11400000, guid: f2a214a58b467e74fa5b37066f071966, type: 2}
+      - {fileID: 11400000, guid: c32260d7684efdd4caee706b018a24d9, type: 2}
+      - {fileID: 11400000, guid: a2ce66eec79478f4a8ccfa4c18f3c22c, type: 2}
+      - {fileID: 11400000, guid: a34152353ff2bde438368f12d981adb8, type: 2}
+      - {fileID: 11400000, guid: 2126e95b3f33d6547a20e684199baacd, type: 2}
+      - {fileID: 11400000, guid: 6e84c1628f67e4447b371a8dc1432610, type: 2}
+      - {fileID: 11400000, guid: 3d1338a26a300e949a7f9270a026b035, type: 2}
+      - {fileID: 11400000, guid: 354499eae091bbb4fbdf287fd5853627, type: 2}
+      - {fileID: 11400000, guid: a4c40883a96fad5468b13ec2a14170e5, type: 2}
+      - {fileID: 11400000, guid: ab5707ea729415c45ba2607fbb03b533, type: 2}
+      - {fileID: 11400000, guid: 0c14a7e30ff791b4abd0b041c48e86a1, type: 2}
+      - {fileID: 11400000, guid: 2348cc15bdd23784bb3850db3ddc21c0, type: 2}
+      - {fileID: 11400000, guid: 014cc5e370d08934e9317d9c1a831842, type: 2}
+      - {fileID: 11400000, guid: 5418fca37349b2b44bae69b001258d0c, type: 2}
+      - {fileID: 11400000, guid: 01152b1acd50b4f419be890438565680, type: 2}
+      - {fileID: 11400000, guid: e1be8239827f0414eb8e33678185e028, type: 2}
+      - {fileID: 11400000, guid: d85b60b3eaac272469d6eeb45e31f337, type: 2}
+      - {fileID: 11400000, guid: 97cddf67610474943a26b1ee6f5c84ec, type: 2}
+      - {fileID: 11400000, guid: 7a0c39872fd5fac4ea5f359f18cb3356, type: 2}
+    - groupName: "B\u012Bstamie"
+      tiles:
+      - {fileID: 11400000, guid: 915f7debf25cf3f4aae4f04f5490bd53, type: 2}
+      - {fileID: 11400000, guid: ba998c69f98bc584284c6ee5f8bb8d52, type: 2}
+      - {fileID: 11400000, guid: 5aabb7f56a5136c48bdb3442a88666c8, type: 2}
+      - {fileID: 11400000, guid: 0137f028c7df2cd48ad78c17eccfb615, type: 2}
+      - {fileID: 11400000, guid: 008dbcd82bc3bee4faef3e6bbd7a0a60, type: 2}
+      - {fileID: 11400000, guid: e5842011cf4c67f4dbeccf5d1e684457, type: 2}
+      - {fileID: 11400000, guid: 91eecb892d4ebf14bb50b29bf90e6c96, type: 2}
+      - {fileID: 11400000, guid: 78b07cd9da7f3f3448da72430d249c7f, type: 2}
+      - {fileID: 11400000, guid: c2393be3d6ec87a449c2d0b05d3863a2, type: 2}
+      - {fileID: 11400000, guid: 9958454fc8cbd184f8fbd201e1e5a8e3, type: 2}
+      - {fileID: 11400000, guid: 0021a2f8f80bf4c46af2bc2b2de4729d, type: 2}
+      - {fileID: 11400000, guid: fc54d7cee862b9b4abddf243843fdb4a, type: 2}
+      - {fileID: 11400000, guid: 817af4f0555b90649ba9a37e62212078, type: 2}
+      - {fileID: 11400000, guid: 8835eb99b18f6024bbe28ac979655fe2, type: 2}
+      - {fileID: 11400000, guid: c216005154ddd974788269694c39c2aa, type: 2}
+      - {fileID: 11400000, guid: b46d3370681f274458149e3abda45a4c, type: 2}
+      - {fileID: 11400000, guid: b57771e2982553648bdc5d5555505ab2, type: 2}
+      - {fileID: 11400000, guid: d703e499aa31833488609a234d6d5747, type: 2}
+      - {fileID: 11400000, guid: 834647378228b874a9230ac16e56250f, type: 2}
+  - levelName: "Tr\u016Bda Bunkuri"
+    levelScene: BunkerGame
+    levelIcon: {fileID: 21300000, guid: c6b673cfbfb35334291255ed3c49da91, type: 3}
+    levelSelection: {fileID: 21300000, guid: d31d45d2884eb494f9a990fcd96de6ef, type: 3}
+    tutorialSprites:
+    - {fileID: 21300000, guid: ff66ea6170612354490e69431de441b3, type: 3}
+    - {fileID: 21300000, guid: 4bcebd917e3332b45b201d6443de2a3d, type: 3}
+    - {fileID: 21300000, guid: f0bc8b8a5ea0bc245b83933ba35ce9ce, type: 3}
+    - {fileID: 21300000, guid: b45ca34ea777ea94288f6582835ff1f4, type: 3}
+    - {fileID: 21300000, guid: 6b98ce85c9cd86942bab59b9f36d6606, type: 3}
+    - {fileID: 21300000, guid: a6000659fbbd4c54fa801651db72797f, type: 3}
+    - {fileID: 21300000, guid: ff49a6b8a620e6b4983398d54bff355a, type: 3}
+    - {fileID: 21300000, guid: 71a3b3410a6cab3448fbf5b78b382084, type: 3}
+    tutorialSpritesEn: []
+    available: 1
+    tileGroups:
+    - groupName: "Der\u012Bgie"
+      tiles:
+      - {fileID: 11400000, guid: 43c2faa765b3ba947ba3b4d4dd0ed5e9, type: 2}
+      - {fileID: 11400000, guid: 57e90624783e560409354c2d22405856, type: 2}
+      - {fileID: 11400000, guid: d6a4f82f0be1e6341ac77fe4eca21dfa, type: 2}
+      - {fileID: 11400000, guid: 04cd8b050d8fba242b6b393ad7dab30f, type: 2}
+      - {fileID: 11400000, guid: 8a293c8abfb037f489048ec6bb3b24ad, type: 2}
+      - {fileID: 11400000, guid: 22151719013c44e499f8a17f3524a36f, type: 2}
+      - {fileID: 11400000, guid: f4eb44a778342fb4b85c3195551d4a78, type: 2}
+      - {fileID: 11400000, guid: 69f396e0b852f4845994c42dafa143ee, type: 2}
+      - {fileID: 11400000, guid: b9f142aed8b565046843ab6bb68a15ee, type: 2}
+      - {fileID: 11400000, guid: baa2437dc2f45df4a86fa67be0ad2fd2, type: 2}
+      - {fileID: 11400000, guid: 446e1331ac75a054584a97dc80082159, type: 2}
+    - groupName: "Neder\u012Bgie"
+      tiles:
+      - {fileID: 11400000, guid: 69f396e0b852f4845994c42dafa143ee, type: 2}
+      - {fileID: 11400000, guid: 7e5aa49546ac6304fbb6614628efd96b, type: 2}
+      - {fileID: 11400000, guid: f2a214a58b467e74fa5b37066f071966, type: 2}
+      - {fileID: 11400000, guid: c32260d7684efdd4caee706b018a24d9, type: 2}
+      - {fileID: 11400000, guid: a2ce66eec79478f4a8ccfa4c18f3c22c, type: 2}
+      - {fileID: 11400000, guid: a34152353ff2bde438368f12d981adb8, type: 2}
+      - {fileID: 11400000, guid: 2126e95b3f33d6547a20e684199baacd, type: 2}
+      - {fileID: 11400000, guid: 6e84c1628f67e4447b371a8dc1432610, type: 2}
+      - {fileID: 11400000, guid: 3d1338a26a300e949a7f9270a026b035, type: 2}
+      - {fileID: 11400000, guid: 354499eae091bbb4fbdf287fd5853627, type: 2}
+      - {fileID: 11400000, guid: a4c40883a96fad5468b13ec2a14170e5, type: 2}
+      - {fileID: 11400000, guid: ab5707ea729415c45ba2607fbb03b533, type: 2}
+      - {fileID: 11400000, guid: 0c14a7e30ff791b4abd0b041c48e86a1, type: 2}
+      - {fileID: 11400000, guid: 2348cc15bdd23784bb3850db3ddc21c0, type: 2}
+      - {fileID: 11400000, guid: 014cc5e370d08934e9317d9c1a831842, type: 2}
+      - {fileID: 11400000, guid: 5418fca37349b2b44bae69b001258d0c, type: 2}
+      - {fileID: 11400000, guid: 01152b1acd50b4f419be890438565680, type: 2}
+      - {fileID: 11400000, guid: e1be8239827f0414eb8e33678185e028, type: 2}
+      - {fileID: 11400000, guid: d85b60b3eaac272469d6eeb45e31f337, type: 2}
+      - {fileID: 11400000, guid: 97cddf67610474943a26b1ee6f5c84ec, type: 2}
+      - {fileID: 11400000, guid: 7a0c39872fd5fac4ea5f359f18cb3356, type: 2}
+      - {fileID: 11400000, guid: 108b8e9b1b337b84fb993d63737444ed, type: 2}
+      - {fileID: 11400000, guid: 10063956b8a6a3944923c0af6d837818, type: 2}
+      - {fileID: 11400000, guid: 8caf16d2b4e997648bb6e91bbd35d871, type: 2}
+      - {fileID: 11400000, guid: 711b6e0d0d558854a816caa5d65b87e9, type: 2}
+      - {fileID: 11400000, guid: c2393be3d6ec87a449c2d0b05d3863a2, type: 2}
+      - {fileID: 11400000, guid: c216005154ddd974788269694c39c2aa, type: 2}
+  - levelName: Kalni
+    levelScene: HillGame
+    levelIcon: {fileID: 21300000, guid: 19e60a82e3165c54d9d3484e09a6d7b7, type: 3}
+    levelSelection: {fileID: 21300000, guid: bc44e58fa2795d34294eee825e881acf, type: 3}
+    tutorialSprites:
+    - {fileID: 21300000, guid: 027e2fc45bf871a41a9dc78ec18af19d, type: 3}
+    - {fileID: 21300000, guid: 85698f7985e92db4790d4fbc45d1492c, type: 3}
+    - {fileID: 21300000, guid: 21ab4e5e2d374e943b03a30fe89c1aa0, type: 3}
+    - {fileID: 21300000, guid: 50fa799bf3bfcb348b2d8a81823a2f9c, type: 3}
+    - {fileID: 21300000, guid: 2978929c4f355094eac3c8aca380c0be, type: 3}
+    - {fileID: 21300000, guid: 438fc4543f72ac949a0e310cb7c8592a, type: 3}
+    tutorialSpritesEn: []
+    available: 1
+    tileGroups:
+    - groupName: Pamatne
+      tiles:
+      - {fileID: 11400000, guid: bc6f939387a9aac4e89da1b203618a7f, type: 2}
+      - {fileID: 11400000, guid: fe8a0e5147a3ad94b9473bf31a730101, type: 2}
+    - groupName: "Infiltr\u0101cija"
+      tiles:
+      - {fileID: 11400000, guid: e1be8239827f0414eb8e33678185e028, type: 2}
+      - {fileID: 11400000, guid: 0137f028c7df2cd48ad78c17eccfb615, type: 2}
+      - {fileID: 11400000, guid: 9958454fc8cbd184f8fbd201e1e5a8e3, type: 2}
+    - groupName: Atkritumi
+      tiles:
+      - {fileID: 11400000, guid: 2348cc15bdd23784bb3850db3ddc21c0, type: 2}
+      - {fileID: 11400000, guid: d85b60b3eaac272469d6eeb45e31f337, type: 2}
+      - {fileID: 11400000, guid: f2a214a58b467e74fa5b37066f071966, type: 2}
+      - {fileID: 11400000, guid: 014cc5e370d08934e9317d9c1a831842, type: 2}
+    - groupName: "g\u0101zes"
+      tiles:
+      - {fileID: 11400000, guid: d19c3ab55f0216649acd794d830672fc, type: 2}
+      - {fileID: 11400000, guid: e9343518fe4135e4facf551188f7c0eb, type: 2}
+      - {fileID: 11400000, guid: 9808cdae55f76f24087ba4a4d1cfbc4c, type: 2}
+      - {fileID: 11400000, guid: 8a0c1510668a62a4eb86f08d9fd7c758, type: 2}
+      - {fileID: 11400000, guid: d43755d8189a8dc48980054164ebd355, type: 2}
+      - {fileID: 11400000, guid: 6a32f857c832cee4e9e7b34d11dcc297, type: 2}
+      - {fileID: 11400000, guid: a0d679d902e7f5d4c92e3c7d0cf1f212, type: 2}
+    - groupName: "nosl\u0113\u0161ana"
+      tiles:
+      - {fileID: 11400000, guid: 28c53ff3461f6ce43ad1e3f47ad3cd3f, type: 2}
+      - {fileID: 11400000, guid: d327791cfde0465478f22692499776b8, type: 2}
+  - levelName: "B\u016Bvgru\u017Eu P\u0101rstr\u0101de"
+    levelScene: RoadConstructionGame
+    levelIcon: {fileID: 21300000, guid: f883835fcedf59541b7eb8f68e4a6a6e, type: 3}
+    levelSelection: {fileID: 21300000, guid: 38346b49164e3764d886735c371cad81, type: 3}
+    tutorialSprites:
+    - {fileID: 21300000, guid: 692c4f6f10446da4a9bccd2caa8b346c, type: 3}
+    - {fileID: 21300000, guid: eb8aba55728349f42aeb9af271d88b4c, type: 3}
+    - {fileID: 21300000, guid: 2b20e6a1ba3487b4db2272ca938cb90b, type: 3}
+    - {fileID: 21300000, guid: 2a9a382ad7fd7a6419daf9a2093cc3f6, type: 3}
+    - {fileID: 21300000, guid: 930aa4ec6a1816b49809b2a1d327b4e3, type: 3}
+    - {fileID: 21300000, guid: b0452e60132327245972959827dbdbfa, type: 3}
+    tutorialSpritesEn: []
+    available: 1
+    tileGroups:
+    - groupName: "Der\u012Bgie"
+      tiles:
+      - {fileID: 11400000, guid: d85b60b3eaac272469d6eeb45e31f337, type: 2}
+      - {fileID: 11400000, guid: bc6f939387a9aac4e89da1b203618a7f, type: 2}
+      - {fileID: 11400000, guid: fcde66793fdfa8846877a016bde16961, type: 2}
+      - {fileID: 11400000, guid: a4c40883a96fad5468b13ec2a14170e5, type: 2}
+      - {fileID: 11400000, guid: fe8a0e5147a3ad94b9473bf31a730101, type: 2}
+      - {fileID: 11400000, guid: acc85df40c9fbcc4d97c709cd126b773, type: 2}
+      - {fileID: 11400000, guid: 3da7119bae5203b4eba3dac15deec933, type: 2}
+    - groupName: "Neder\u012Bgie"
+      tiles:
+      - {fileID: 11400000, guid: b38ce40e1ed700f48b42db6d24bb5ef2, type: 2}
+      - {fileID: 11400000, guid: e1be8239827f0414eb8e33678185e028, type: 2}
+      - {fileID: 11400000, guid: 3d1338a26a300e949a7f9270a026b035, type: 2}
+      - {fileID: 11400000, guid: ab5707ea729415c45ba2607fbb03b533, type: 2}
+      - {fileID: 11400000, guid: 6e84c1628f67e4447b371a8dc1432610, type: 2}
+      - {fileID: 11400000, guid: 8caf16d2b4e997648bb6e91bbd35d871, type: 2}
+      - {fileID: 11400000, guid: e5842011cf4c67f4dbeccf5d1e684457, type: 2}
+      - {fileID: 11400000, guid: 711b6e0d0d558854a816caa5d65b87e9, type: 2}
+      - {fileID: 11400000, guid: 69d56a8e5e684c9419f9bd3d5eeebf5d, type: 2}
+      - {fileID: 11400000, guid: 108b8e9b1b337b84fb993d63737444ed, type: 2}
+      - {fileID: 11400000, guid: 46bb23bf5371aba49b83e7b7a607df7f, type: 2}
+      - {fileID: 11400000, guid: d327791cfde0465478f22692499776b8, type: 2}
+      - {fileID: 11400000, guid: 28c53ff3461f6ce43ad1e3f47ad3cd3f, type: 2}
+      - {fileID: 11400000, guid: 0021a2f8f80bf4c46af2bc2b2de4729d, type: 2}
+      - {fileID: 11400000, guid: 44db065488d42c941ba13090b32b3641, type: 2}
+      - {fileID: 11400000, guid: 97cddf67610474943a26b1ee6f5c84ec, type: 2}
+  - levelName: "Ener\u0123ijas Ieguve"
+    levelScene: EnergyGame
+    levelIcon: {fileID: 21300000, guid: 68d24d4a05320fa46b7b030f6d1f4d5e, type: 3}
+    levelSelection: {fileID: 21300000, guid: 8c01d72eea9326e4fb948608c832886f, type: 3}
+    tutorialSprites:
+    - {fileID: 21300000, guid: 783dda6bf0ca7914185db465b3ce8878, type: 3}
+    - {fileID: 21300000, guid: 5607b35cbdb646646a21f1224a9745cd, type: 3}
+    - {fileID: 21300000, guid: 3524a8a481476ba46a5aa4ebd31d86a2, type: 3}
+    - {fileID: 21300000, guid: bc8c0dcceb9371242824141e1ca8c29b, type: 3}
+    - {fileID: 21300000, guid: 37533cc0dbc483145aa3808cbe90ce1b, type: 3}
+    - {fileID: 21300000, guid: 3a815f38bb8b7e141bbef7463c566431, type: 3}
+    - {fileID: 21300000, guid: f57027ec9c2157e43bcb4f3c96c7b1d8, type: 3}
+    tutorialSpritesEn: []
+    available: 1
+    tileGroups:
+    - groupName: "Der\u012Bgie"
+      tiles:
+      - {fileID: 11400000, guid: c81a145ff235a674aa89a2a80670bcfb, type: 2}
+    - groupName: "Neder\u012Bgie"
+      tiles:
+      - {fileID: 11400000, guid: d19c3ab55f0216649acd794d830672fc, type: 2}
+      - {fileID: 11400000, guid: e9343518fe4135e4facf551188f7c0eb, type: 2}
+      - {fileID: 11400000, guid: 9808cdae55f76f24087ba4a4d1cfbc4c, type: 2}
+      - {fileID: 11400000, guid: 8a0c1510668a62a4eb86f08d9fd7c758, type: 2}
+      - {fileID: 11400000, guid: d43755d8189a8dc48980054164ebd355, type: 2}
+      - {fileID: 11400000, guid: 6a32f857c832cee4e9e7b34d11dcc297, type: 2}
+  gameButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  mainImage: {fileID: 0}
+  heading: {fileID: 0}
+  startGameButton: {fileID: 0}
+  selectionImage: {fileID: 0}
+  currentStage: 0
+  nextSlideBtn: {fileID: 0}
+  prevSlideBtn: {fileID: 0}
+  tutorialElements:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  elementsHeading: {fileID: 0}
+  elementScreen: {fileID: 0}
+  summarySprite: {fileID: 21300000, guid: 76f91f3c2ed3f704f9979663609c9d46, type: 3}
+  summaryParent: {fileID: 0}

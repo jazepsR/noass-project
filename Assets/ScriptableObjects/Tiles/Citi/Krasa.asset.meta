@@ -1,5 +1,8 @@
 fileFormatVersion: 2
 guid: e5842011cf4c67f4dbeccf5d1e684457
+labels:
+- Bistams
+- Plast
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

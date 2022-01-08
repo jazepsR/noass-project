@@ -7,22 +7,25 @@ using UnityEngine.UI;
 public class BunkerController : MonoBehaviour
 {
     public Slider[] sliders;
+    public Image[] sliderFill;
     public Animator doorAnim;
     public SnapPoint[] snapPoints;
-    private float processMaterialTime = 15f;
+    private float processMaterialTime = 30f;
     private bool processing = false;
+    public Sprite fullBar;
+    public Sprite emptyBar;
     // Start is called before the first frame update
     void Start()
     {
         ResetSliders();
-        ToggleBunkerDoor(true);
+       // ToggleBunkerDoor(true);
     }
 
     public SnapPoint GetAvailableSnapPoint()
     {
-        foreach(SnapPoint snap in snapPoints)
+        foreach (SnapPoint snap in snapPoints)
         {
-            if(!snap.occupied)
+            if (!snap.occupied)
             {
                 //Debug.LogError("FOUND IT");
                 return snap;
@@ -33,7 +36,7 @@ public class BunkerController : MonoBehaviour
 
     public void ResetSliders()
     {
-        foreach(Slider slider in sliders)
+        foreach (Slider slider in sliders)
         {
             slider.value = 0;
             slider.maxValue = 1;
@@ -44,7 +47,7 @@ public class BunkerController : MonoBehaviour
     public void ToggleBunkerDoor(bool open)
     {
         //Debug.LogError("changing bunker " + gameObject.name + " door to " + open);
-        if(open)
+        if (open)
         {
             doorAnim.ResetTrigger("close");
             doorAnim.SetTrigger("open");
@@ -53,7 +56,7 @@ public class BunkerController : MonoBehaviour
         {
             doorAnim.ResetTrigger("open");
             doorAnim.SetTrigger("close");
-            if(!IsEmpty() && !processing)
+            if (!IsEmpty() && !processing)
             {
                 ProcessMaterials();
             }
@@ -68,10 +71,18 @@ public class BunkerController : MonoBehaviour
         Slider targetSlider = sliders[barToComplete];
         StartCoroutine(FillBar(targetSlider, 1));
         indexes.RemoveAt(barToComplete);
-        foreach(int index in indexes)
+        foreach (int index in indexes)
         {
-            float targetVal = Mathf.Min(1,sliders[index].value + Random.Range(0.3f,0.8f));
+            float targetVal = Mathf.Min(1, sliders[index].value + Random.Range(0.3f, 0.8f));
             StartCoroutine(FillBar(sliders[index], targetVal));
+        }
+    }
+
+    public void Update()
+    {
+        for (int i = 0; i < sliderFill.Length; i++)
+        {
+            sliderFill[i].sprite = IsTypeFilled(i) ? fullBar : emptyBar;
         }
     }
 
@@ -85,7 +96,7 @@ public class BunkerController : MonoBehaviour
         float t = 0;
         float startVal = bar.value;
         processing = true;
-        while(t<=1)
+        while (t <= 1)
         {
             bar.value = Mathf.Lerp(startVal, targetVal, t);
             t += Time.deltaTime / processMaterialTime;
@@ -101,7 +112,7 @@ public class BunkerController : MonoBehaviour
             return;
         processing = false;
         ToggleBunkerDoor(true);
-        foreach(SnapPoint snap in snapPoints)
+        foreach (SnapPoint snap in snapPoints)
         {
             TileGenerator.instance.tiles.Remove(snap.content.GetComponent<TileScript>());
             snap.ReleaseDraggable();
@@ -114,7 +125,7 @@ public class BunkerController : MonoBehaviour
     public bool IsEmpty()
     {
         bool isEmpty = false;
-        foreach(SnapPoint point in snapPoints)
+        foreach (SnapPoint point in snapPoints)
         {
             if (point.occupied)
             {
@@ -129,9 +140,4 @@ public class BunkerController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

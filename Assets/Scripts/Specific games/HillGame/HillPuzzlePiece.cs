@@ -7,11 +7,10 @@ public class HillPuzzlePiece : MonoBehaviour
 {
     public List<HillSmallPiece> smallPieces;
     public List<HillSmallPiece> availableSmallPieces;
-    [HideInInspector] public float sliderValue = 0;
     public SliderData[] sliderData;
     public CanvasGroup canvasGroup;
     private Animator anim;
-    private HillSmallPiece activeSmallPiece;
+    [HideInInspector] public HillSmallPiece activeSmallPiece;
     // Start is called before the first frame update
 
     private void Awake()
@@ -37,7 +36,13 @@ public class HillPuzzlePiece : MonoBehaviour
 
     public void SelectSmallPiece()
     {
+        if(activeSmallPiece)
+        {
+            activeSmallPiece.outline.SetActive(false);
+        }
         activeSmallPiece = availableSmallPieces[Random.Range(0, availableSmallPieces.Count)];
+        activeSmallPiece.gameObject.SetActive(true);
+        activeSmallPiece.outline.SetActive(true);
     }
 
     public void CompleteSmallPiece()

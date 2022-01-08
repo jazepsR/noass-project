@@ -9,7 +9,7 @@ public static class Helpers
     {
         foreach (Destination dest in tile.data.possibleDestinations)
         {
-            Debug.LogError("dest: " + dest + " possible: " + string.Join(",", possibleDestinations));
+            //Debug.LogError("dest: " + dest + " possible: " + string.Join(",", possibleDestinations));
             if (possibleDestinations.Contains(dest))
             {
                 return true;

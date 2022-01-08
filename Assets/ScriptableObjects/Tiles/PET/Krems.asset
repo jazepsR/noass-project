@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Krems
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: cdbcc10325258cc468826f66ce30dad1, type: 3}
+  imageHard: {fileID: 0}
   possibleBgColors:
   - {r: 0.09411766, g: 0.3019608, b: 0.82745105, a: 1}
   - {r: 0.22352943, g: 0.5411765, b: 0.86274517, a: 1}
@@ -30,5 +31,6 @@ MonoBehaviour:
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.3019608, g: 0.6666667, b: 0.6117647, a: 1}
-  possibleDestinations: 05000000
-  DisplayName: "Kr\u0113ma Trauks"
+  possibleDestinations: 1600000005000000
+  DisplayName: "pastas t\u016Bbi\u0146a"
+  DisplayNameEng: paste tube

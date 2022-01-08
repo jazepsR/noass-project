@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Metans
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 3561fa4265862c34eb1ab228303167a9, type: 3}
+  imageHard: {fileID: 0}
   possibleBgColors:
   - {r: 0.09411766, g: 0.3019608, b: 0.82745105, a: 1}
   - {r: 0.22352943, g: 0.5411765, b: 0.86274517, a: 1}
@@ -30,5 +31,6 @@ MonoBehaviour:
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.3019608, g: 0.6666667, b: 0.6117647, a: 1}
-  possibleDestinations: 14000000
+  possibleDestinations: 1b000000
   DisplayName: "Met\u0101ns"
+  DisplayNameEng: 

@@ -9,6 +9,7 @@ public class PlayerData : ScriptableObject
     public string school;
     public string grade;
     public string username;
+    public string email;
 
     public void ClearPlayerData()
     {
@@ -16,6 +17,7 @@ public class PlayerData : ScriptableObject
        lastName = "";
        school = "";
        grade = "";
-       username = "";
+       username = "tester";
+        email = "";
     }
 }

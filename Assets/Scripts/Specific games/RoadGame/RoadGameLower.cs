@@ -18,6 +18,7 @@ public class RoadGameLower : MonoBehaviour
     private float medVal = 0;
     private float bigVal = 0;
     public float sliderFillSpeed = 0.5f;
+    float mainSliderVal = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +32,18 @@ public class RoadGameLower : MonoBehaviour
         smallSlider.value = Mathf.Lerp(smallSlider.value, smallVal / maxVal, Time.deltaTime * sliderFillSpeed);
         medSlider.value = Mathf.Lerp(medSlider.value, medVal/maxVal, Time.deltaTime * sliderFillSpeed);
         bigSlider.value = Mathf.Lerp(bigSlider.value, bigVal / maxVal, Time.deltaTime * sliderFillSpeed);
-        float minval = Mathf.Min(Mathf.Min(bigVal,medVal),smallVal)/maxVal;
-        roadSlider.value = Mathf.Lerp(roadSlider.value, minval, Time.deltaTime * sliderFillSpeed);
+        mainSliderVal = Mathf.Min(Mathf.Min(bigVal,medVal),smallVal)/maxVal;
+        roadSlider.value = Mathf.Lerp(roadSlider.value, mainSliderVal, Time.deltaTime * sliderFillSpeed);
         //toggle buttons
 
         smallButton.interactable = RoadGameController.Instance.currentGameState == roadGameState.DestinationSelect;
         midButton.interactable = RoadGameController.Instance.currentGameState == roadGameState.DestinationSelect;
         bigButton.interactable = RoadGameController.Instance.currentGameState == roadGameState.DestinationSelect;
+    }
+
+    public bool isFull()
+    {
+        return mainSliderVal >= maxVal;
     }
 
     public void AddToSmall()
@@ -60,8 +66,13 @@ public class RoadGameLower : MonoBehaviour
 
     private void CompleteFill(int buttonID)
     {
+        mainSliderVal = Mathf.Min(Mathf.Min(bigVal, medVal), smallVal) / maxVal;
         RoadGameController.Instance.destinationButtons[buttonID].SetClickOutcome(true,0.5f);
         RoadGameController.Instance.SetGameState(roadGameState.Crunch);
+        if(isFull())
+        {
+            RoadGameController.Instance.OnGameComplete();
+        }
     }
 
 }

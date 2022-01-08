@@ -25,11 +25,12 @@ public class CarGameController : MonoBehaviour
     public AnimatedButton gateStartButton;
     private Destination selectedDestination;
     public Animator gateAnimator;
+    bool gameComplete = false;
     private void Awake()
     {
         Instance = this;
         carSpawner = GetComponent<SimpleSpawner>();
-        roundedButtons.AddRange(FindObjectsOfType<RoundButtonController>());
+        //roundedButtons.AddRange(FindObjectsOfType<RoundButtonController>());
         SetupRoundedButtons();
     }
     // Start is called before the first frame update
@@ -41,12 +42,20 @@ public class CarGameController : MonoBehaviour
         {
             InvokeRepeating("DecreaseScore", 5, 5);
         }
+        TopBarController.instance.delegatedTimeUpMethod = OnGameComplete;
     }
     public void ToggleDestinationButtons(bool isActive)
     {
         foreach (AnimatedButton btn in destinationButtons)
         {
-            btn.SetState(isActive);
+            if (isActive)
+            {
+                btn.SetState(isActive);
+            }
+            else
+            {
+                btn.SetState(isActive, 1);
+            }
         }
     }
     private void DecreaseScore()
@@ -116,7 +125,7 @@ public class CarGameController : MonoBehaviour
         if (incorrectTiles==0)
         {
             receiptAnimator.SetBool("on", false);
-            UpdateRoundedButtons(count, selectedDestination);
+            UpdateRoundedButtons(count, destination);
             UpdateScore(count * pointsForCorrectDestination);
             OnStateStart(carGameState.DestinationSelected);
             destinationButtons[destination].SetClickOutcome(true, 1);
@@ -130,19 +139,37 @@ public class CarGameController : MonoBehaviour
 
     }
 
-    public void UpdateRoundedButtons(int increaseBy, Destination destination)
+    public void UpdateRoundedButtons(int increaseBy, int ID)
     {
-        foreach(RoundButtonController roundButton in roundedButtons)
+        roundedButtons[ID].UpdateFill(increaseBy);
+        if (CheckRoundedButtons())
         {
-            if(roundButton.destination == destination)
+            OnGameComplete(TopBarController.instance.secondsRemaining);
+        }
+    }
+
+    public void OnGameComplete(int timeleft = 0)
+    {
+        if (!gameComplete)
+        {
+            WinScreen.instance.gameObject.SetActive(true);
+            WinScreen.instance.SetScore(currentScore + timeleft * Var.timeMultiplier);
+            gameComplete = true;
+        }
+    }
+
+    private bool CheckRoundedButtons()
+    {
+        bool buttonsCompleted = true;
+        foreach (RoundButtonController roundButton in roundedButtons)
+        {
+            if (!roundButton.IsFull())
             {
-                roundButton.UpdateFill(increaseBy);
-                if(roundButton.IsFull())
-                {
-                    Debug.LogError("WON BY FILLING " + destination.ToString().ToUpper());
-                }
+                buttonsCompleted = false;
+                break;
             }
         }
+        return buttonsCompleted;
     }
     public void OnStateStart(carGameState state)
     {

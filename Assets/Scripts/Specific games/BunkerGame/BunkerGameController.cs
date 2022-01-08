@@ -14,6 +14,7 @@ public class BunkerGameController : MonoBehaviour
     public GameObject tileAnimator;
     public Transform tiles;
     [SerializeField] private List<Animator> tileAnimators = new List<Animator>();
+    [SerializeField] private List<Animator> additionalAnimators;
     public int pointsToCompleteGame = 15;
     public int pointsForCorrectGrab = 10;
     public int pointsForCorrectDestination= 25;
@@ -26,8 +27,8 @@ public class BunkerGameController : MonoBehaviour
     private Destination selectedDestination;
     public BunkerController bunker1;
     public BunkerController bunker2;
-    public int gameLength = 180;
     public AnimatedButton[] destinationButtons;
+    bool gameComplete = false;
     private void Awake()
     {
         Instance = this;
@@ -35,16 +36,12 @@ public class BunkerGameController : MonoBehaviour
         SetupRoundedButtons();
     }
 
-    private void Update()
-    {
-
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
         deliverButton.SetState(false);
         discardButton.SetState(false);
-        TopBarController.instance.secondsRemaining = gameLength;
         SetGameState(bunkerGameState.FillConveyor);
         UpdateScore(0); 
         ToggleDestinationButtons(false);
@@ -52,6 +49,7 @@ public class BunkerGameController : MonoBehaviour
         {
             InvokeRepeating("DecreaseScore", 5, 5);
         }
+        TopBarController.instance.delegatedTimeUpMethod = OnGameComplete;
     }
 
 
@@ -67,7 +65,7 @@ public class BunkerGameController : MonoBehaviour
             UpdateScore(pointsForCorrectGrab);
             deliverButton.SetClickOutcome(true, 0.5f);
             deliverButton.SetState(false);
-            discardButton.SetState(false);
+            discardButton.SetState(false,1f);
         }
         else
         {
@@ -86,13 +84,23 @@ public class BunkerGameController : MonoBehaviour
             tileAnimators.RemoveAt(0);
             UpdateScore(pointsForCorrectGrab);
             discardButton.SetClickOutcome(true, 0.5f);
-            deliverButton.SetState(false);
+            deliverButton.SetState(false,1f);
             discardButton.SetState(false);
         }
         else
         {
             UpdateScore(-pointsForCorrectGrab);
             discardButton.SetClickOutcome(false, 0.5f);
+        }
+    }
+
+    public void OnGameComplete(int timeleft = 0)
+    {
+        if (!gameComplete)
+        {
+            WinScreen.instance.gameObject.SetActive(true);
+            WinScreen.instance.SetScore(currentScore + timeleft * Var.timeMultiplier);
+            gameComplete = true;
         }
     }
 
@@ -115,6 +123,11 @@ public class BunkerGameController : MonoBehaviour
                 scoreGained += pointsForCorrectDestination;
             }
 
+            if(CheckRoundedButtons())
+            {
+                OnGameComplete();
+            }
+
             UpdateScore(scoreGained);
             destinationButtons[id].SetClickOutcome(true,0.5f);
         }
@@ -131,9 +144,21 @@ public class BunkerGameController : MonoBehaviour
         SetGameState(bunkerGameState.DriveToBunker);
     }
 
- 
 
- 
+    private bool CheckRoundedButtons()
+    {
+        bool buttonsCompleted = true;
+        foreach (RoundButtonController roundButton in roundedButtons)
+        {
+            if (!roundButton.IsFull())
+            {
+                buttonsCompleted = false;
+                break;
+            }
+        }
+        return buttonsCompleted;
+    }
+
 
 
     public void UpdateScore(int updateBy)
@@ -147,7 +172,14 @@ public class BunkerGameController : MonoBehaviour
     {
         foreach(AnimatedButton btn in destinationButtons)
         {
-            btn.SetState(isActive);
+            if (isActive)
+            {
+                btn.SetState(isActive);
+            }
+            else
+            {
+                btn.SetState(isActive, 1);
+            }
         }
     }
     void SetupRoundedButtons()
@@ -186,6 +218,10 @@ public class BunkerGameController : MonoBehaviour
         {
             anim.SetTrigger("move");
         }
+        foreach (Animator anim in additionalAnimators)
+        {
+            anim.SetTrigger("move");
+        }
     }
 
    
@@ -211,7 +247,14 @@ public class BunkerGameController : MonoBehaviour
                     {
                         AdvanceTiles();
                     }
-                    Invoke("SetFillState", 2);
+                    if (tileAnimators.Count == 2)
+                    {
+                        SetGameState(bunkerGameState.GrabItem);
+                    }
+                    else
+                    {
+                        Invoke("SetFillState", 2f);
+                    }
                 }
                 else
                 {

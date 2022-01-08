@@ -34,6 +34,7 @@ public class HillPieceController : MonoBehaviour
             if (activePiece.sliderData[activeBar].sliderValue==1) 
             {
                 activeBar++;
+                activePiece.activeSmallPiece.fill.fillAmount = (float)activeBar / 5f;
                 points += HillGameController.Instance.pointsForCorrectLine;
                 if(activeBar==5)
                 {
@@ -82,8 +83,7 @@ public class HillPieceController : MonoBehaviour
     {
         if (id == -1)
         {
-            Debug.LogError("GAME COMPLETE");
-
+            HillGameController.Instance.OnGameComplete(TopBarController.instance.secondsRemaining);
         }
         else
         {
@@ -106,7 +106,6 @@ public class HillPieceController : MonoBehaviour
             activePiece.Clear();
         }
     }
-
 }
 [System.Serializable]
 public class LayerData

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Krasa
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 360fd34a8a74f2b439a3b042ecd88155, type: 3}
+  imageHard: {fileID: 0}
   possibleBgColors:
   - {r: 0.09411766, g: 0.3019608, b: 0.82745105, a: 1}
   - {r: 0.22352943, g: 0.5411765, b: 0.86274517, a: 1}
@@ -30,5 +31,6 @@ MonoBehaviour:
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.3019608, g: 0.6666667, b: 0.6117647, a: 1}
-  possibleDestinations: 13000000
-  DisplayName: "Kr\u0101sas"
+  possibleDestinations: 0300000005000000
+  DisplayName: "kr\u0101sa"
+  DisplayNameEng: paint
