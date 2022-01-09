@@ -152,7 +152,7 @@ public class SortingGameController : MonoBehaviour
             SortingGameGate.instance.Open();
             tileAnimators.RemoveAt(0);
             AdvanceTiles();
-            Invoke("SetFillState", 2);
+            SetFillState();
             UpdateScore(pointsForCorrectDestination);
             ToggleDestinationButtons(false);
             if (CheckRoundedButtons())

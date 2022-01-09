@@ -15,12 +15,21 @@ public class HillPieceController : MonoBehaviour
     void Start()
     {
         targetPoints.AddRange(targetParent.GetComponentsInChildren<SnapPoint>());
-        targetPoints.Reverse();
         foreach (SnapPoint point in targetPoints)
         {
             point.delegatedAssingMethod = DelegatedMethod;
         }
         SetActivePiece(GetAvailablePiece());
+        ActivateTargetPoints();
+    }
+
+    public void ActivateTargetPoints()
+    {
+        for(int i =0;i<targetPoints.Count;i++)
+        {
+            bool shouldBeActive = activeBar ==i;
+            targetPoints[i].enabled = shouldBeActive;
+        }
     }
     public void DelegatedMethod(SnapPoint point)
     {
@@ -34,6 +43,7 @@ public class HillPieceController : MonoBehaviour
             if (activePiece.sliderData[activeBar].sliderValue==1) 
             {
                 activeBar++;
+                ActivateTargetPoints();
                 activePiece.activeSmallPiece.fill.fillAmount = (float)activeBar / 5f;
                 points += HillGameController.Instance.pointsForCorrectLine;
                 if(activeBar==5)
@@ -58,6 +68,7 @@ public class HillPieceController : MonoBehaviour
         SetActivePiece(GetAvailablePiece(), true);
         HillGameController.Instance.UpdateScore(HillGameController.Instance.pointsForCompletePiece);
         activeBar = 0;
+        ActivateTargetPoints();
     }
 
     public int GetAvailablePiece()

@@ -2,6 +2,7 @@ fileFormatVersion: 2
 guid: 28c53ff3461f6ce43ad1e3f47ad3cd3f
 labels:
 - KalnsNoslegsana
+- KalnsPamatne
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

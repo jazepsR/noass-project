@@ -342,7 +342,7 @@ MonoBehaviour:
   pointsGainText: {fileID: 6573729825786119205}
   pointsLoseText: {fileID: 6577534297416956349}
   anim: {fileID: 8969144521747771723}
-  secondsRemaining: 300
+  secondsRemaining: 180
 --- !u!1 &2103734054293641743
 GameObject:
   m_ObjectHideFlags: 0

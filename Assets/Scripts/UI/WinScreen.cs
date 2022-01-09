@@ -55,7 +55,7 @@ public class WinScreen : MonoBehaviour
             {
                 selectionMade = true;
                 gdprConsentNo.isOn = !selection;
-                Debug.LogError("yes toggle changed to: " + selection);
+               // Debug.LogError("yes toggle changed to: " + selection);
                 gdprPopup.SetActive(false);
             }
             ValidateFormSubmission();
@@ -78,7 +78,7 @@ public class WinScreen : MonoBehaviour
             {
                 selectionMade = false;
             }
-            Debug.LogError("no toggle changed to: " + selection);
+          //  Debug.LogError("no toggle changed to: " + selection);
             ValidateFormSubmission();
         }
 
@@ -128,7 +128,7 @@ public class WinScreen : MonoBehaviour
     }
     public void SetEmail(string text)
     {
-        playerData.lastName = text;
+        playerData.email = text;
         ValidateFormSubmission();
     }
     private void ValidateFormSubmission()
@@ -148,7 +148,7 @@ public class WinScreen : MonoBehaviour
         }
         else
         {
-            if (playerData.name == "" || playerData.lastName == "" || playerData.email=="")
+            if (playerData.firstName == "" || playerData.lastName == "" || playerData.email=="")
             {
                 Debug.LogError("GDPR yes, missing data");
                 secondScreenButton.interactable = false;

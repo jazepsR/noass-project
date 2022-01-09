@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class MainMenu : MonoBehaviour
 {
@@ -11,13 +13,12 @@ public class MainMenu : MonoBehaviour
     public CanvasGroup levelScreen;
     public float splashScreenFadeTime = 0.4f;
     public Button submitFormButton;
-
     public GameObject[] screens;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        ValidateFormSubmission();
         DisableScreens();
         if (Var.startFromGameSelect)
         {
@@ -30,7 +31,11 @@ public class MainMenu : MonoBehaviour
             screens[2].SetActive(true);
             FadeSplashScreen(1);
         }
+        ValidateFormSubmission();
     }
+
+
+   
 
     public void SelectLatvian()
     {
@@ -103,7 +108,6 @@ public class MainMenu : MonoBehaviour
     private void ValidateFormSubmission()
     {
         submitFormButton.interactable = AreAllFieldsFilled();
-        submitFormButton.GetComponent<UIHelpers>().useFade = AreAllFieldsFilled();
     }
 
     private bool AreAllFieldsFilled()

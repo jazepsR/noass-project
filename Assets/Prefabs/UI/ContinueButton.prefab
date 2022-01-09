@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4493308585387533059}
   - component: {fileID: 4493308585387533058}
   - component: {fileID: 4493308585387533057}
-  - component: {fileID: 4493308585387533060}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -100,10 +99,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.20784315, g: 0.34901962, b: 0.6627451, a: 0}
-    m_PressedColor: {r: 0.20784315, g: 0.34901962, b: 0.6627451, a: 0}
-    m_SelectedColor: {r: 0.20784315, g: 0.34901962, b: 0.6627451, a: 0}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0, g: 0.54901963, b: 0.8941177, a: 1}
+    m_PressedColor: {r: 0, g: 0.54901963, b: 0.8941177, a: 1}
+    m_SelectedColor: {r: 0, g: 0.54901963, b: 0.8941177, a: 1}
+    m_DisabledColor: {r: 0, g: 0.54901963, b: 0.8941177, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.2
   m_SpriteState:
@@ -134,22 +133,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4493308585387533060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4493308585387533071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10f6c6241a64cae48a9107298827722f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 4493308586389660935}
-  targetTextColor: {r: 1, g: 1, b: 1, a: 1}
-  fadeTime: 0.2
-  useFade: 1
 --- !u!1 &4493308586389660933
 GameObject:
   m_ObjectHideFlags: 0

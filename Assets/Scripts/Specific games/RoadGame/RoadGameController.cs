@@ -208,8 +208,8 @@ public class RoadGameController : MonoBehaviour
             case roadGameState.DiscardItem:
                 ClawScript.instance.StartDiscard();
                 tileAnimators.RemoveAt(0);
-                Invoke("SetFillState", 4);
-                Invoke("AdvanceTiles", 3);
+                Invoke("SetFillState", 2.5f);
+                Invoke("AdvanceTiles", 2);
                 break;
             case roadGameState.GrabItem:
                 ClawScript.instance.StartGrab();
@@ -227,8 +227,8 @@ public class RoadGameController : MonoBehaviour
                 RoadCrusher.instance.StartCrush();
                 ClawScript.instance.Release(1);
                 tileAnimators.RemoveAt(0);
-                Invoke("AdvanceTiles", 3);
-                Invoke("SetFillState", 4);
+                Invoke("AdvanceTiles", 1);
+                Invoke("SetFillState", 1.5f);
                 break;
             default:
                 break;

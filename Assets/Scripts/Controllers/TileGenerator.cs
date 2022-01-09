@@ -80,7 +80,7 @@ public class TileGenerator : MonoBehaviour
         }
         else
         {
-            int mainTileCount = (int)((float)tileCount * 0.6f);
+            int mainTileCount = (int)((float)tileCount * 0.83f);
             for (int i = 0; i < tileCount; i++)
             {
                 if (i < mainTileCount)

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889c54f1c745c5f4fadebcb46607cc39, type: 3}
   m_Name: medikamenti
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: a8caf0b16d0653d47a49c19e683ff50c, type: 3}
+  image: {fileID: 21300000, guid: c088392bdcf85b341b02f3fba001bdb1, type: 3}
   imageHard: {fileID: 0}
   possibleBgColors:
   - {r: 0.09411766, g: 0.3019608, b: 0.82745105, a: 1}

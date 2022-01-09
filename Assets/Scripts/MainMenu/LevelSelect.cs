@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public enum TutorialStage { gaita, elementi, kopsavlikums};
+public enum TutorialStage { gaita, elementi, kopsavilkums};
 public class LevelSelect : MonoBehaviour
 {
     [SerializeField]
@@ -29,6 +29,13 @@ public class LevelSelect : MonoBehaviour
     public GameObject elementScreen;
     public Sprite summarySprite;
     public GameObject summaryParent;
+
+
+    public Color activeColor;
+    public Color passiveColor;
+    public TMP_Text gaitaText;
+    public TMP_Text elementiText;
+    public TMP_Text kopsavilkumsText;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +64,12 @@ public class LevelSelect : MonoBehaviour
         elementScreen.SetActive(false);
         SetCurrentTutorialSlide();
         summaryParent.SetActive(false);
+        if (currentSlide == 0)
+        {
+            prevSlideBtn.interactable = false;
+        }
+        nextSlideBtn.interactable = true;
+        RefreshTexts();
     }
     private void StartElementStage()
     {
@@ -67,15 +80,17 @@ public class LevelSelect : MonoBehaviour
         currentElementGroup = 0;
         currentElementSheet = 0;
         SetupElementPage();
+        RefreshTexts();
     }
 
     private void StartSummaryStage()
     {
         summaryParent.SetActive(true);
-        currentStage = TutorialStage.kopsavlikums;
+        currentStage = TutorialStage.kopsavilkums;
         mainImage.gameObject.SetActive(true);
         elementScreen.SetActive(false);
         mainImage.sprite = summarySprite;
+        RefreshTexts();
     }
 
     public void SetupElementPage()
@@ -83,6 +98,13 @@ public class LevelSelect : MonoBehaviour
         SetupElementPage(selectedGame.tileGroups[currentElementGroup], currentElementSheet);
     }
 
+
+    private void RefreshTexts()
+    {
+        gaitaText.color = currentStage == TutorialStage.gaita ? activeColor : passiveColor;
+        elementiText.color = currentStage == TutorialStage.elementi ? activeColor : passiveColor;
+        kopsavilkumsText.color = currentStage == TutorialStage.kopsavilkums ? activeColor : passiveColor;
+    }
     public void SetupElementPage(TileGroup group, int sheet)
     {
         elementsHeading.text = group.groupName;
@@ -106,6 +128,7 @@ public class LevelSelect : MonoBehaviour
 
     public void NextTutorialSlide()
     {
+        prevSlideBtn.interactable = true;
         switch (currentStage)
         {
             case TutorialStage.gaita:
@@ -139,11 +162,11 @@ public class LevelSelect : MonoBehaviour
                     // last group, go to next stage
                     //Debug.LogError(" LAST PAGE, LAST GROUP");
                     StartSummaryStage();
+                    nextSlideBtn.interactable = false;
                 }
                 break;
 
-            case TutorialStage.kopsavlikums:
-                StartGame();
+            case TutorialStage.kopsavilkums:
                 break;
 
             default:
@@ -155,11 +178,19 @@ public class LevelSelect : MonoBehaviour
 
     public void PrevTutorialSlide()
     {
+        nextSlideBtn.interactable = true;
         switch (currentStage)
         {
             case TutorialStage.gaita:
-                currentTutorialSlide--;
-                SetCurrentTutorialSlide();
+                if (currentTutorialSlide > 0)
+                {
+                    currentTutorialSlide--;
+                    SetCurrentTutorialSlide();
+                }
+                if(currentTutorialSlide == 0)
+                {
+                    prevSlideBtn.interactable = false;
+                }
                 break;
             case TutorialStage.elementi:
 
@@ -189,7 +220,7 @@ public class LevelSelect : MonoBehaviour
 
                 break;
 
-            case TutorialStage.kopsavlikums:
+            case TutorialStage.kopsavilkums:
                 StartElementStage();
                 currentElementGroup = selectedGame.tileGroups.Length-1;
                 currentElementSheet = GetSheetCount();

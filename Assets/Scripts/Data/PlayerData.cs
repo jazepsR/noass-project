@@ -17,7 +17,7 @@ public class PlayerData : ScriptableObject
        lastName = "";
        school = "";
        grade = "";
-       username = "tester";
+       username = "";
         email = "";
     }
 }

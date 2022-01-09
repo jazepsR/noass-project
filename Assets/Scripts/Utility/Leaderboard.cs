@@ -10,11 +10,13 @@ using TMPro;
 public class Leaderboard : MonoBehaviour
 {
     List<PlayerDataSave> scoresSave = new List<PlayerDataSave>();
+    private string remoteDirectory = "C:/Users/spele/My Drive/leaderboards";
+    private string remoteDirectory2 = "C:/Users/Jazeps Private/My Drive/leaderboards";//"C:/Users/Jazeps Private/Documents";//
     string path;
     public static Leaderboard instance;
     public VerticalLayoutGroup[] layouts;
     public TMP_Text textPrefab;
-    int ass = 0;
+    int tempInt = 0;
     // add some values to the collection here
     private void Awake()
     {
@@ -25,15 +27,29 @@ public class Leaderboard : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.H))
         {
-            AddEntry(scoresSave[ass%scoresSave.Count], ass);
-            ass++;
+            AddEntry(scoresSave[tempInt%scoresSave.Count], tempInt);
+            tempInt++;
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        path = Application.persistentDataPath + "/" + TopBarController.instance.gameNameString;
+        if (Directory.Exists(remoteDirectory))
+        {
+            path = remoteDirectory;
+            Debug.LogError("found remote dir!");
+        }
+        else if(Directory.Exists(remoteDirectory2))
+        {
+            path = remoteDirectory2;
+        }
+        else
+        {
+            path = Application.persistentDataPath; ;
+        }
+        path = path + "/" + TopBarController.instance.gameNameString + ".txt";
+        Debug.LogError("path: " + path);
         Load();
     }
 

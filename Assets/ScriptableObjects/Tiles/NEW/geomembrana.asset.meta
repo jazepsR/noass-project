@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 44db065488d42c941ba13090b32b3641
+labels:
+- KalnsPamatne
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
