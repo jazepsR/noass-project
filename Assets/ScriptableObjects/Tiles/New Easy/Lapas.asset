@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: e9c7e517e5d493347b05ad12322dce52, type: 3}
   imageHard: {fileID: 0}
+  isHard: 0
   possibleBgColors:
   - {r: 0.09411766, g: 0.3019608, b: 0.82745105, a: 1}
   - {r: 0.22352943, g: 0.5411765, b: 0.86274517, a: 1}
@@ -33,4 +34,4 @@ MonoBehaviour:
   - {r: 0.3019608, g: 0.6666667, b: 0.6117647, a: 1}
   possibleDestinations: 1600000007000000
   DisplayName: Lapa
-  DisplayNameEng: lapa
+  DisplayNameEng: Leaf

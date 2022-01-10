@@ -28,9 +28,8 @@ public class LevelSelect : MonoBehaviour
     public int elementsPerPage = 8;
     public GameObject elementScreen;
     public Sprite summarySprite;
+    public Sprite summarySpriteEN;
     public GameObject summaryParent;
-
-
     public Color activeColor;
     public Color passiveColor;
     public TMP_Text gaitaText;
@@ -108,11 +107,12 @@ public class LevelSelect : MonoBehaviour
             nextSlideBtn.interactable = true;
             RefreshTexts();
         }
-        heading.text = selectedGame.levelName.ToUpper();
+        heading.text = Helpers.isLatvian()? selectedGame.levelName.ToUpper() :selectedGame.levelNameEn.ToUpper();
     }
     public void StartElementStage()
     {
-        if(!OnPauseScreen)
+        currentStage = TutorialStage.elementi;
+        if (!OnPauseScreen)
         {
             mainImage.gameObject.SetActive(false);
             summaryParent.SetActive(false);
@@ -122,7 +122,6 @@ public class LevelSelect : MonoBehaviour
             RefreshTexts();
             SetupDifficultyToggles();
         }
-        currentStage = TutorialStage.elementi;
 
         selectedGame.SetupElementList();
         SetupElementPage();
@@ -136,7 +135,7 @@ public class LevelSelect : MonoBehaviour
         currentStage = TutorialStage.kopsavilkums;
         mainImage.gameObject.SetActive(true);
         elementScreen.SetActive(false);
-        mainImage.sprite = summarySprite;
+        mainImage.sprite = Helpers.isLatvian() ? summarySprite : summarySpriteEN;
         RefreshTexts();
     }
 
@@ -154,7 +153,7 @@ public class LevelSelect : MonoBehaviour
     }
     public void SetupElementPage(TileGroup group, int sheet)
     {
-        elementsHeading.text = group.groupName;
+        elementsHeading.text = Helpers.isLatvian()? group.groupName : group.groupNameEn;
         int startingIndex = sheet * elementsPerPage;
         for(int i =0;i<elementsPerPage;i++)
         {
@@ -179,7 +178,8 @@ public class LevelSelect : MonoBehaviour
         switch (currentStage)
         {
             case TutorialStage.gaita:
-                if (currentTutorialSlide == selectedGame.tutorialSprites.Length - 1)
+                Sprite[] activeSprites = Helpers.isLatvian()? selectedGame.tutorialSprites :selectedGame.tutorialSpritesEn;
+                if (currentTutorialSlide ==activeSprites.Length - 1)
                 {
                     StartElementStage();
                 }
@@ -309,7 +309,9 @@ public class LevelSelect : MonoBehaviour
     public void SetCurrentTutorialSlide()
     {
         ValidateButtons();
-        mainImage.sprite = selectedGame.tutorialSprites[currentTutorialSlide];
+        Sprite[] activeSprites = Helpers.isLatvian() ? selectedGame.tutorialSprites : selectedGame.tutorialSpritesEn;
+
+        mainImage.sprite = activeSprites[currentTutorialSlide];
     }
     public void ValidateButtons()
     {
@@ -329,6 +331,7 @@ public class LevelSelect : MonoBehaviour
 public class LevelData
 {
     public string levelName;
+    public string levelNameEn;
     public string levelScene;
     public Sprite levelIcon;
     public Sprite levelSelection;
@@ -379,6 +382,7 @@ public class LevelData
 public class TileGroup
 {
     public string groupName;
+    public string groupNameEn;
     public TileScriptable[] tiles;
     public List<TileScriptable> currentTiles;
 }

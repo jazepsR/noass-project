@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System;
 using System.Net;
@@ -6,36 +6,70 @@ using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 public class sendEmail : MonoBehaviour
 {
     public string myEmail;
     public string myPassword;
-    public string targetEmail;
+    public string diplomsEN;
+    public string diplomsLV;
     [TextArea(2,4)]
     public string subject;
-    [TextArea(5, 10)]
-    public string body;
-    public void Update()
+    public static sendEmail instance;
+    public void Awake()
     {
-        if(Input.GetKeyDown(KeyCode.M))
+        if(instance != null && instance != this)
         {
-            Task sendMailTask = SendMail();
+            Destroy(instance.gameObject);
         }
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 
-
-
-    private async Task SendMail()
+    private void Update()
+    {     
+        if(Input.GetKeyDown(KeyCode.M))
+            {
+            SendMail("jazepsrutkis93@gmail.com", "Jazeps", "Rutkis", 23);
+        }
+    }
+    public void sendEmailMethod()
     {
-        MailMessage mail = new MailMessage();
+        SimpleEmailSender.emailSettings.STMPClient = "smtp.gmail.com";
+        SimpleEmailSender.emailSettings.SMTPPort = 587;
+        SimpleEmailSender.emailSettings.UserName = myEmail.Trim();
+        SimpleEmailSender.emailSettings.UserPass = myPassword.Trim();
+    }
 
+    private void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
+    {
+        if (e.Cancelled || e.Error != null)
+        {
+            print("Email not sent: " + e.Error.ToString());
+        }
+        else
+        {
+            print("Email successfully sent.");
+        }
+    }
+    public void SendMail(string userEmail, string firstName, string lastName, int playerScore)
+    {
+        sendEmailMethod();
+        string diplomaString = Application.dataPath + "/Textures/DIPLOMI/" + (Helpers.isLatvian() ? diplomsLV : diplomsEN);
+        string body = GenerateBody(firstName + " " + lastName, playerScore.ToString());
+
+        SimpleEmailSender.Send(userEmail, subject, body, diplomaString, SendCompletedCallback);
+
+        /*
+        MailMessage mail = new MailMessage();
+        Debug.LogError("email_Starting");
         mail.From = new MailAddress(myEmail);
-        mail.To.Add(targetEmail);
+        mail.To.Add(userEmail);
         mail.Subject = subject;
         mail.Body = body;
         //Attachment code
-        mail.Attachments.Add(new Attachment( Application.dataPath+ "/Textures/DIPLOMI/DIPLOMS_Bio_ENG.png"));
+        mail.Attachments.Add(new Attachment( diplomaString));
         SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
         smtpServer.Port = 587;
         smtpServer.Credentials = new System.Net.NetworkCredential(myEmail, myPassword) as ICredentialsByHost;
@@ -43,9 +77,24 @@ public class sendEmail : MonoBehaviour
         ServicePointManager.ServerCertificateValidationCallback =
             delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
             { return true; };
-
-        await Task.Delay(5000);
         smtpServer.Send(mail);
-        Debug.Log("success");
+        Debug.Log("success");*/
     }   
+
+
+    public string GenerateBody(string playerName, string playerScore)
+    {
+        if(Helpers.isLatvian())
+        {
+          return  "Sveiks!\nPaldies, ka apmeklēji Getliņi EKO \"Vides izglītības centru\".\nTavs Getliņi EKO poligonu procesu izziņas spēles rezultāts ir:\n\nSpēlētājs:<b> " + playerName +
+                "</b>\nPunktu skaits: <b>" + playerScore +
+                "</b>\n\nPielikumā atradīsi diplomu par dalību spēlē!\n Uz tikšanos nākamreiz!";
+        }
+        else
+        {
+            return "Hi!\nThanks for visiting the Getliņi EKO \"Environmental education center\"!\nYour Getliņi EKO landfill porcesses informational game results are:\n\nPlayer name: " + playerName +
+                           "\nScore: " + playerScore +
+                           "\n\nAttached to this email you will find a diploma!\nSee you next time!";
+        }
+    }
 }

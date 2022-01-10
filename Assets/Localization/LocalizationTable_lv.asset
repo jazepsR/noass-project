@@ -23,7 +23,293 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 142312984576
-    m_Localized: "Turpin\u0101t"
+    m_Localized: "TURPIN\u0100T"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19513769644765184
+    m_Localized: "PIRMS S\u0100C SP\u0112LI,\nIEVADI NEPIECIE\u0160AMO \nINFROM\u0100CIJU"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19514244230262784
+    m_Localized: "Lietot\u0101jv\u0101rds*"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19514404582699008
+    m_Localized: Ievadi teskstu...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19514658174513152
+    m_Localized: "*Oblig\u0101ti aizpild\u0101ms lauks"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19517898110775296
+    m_Localized: "1. L\u012AMENIS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19518182446837760
+    m_Localized: "Sp\u0113les gaita"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19518584936443904
+    m_Localized: Elementi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19518694793654272
+    m_Localized: Kopsavilkums
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19519155919630336
+    m_Localized: "2. L\u012AMENIS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19522249768284160
+    m_Localized: "Sp\u0113les gaita"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19522991119904768
+    m_Localized: "S\u0100KT SP\u0112LI!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19530520394706944
+    m_Localized: "ESI SVEICIN\u0100TS <I>GELTI\u0145I EKO</I> IZZI\u0145AS SP\u0112L\u0112"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19533371871309824
+    m_Localized: "ATPAKA\u013B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19535133764202496
+    m_Localized: "SP\u0112LES BEIGAS!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19535299451793408
+    m_Localized: "APSVEICAM AR <b>V\u0100RTU</b>\nSP\u0112LES PABEIG\u0160ANU!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19535551911145472
+    m_Localized: 'TU ESI
+
+      IEGUVIS'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19535686627995648
+    m_Localized: "SP\u0112LES\nPUNKTUS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19535876747407360
+    m_Localized: "PALDIES PAR DAL\u012ABU!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19536105789960192
+    m_Localized: "SAGLAB\u0100T REZULT\u0100TU"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19536266096259072
+    m_Localized: "REZULT\u0100TS SAGLAB\u0100TS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19536400372707328
+    m_Localized: "NEV\u0112LOS SA\u0145EMT\nREZULT\u0100TU E-PASTU"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19536689364447232
+    m_Localized: "V\u0112LOS SA\u0145EMT\nREZULT\u0100TU E-PASTU"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19537118571769856
+    m_Localized: "V\u0101rds*"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19537329411043328
+    m_Localized: "Uzv\u0101rds*"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19537612765638656
+    m_Localized: E-pasts*
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19538039162777600
+    m_Localized: "KOPV\u0112RT\u0112JUMS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19538478935552000
+    m_Localized: "V\u0100RTU SP\u0112LES"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19538774969528320
+    m_Localized: "REZULT\u0100TU\nKOPSAVILKUMS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19538883283234816
+    m_Localized: "UZ S\u0100KUMU"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19538984860889088
+    m_Localized: "IZV\u0112L\u0112TIES SP\u0112LI"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19543044892635136
+    m_Localized: "APSVEICAM AR <b>ENERIJAS</b> SP\u0112LES PABEIG\u0160ANU!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19543448145604608
+    m_Localized: "ENER\u0122IJAS SP\u0112LES"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19543651208638464
+    m_Localized: "APSVEICAM AR <b>BIO TUNE\u013BU</b> SP\u0112LES PABEIG\u0160ANU!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19544016289247232
+    m_Localized: "BIO TUNE\u013BU SP\u0112LES"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19544776330686464
+    m_Localized: "APSVEICAM AR <b>ATKRITUMU KALNA</b>\nSP\u0112LES PABEIG\u0160ANU!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19545057307111424
+    m_Localized: ATKRITUMU KALNA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19545271556354048
+    m_Localized: "APSVEICAM AR <b>B\u016AVGRU\u017DU P\u0100RSTR\u0100DES</b> \nSP\u0112LES
+      PABEIG\u0160ANU!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19545631582826496
+    m_Localized: "B\u016AVGRU\u017DU P\u0100RSTR\u0100DES"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19545852702339072
+    m_Localized: "APSVEICAM AR <b>ATKRITUMU \u0160KIRO\u0160ANAS</b> SP\u0112LES
+      PABEIG\u0160ANU"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19548567721455616
+    m_Localized: "Vai tie\u0161\u0101m v\u0113lies beigt sp\u0113li?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19549668323602432
+    m_Localized: STIKLS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19549790658867200
+    m_Localized: "PAP\u012ARS &\nKARTONS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19549970170884096
+    m_Localized: PLASTMASA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19550096025169920
+    m_Localized: "MET\u0100LI"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19550164228747264
+    m_Localized: 'BIO
+
+      ATKRITUMI'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19550249146626048
+    m_Localized: "NE\u0160\u0136IROTIE\nATKRITUMI"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19550353182142464
+    m_Localized: "B\u012ASTAMIE\nATKRITUMI"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19552018522157056
+    m_Localized: "ATT\u012AR\u012A\u0160ANAS\nSIST\u0112MA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19552298777161728
+    m_Localized: "ENER\u0122IJAS\nRA\u017DO\u0160ANA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19552697164738560
+    m_Localized: "SKEN\u0112T"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19552783487709184
+    m_Localized: "\u0160\u0136IRO\u0160ANA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19552928312832000
+    m_Localized: "NOGLAB\u0100\u0160ANA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19553019870294016
+    m_Localized: "BIOLO\u0122IJA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19553134823583744
+    m_Localized: "SILD\u012AT\n\u0122ENERATORU"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19553296631443456
+    m_Localized: "TOM\u0100TU\nSILTUMN\u012ACA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19553413061128192
+    m_Localized: "GUR\u0136U\nSILTUMN\u012ACA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19553519378345984
+    m_Localized: "PU\u0136U\nSILTUMN\u012ACA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19553817467531264
+    m_Localized: "NEDER\u012AGI"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19554661818675200
+    m_Localized: PAMATNE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19554811156869120
+    m_Localized: "INFILTR\u0100TA\nCAURULES"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19554939213164544
+    m_Localized: ATKRITUMI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19555096369541120
+    m_Localized: "G\u0100ZU\nSAV\u0100K\u0160ANAS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19555188237381632
+    m_Localized: "\u0160\u016ANAS\nNOSL\u0112G\u0160ANA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19555555356422144
+    m_Localized: "NOSL\u0112GT\n\u0160\u016ANU"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19555727897505792
+    m_Localized: "SMALK\u0100\nFRAKCIJA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19555924052520960
+    m_Localized: "VID\u0112J\u0100\nFRAKCIJA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19556038020149248
+    m_Localized: "RUPJ\u0100\nFRAKCIJA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19570990017654784
+    m_Localized: "J\u0100"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19571063006932992
+    m_Localized: "N\u0112"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19571302229061632
+    m_Localized: "BEIGT SP\u0112LI"
     m_Metadata:
       m_Items: []
   references:

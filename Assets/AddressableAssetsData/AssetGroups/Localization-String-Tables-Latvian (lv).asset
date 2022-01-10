@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-lv
     - Preload
+  - m_GUID: e7dcb5e7e93d6974eb94c74571e87bca
+    m_Address: Asset Table_lv
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-lv
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: fb37b2bf7bd96324a99db6d28f3cb0cc, type: 2}
   m_SchemaSet:

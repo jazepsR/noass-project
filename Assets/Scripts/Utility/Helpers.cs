@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public static class Helpers 
 {
@@ -16,6 +17,11 @@ public static class Helpers
             }
         }
         return false;
+    }
+
+    public static bool isLatvian()
+    {
+        return LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0];
     }
     public static bool ListContainsTile(TileScript ts, List<Destination> destinationList)
     {

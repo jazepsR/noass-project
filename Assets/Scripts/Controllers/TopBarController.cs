@@ -14,6 +14,7 @@ public class TopBarController : MonoBehaviour
     public static TopBarController instance;
     public PlayerData playerData;
     public string gameNameString;
+    public string gameNameStringEN;
     public Image nameUnderlay;
     public Image helpBtnImage;
     public Image scoreUnderlay;
@@ -23,6 +24,7 @@ public class TopBarController : MonoBehaviour
     public int secondsRemaining = 10;
     public delegate void DelegateMethod(int timeLeft);
     public DelegateMethod delegatedTimeUpMethod = null;
+    public GameObject pauseBG;
     private void Awake()
     {
         instance = this;
@@ -33,7 +35,7 @@ public class TopBarController : MonoBehaviour
         playerName.color = textColor;
         gameName.color = textColor;
         playerName.text = playerData.username.ToUpper();// playerData.firstName.ToUpper()+  " " + playerData.lastName[0] + ".";
-        gameName.text = gameNameString;
+        gameName.text = Helpers.isLatvian()? gameNameString : gameNameStringEN;
         nameUnderlay.color = textColor;
         scoreUnderlay.color = textColor;
         helpBtnImage.color = textColor;
@@ -41,7 +43,6 @@ public class TopBarController : MonoBehaviour
     }
     private void UpdateTime()
     {
-        secondsRemaining--;
         if (secondsRemaining == 0)
         {
             if(delegatedTimeUpMethod!= null)
@@ -49,6 +50,10 @@ public class TopBarController : MonoBehaviour
                 delegatedTimeUpMethod(0);
             }
             return;
+        }
+        if (!pauseBG.activeSelf)
+        {
+            secondsRemaining--;
         }
         time.text = secondsRemaining / 60 + ":" + (secondsRemaining % 60).ToString("D2");
         Invoke("UpdateTime",1);

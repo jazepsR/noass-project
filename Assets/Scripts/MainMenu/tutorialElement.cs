@@ -16,7 +16,15 @@ public class tutorialElement : MonoBehaviour
 
     public void Setup(TileScriptable tileScriptable)
     {
-        objName.text = tileScriptable.DisplayName[0].ToString().ToUpper() + tileScriptable.DisplayName.Remove(0, 1);
+        string text = Helpers.isLatvian() ? tileScriptable.DisplayName : tileScriptable.DisplayNameEng;
+        try
+        {
+            objName.text = text[0].ToString().ToUpper() + text.Remove(0, 1);
+        }
+        catch
+        {
+            objName.text = text;
+        }
         image.sprite = (!Var.isEasy && tileScriptable.imageHard != null) ? tileScriptable.imageHard : tileScriptable.image;
     }
 

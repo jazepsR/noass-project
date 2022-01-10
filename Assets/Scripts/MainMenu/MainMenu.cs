@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.Localization.Settings;
 
 public class MainMenu : MonoBehaviour
 {
@@ -42,6 +42,7 @@ public class MainMenu : MonoBehaviour
     {
         FadeSplashScreen(0);
         FadeProfileScreen(1,1);
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
     }
 
 
@@ -49,8 +50,14 @@ public class MainMenu : MonoBehaviour
     {
         FadeSplashScreen(0);
         FadeProfileScreen(1, 1);
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
     }
 
+    public void GoBackFromTutorial()
+    {
+        StartCoroutine(FadeSplash(0, levelScreen));
+        FadeProfileScreen(1, 1);
+    }
      
     void DisableScreens()
     {
@@ -149,7 +156,7 @@ public class MainMenu : MonoBehaviour
 
     public void SetString(string receivedText)
     {
-        Debug.Log("received: " + receivedText);
+       // Debug.Log("received: " + receivedText);
         ValidateFormSubmission();
     }
 

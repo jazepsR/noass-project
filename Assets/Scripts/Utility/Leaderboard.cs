@@ -10,7 +10,7 @@ using TMPro;
 public class Leaderboard : MonoBehaviour
 {
     List<PlayerDataSave> scoresSave = new List<PlayerDataSave>();
-    private string remoteDirectory = "C:/Users/spele/My Drive/leaderboards";
+    private string remoteDirectory = "C:/Users/BVS/My Drive/leaderboards";
     private string remoteDirectory2 = "C:/Users/Jazeps Private/My Drive/leaderboards";//"C:/Users/Jazeps Private/Documents";//
     string path;
     public static Leaderboard instance;
@@ -46,24 +46,24 @@ public class Leaderboard : MonoBehaviour
         }
         else
         {
-            path = Application.persistentDataPath; ;
+            path = Application.persistentDataPath; 
         }
-        path = path + "/" + TopBarController.instance.gameNameString + ".txt";
-        Debug.LogError("path: " + path);
-        Load();
+        string diff = Var.isEasy ? "_easy" :"_hard";
+        path = path + "/" + TopBarController.instance.gameNameString+diff + ".txt";
+       // Debug.LogError("path: " + path);
     }
 
     public void AddScoreToLeaderboard(string nickname, int score)
     {
         scoresSave.Add(new PlayerDataSave(nickname, score, System.DateTime.Now));
-        Sort();
-        LogLeaderboard();
+       // LogLeaderboard();
         Save();
     }
 
     public void SetupLeaderboardVisualisation()
     {
-        for(int i =0;i< scoresSave.Count;i++)
+        Sort();
+        for (int i =0;i< scoresSave.Count;i++)
         {
             AddEntry(scoresSave[i], i);
         }
@@ -109,12 +109,9 @@ public class Leaderboard : MonoBehaviour
 
     public void Save()
     {
-        if (File.Exists(path))
-        {
-            File.Delete(path);
-        }
+
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(path);
+        FileStream file = File.Open(path, FileMode.OpenOrCreate);
         bf.Serialize(file, scoresSave);
         file.Close();
     }

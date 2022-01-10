@@ -178,7 +178,7 @@ public class EnergyGameController : MonoBehaviour
     {
         foreach(RoundButtonController btn in roundedButtons)
         {
-            btn.Setup(15);
+            btn.Setup(25);
         }
     }
 

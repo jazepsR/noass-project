@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
+
 public class WinScreen : MonoBehaviour
 {
     public TMP_Text score;
@@ -19,7 +21,7 @@ public class WinScreen : MonoBehaviour
     private bool toggledThisFrame = false;
     private bool selectionMade = false;
     public PlayerData playerData;
-    private bool GDPRSeen = false;
+    private bool GDPRSeen = true;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -28,7 +30,7 @@ public class WinScreen : MonoBehaviour
     }
     void Start()
     {
-        gdprPopup.SetActive(false);
+        gdprPopup.SetActive(true);
         secondScreenButton.interactable = false;
         EnableInputFields(false);
     }
@@ -105,9 +107,15 @@ public class WinScreen : MonoBehaviour
         }
     }
 
-    public void GoToLeaderBoard()
+    public void SendEmail()
     {
+        Leaderboard.instance.Load();
         Leaderboard.instance.AddScoreToLeaderboard(TopBarController.instance.playerData.username, scoreVal);
+        Leaderboard.instance.SetupLeaderboardVisualisation();
+        if (gdprConsentYes.isOn)
+        {
+           sendEmail.instance.SendMail(playerData.email, playerData.firstName, playerData.lastName, scoreVal);
+        }
     }
 
     public void GoToMainMenu(bool goToLevelSelect)
@@ -135,14 +143,14 @@ public class WinScreen : MonoBehaviour
     {
         if(selectionMade==false)
         {
-            Debug.LogError("no selection made");
+           // Debug.LogError("no selection made");
             secondScreenButton.interactable = false; 
             EnableInputFields(false);
         }
 
         if(gdprConsentNo.isOn)
         {
-            Debug.LogError("GDPR no selected");
+           // Debug.LogError("GDPR no selected");
             secondScreenButton.interactable = true;
             EnableInputFields(false);
         }
@@ -150,13 +158,13 @@ public class WinScreen : MonoBehaviour
         {
             if (playerData.firstName == "" || playerData.lastName == "" || playerData.email=="")
             {
-                Debug.LogError("GDPR yes, missing data");
+               // Debug.LogError("GDPR yes, missing data");
                 secondScreenButton.interactable = false;
                 EnableInputFields(true);
             }
             else
             {
-                Debug.LogError("GDPR yes, all data");
+               // Debug.LogError("GDPR yes, all data");
                 secondScreenButton.interactable = true;
                 EnableInputFields(true);
 
