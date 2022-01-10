@@ -192,21 +192,13 @@ public class SortingGameController : MonoBehaviour
                     TileGenerator.instance.GenerateTile(GetDestination(),sp , p.transform);
                     Snapcontroller.instance.snapPoints.Add(sp);
                     tileAnimators.Add(p.GetComponent<Animator>());
-                    if (tileAnimators.Count == 3)
-                    {
-                        SetGameState(sortingGameState.FillConveyor);
-                        AdvanceTiles();
-                    }
-                    else
-                    {
-                        Invoke("SetFillState", 2);
-                    }
+                    Invoke("SetFillState", 1.25f);
                 }
                 else
                 {
                     SetGameState(sortingGameState.GrabItem);
                     ClawScript.instance.StartGrab();
-                    Invoke("SetDestinationSelect", 3);
+                    Invoke("SetDestinationSelect", 2);
                 }
                 break;
             case sortingGameState.GrabItem:

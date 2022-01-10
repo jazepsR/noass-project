@@ -25,7 +25,7 @@ public class LevelSelect : MonoBehaviour
     [Header("Elements")]
     public List<tutorialElement> tutorialElements;
     public TMP_Text elementsHeading;
-    private int elementsPerPage = 8;
+    public int elementsPerPage = 8;
     public GameObject elementScreen;
     public Sprite summarySprite;
     public GameObject summaryParent;
@@ -36,6 +36,12 @@ public class LevelSelect : MonoBehaviour
     public TMP_Text gaitaText;
     public TMP_Text elementiText;
     public TMP_Text kopsavilkumsText;
+    public Toggle easyToggle;
+    public Toggle difficultToggle;
+    public Animator easyToggleAnim;
+    public Animator difficultToggleAnim;
+    bool toggledDiffifulty = false;
+    public bool OnPauseScreen = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +51,37 @@ public class LevelSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        toggledDiffifulty = false;
+    }
+
+
+    public void SetupDifficultyToggles()
+    {
+        string diffState = Var.isEasy ? "toggleOff" : "toggleOn";
+        string easyState = Var.isEasy ? "toggleOn" : "toggleOff";
+
+        easyToggleAnim.Play(easyState);
+        difficultToggleAnim.Play(diffState);
+        easyToggle.isOn = Var.isEasy;
+        difficultToggle.isOn = !Var.isEasy;
+        easyToggleAnim.SetBool("isOn", Var.isEasy);
+        difficultToggleAnim.SetBool("isOn", !Var.isEasy);
+    }
+
+    public void IsDifficultToggle(bool isDifficult)
+    {
+        if(!toggledDiffifulty)
+        {
+            toggledDiffifulty = true;
+            Var.isEasy = !isDifficult;
+            easyToggle.isOn = !isDifficult;
+            difficultToggle.isOn = isDifficult;
+            difficultToggleAnim.SetBool("isOn", isDifficult);
+            easyToggleAnim.SetBool("isOn", !isDifficult);
+            currentElementGroup = 0;
+            currentElementSheet = 0;
+            StartElementStage();
+        }
     }
 
     public void StartGame()
@@ -55,33 +91,44 @@ public class LevelSelect : MonoBehaviour
 
     public void SetupGame(int currentSlide= 0)
     {
-        currentStage = TutorialStage.gaita;
-        currentTutorialSlide = currentSlide;
-        heading.text = selectedGame.levelName.ToUpper();
-        startGameButton.interactable = selectedGame.available;
-        selectionImage.sprite = selectedGame.levelSelection;
-        mainImage.gameObject.SetActive(true);
-        elementScreen.SetActive(false);
-        SetCurrentTutorialSlide();
-        summaryParent.SetActive(false);
-        if (currentSlide == 0)
+        if (!OnPauseScreen)
         {
-            prevSlideBtn.interactable = false;
+            currentStage = TutorialStage.gaita;
+            currentTutorialSlide = currentSlide;
+            startGameButton.interactable = selectedGame.available;
+            selectionImage.sprite = selectedGame.levelSelection;
+            mainImage.gameObject.SetActive(true);
+            elementScreen.SetActive(false);
+            SetCurrentTutorialSlide();
+            summaryParent.SetActive(false);
+            if (currentSlide == 0)
+            {
+                prevSlideBtn.interactable = false;
+            }
+            nextSlideBtn.interactable = true;
+            RefreshTexts();
         }
-        nextSlideBtn.interactable = true;
-        RefreshTexts();
+        heading.text = selectedGame.levelName.ToUpper();
     }
-    private void StartElementStage()
+    public void StartElementStage()
     {
-        mainImage.gameObject.SetActive(false);
-        summaryParent.SetActive(false);
+        if(!OnPauseScreen)
+        {
+            mainImage.gameObject.SetActive(false);
+            summaryParent.SetActive(false);
+            elementScreen.SetActive(true);
+            currentElementGroup = 0;
+            currentElementSheet = 0;
+            RefreshTexts();
+            SetupDifficultyToggles();
+        }
         currentStage = TutorialStage.elementi;
-        elementScreen.SetActive(true);
-        currentElementGroup = 0;
-        currentElementSheet = 0;
+
+        selectedGame.SetupElementList();
         SetupElementPage();
-        RefreshTexts();
     }
+
+
 
     private void StartSummaryStage()
     {
@@ -112,10 +159,10 @@ public class LevelSelect : MonoBehaviour
         for(int i =0;i<elementsPerPage;i++)
         {
             int currentIndex = startingIndex + i;
-            if(group.tiles.Length>currentIndex)
+            if(group.currentTiles.Count>currentIndex)
             {
                 tutorialElements[i].gameObject.SetActive(true);
-                tutorialElements[i].Setup(group.tiles[currentIndex]);
+                tutorialElements[i].Setup(group.currentTiles[currentIndex]);
             }
             else
             {
@@ -161,7 +208,10 @@ public class LevelSelect : MonoBehaviour
                 {
                     // last group, go to next stage
                     //Debug.LogError(" LAST PAGE, LAST GROUP");
-                    StartSummaryStage();
+                    if (!OnPauseScreen)
+                    {
+                        StartSummaryStage();
+                    }
                     nextSlideBtn.interactable = false;
                 }
                 break;
@@ -200,8 +250,15 @@ public class LevelSelect : MonoBehaviour
                     //first page in group
                     if(currentElementGroup ==0)
                     {
-                      //  Debug.LogError("FIRST GROUP, FIRST PAGE");
-                        SetupGame(currentTutorialSlide);
+                        //  Debug.LogError("FIRST GROUP, FIRST PAGE");
+                        if (!OnPauseScreen)
+                        {
+                            SetupGame(currentTutorialSlide);
+                        }
+                        else
+                        {
+                            prevSlideBtn.interactable = false;
+                        }
                     }
                     else
                     {
@@ -224,7 +281,7 @@ public class LevelSelect : MonoBehaviour
                 StartElementStage();
                 currentElementGroup = selectedGame.tileGroups.Length-1;
                 currentElementSheet = GetSheetCount();
-                Debug.LogError("GOING BACK FROM SUMMARY group: " + currentElementGroup+ " sheet: " + currentElementSheet);
+               // Debug.LogError("GOING BACK FROM SUMMARY group: " + currentElementGroup+ " sheet: " + currentElementSheet);
                 SetupElementPage();
                 break;
 
@@ -282,7 +339,7 @@ public class LevelData
 
     public bool isLastPage(int group, int page,int elementCount)
     {
-        return (tileGroups[group].tiles.Length-1) / elementCount == page;
+        return (tileGroups[group].currentTiles.Count-1) / elementCount == page;
     }
     public bool isLastGroup(int group)
     {
@@ -291,8 +348,30 @@ public class LevelData
     }
     public int GetSheetCount(int group, int elementCount)
     {
-        int c= (tileGroups[group].tiles.Length-1) / elementCount;
+        int c= (tileGroups[group].currentTiles.Count-1) / elementCount;
         return c;
+    }
+
+    public void SetupElementList()
+    {
+        foreach (TileGroup group in tileGroups)
+        {
+            group.currentTiles = new List<TileScriptable>();
+            foreach (TileScriptable tile in group.tiles)
+            {
+                if (tile.isHard)
+                {
+                    if(!Var.isEasy)
+                    {
+                        group.currentTiles.Add(tile);
+                    }
+                }
+                else
+                {
+                    group.currentTiles.Add(tile);
+                }
+            }
+        }
     }
 }
 
@@ -301,4 +380,5 @@ public class TileGroup
 {
     public string groupName;
     public TileScriptable[] tiles;
+    public List<TileScriptable> currentTiles;
 }

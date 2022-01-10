@@ -10,7 +10,7 @@ public class TileGenerator : MonoBehaviour
     Snapcontroller snapcontroller;
     public static TileGenerator instance;
     [HideInInspector] public List<TileScript> tiles = new List<TileScript>();
-    [HideInInspector] public List<Destination> possibleDestinations;
+    public List<Destination> possibleDestinations;
     public List<TileScriptable> tileTypes;
     // Start is called before the first frame update
 
@@ -18,7 +18,7 @@ public class TileGenerator : MonoBehaviour
     {
         instance = this;
         snapcontroller = GetComponent<Snapcontroller>(); 
-        GeneratePossibleDestinationList();
+      //  GeneratePossibleDestinationList();
     }
     void Start()
     {
@@ -42,7 +42,7 @@ public class TileGenerator : MonoBehaviour
         }
     }
 
-    private void GeneratePossibleDestinationList()
+   /* private void GeneratePossibleDestinationList()
     {
         possibleDestinations = new List<Destination>();
         foreach (TileScriptable tileData in tileTypes)
@@ -55,7 +55,7 @@ public class TileGenerator : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
     public void GenerateTiles(int tileCount, List<SnapPoint> possibleTargetPoints = null, Destination mainDestination = Destination.Empty)
     {
@@ -146,10 +146,18 @@ public class TileGenerator : MonoBehaviour
             {
                 if (dest == destination)
                 {
-                    return tileScript;
+                    if (!tileScript.isHard)
+                    {
+                        return tileScript;
+                    }
+                    else if(!Var.isEasy)
+                    {
+                        return tileScript;
+                    }
                 }
             }
         }
+        Debug.LogError("DIDNT FIND TILE FOR DESTINATION: " + destination.ToString());
         return null;
     }
 

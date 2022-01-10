@@ -11,6 +11,7 @@ public class TileScriptable : ScriptableObject
 {
     public Sprite image;
     public Sprite imageHard;
+    public bool isHard = false;
     public Color[] possibleBgColors;
     public Destination[] possibleDestinations;
     public string DisplayName;

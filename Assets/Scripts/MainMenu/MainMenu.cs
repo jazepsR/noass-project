@@ -32,6 +32,7 @@ public class MainMenu : MonoBehaviour
             FadeSplashScreen(1);
         }
         ValidateFormSubmission();
+        Var.isEasy = true;
     }
 
 

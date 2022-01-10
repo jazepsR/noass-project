@@ -17,7 +17,7 @@ public class tutorialElement : MonoBehaviour
     public void Setup(TileScriptable tileScriptable)
     {
         objName.text = tileScriptable.DisplayName[0].ToString().ToUpper() + tileScriptable.DisplayName.Remove(0, 1);
-        image.sprite = tileScriptable.image;
+        image.sprite = (!Var.isEasy && tileScriptable.imageHard != null) ? tileScriptable.imageHard : tileScriptable.image;
     }
 
     // Update is called once per frame
