@@ -88,3 +88,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b310fbd866d2f0e4bb804c10bf0e8214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupied: 0
+  content: {fileID: 0}
+  isTrash: 0
+  disposeInstantly: 0
+  generateInstantly: 0
+  canAssing: 1

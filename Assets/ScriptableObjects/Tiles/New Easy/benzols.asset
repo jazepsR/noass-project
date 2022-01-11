@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: benzols
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 455181a1e09ea034ea55b469e9828c20, type: 3}
+  imageEN: {fileID: 21300000, guid: 200638bd23396b04b9f56e727f07f443, type: 3}
   imageHard: {fileID: 21300000, guid: 49ed9cd342bb4a24f80c9b9a39487646, type: 3}
   isHard: 0
   possibleBgColors:

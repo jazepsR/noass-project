@@ -18,7 +18,7 @@ public class TileScript : MonoBehaviour
     {
         this.data = data;
         bg.color = data.possibleBgColors[Random.Range(0, data.possibleBgColors.Length)];
-        icon.sprite = (!Var.isEasy && data.imageHard != null) ? data.imageHard : data.image;
+        icon.sprite = (!Var.isEasy && data.imageHard != null) ? data.imageHard : (data.imageEN != null && !Helpers.isLatvian())? data.imageEN: data.image;
     }
 
   

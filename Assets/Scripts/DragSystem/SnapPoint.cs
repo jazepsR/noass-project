@@ -11,6 +11,8 @@ public class SnapPoint : MonoBehaviour
     public bool generateInstantly = false;
     public delegate void DelegateMethod(SnapPoint snap);
     public DelegateMethod delegatedAssingMethod = null;
+    public delegate bool DelegateMethodCheck(SnapPoint snap,TileScript ts);
+    public DelegateMethodCheck delegatedCheckMethod = null;
     // Start is called before 
 
 
@@ -19,6 +21,18 @@ public class SnapPoint : MonoBehaviour
         if (content && !content.isDragged)
         {
             content.transform.position = Vector3.Lerp(content.transform.position, transform.position, Time.deltaTime * Snapcontroller.instance.followSpeed);
+        }
+    }
+
+    public bool CanAssign(Draggable draggable)
+    {
+        if (delegatedCheckMethod == null)
+        {
+            return true;
+        }
+        else
+        {
+            return delegatedCheckMethod(this, draggable.GetComponent<TileScript>());
         }
     }
 

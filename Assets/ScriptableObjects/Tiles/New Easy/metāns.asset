@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "met\u0101ns"
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 3561fa4265862c34eb1ab228303167a9, type: 3}
+  imageEN: {fileID: 21300000, guid: 3e7a24acb262c77499fbc70946bcd8d5, type: 3}
   imageHard: {fileID: 21300000, guid: 04a16d56e00ce5945ac42066f5940eec, type: 3}
   isHard: 0
   possibleBgColors:

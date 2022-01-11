@@ -18,6 +18,7 @@ public class HillPieceController : MonoBehaviour
         foreach (SnapPoint point in targetPoints)
         {
             point.delegatedAssingMethod = DelegatedMethod;
+            point.delegatedCheckMethod = DelegatedCheckMethod;
         }
         SetActivePiece(GetAvailablePiece());
         ActivateTargetPoints();
@@ -30,6 +31,26 @@ public class HillPieceController : MonoBehaviour
             bool shouldBeActive = activeBar ==i;
             targetPoints[i].enabled = shouldBeActive;
         }
+    }
+    public bool DelegatedCheckMethod(SnapPoint point, TileScript ts)
+    {
+        if(Time.timeSinceLevelLoad <1f)
+        {
+            return true;
+        }    
+        int pointIndex = targetPoints.FindIndex(d => d == point);
+        bool correctType = Helpers.ListContainsTile(ts, layerDatas[activeBar].possibleDestinations);
+        if (pointIndex == activeBar && correctType)
+        {
+            return true;
+        }
+        else
+        {
+            HillGameController.Instance.UpdateScore(-HillGameController.Instance.pointsForCorrectDestination);
+            ts.GetComponent<Animator>().SetTrigger("error");
+            return false;
+        }
+
     }
     public void DelegatedMethod(SnapPoint point)
     {

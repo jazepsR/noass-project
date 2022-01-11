@@ -56,7 +56,8 @@ public class sendEmail : MonoBehaviour
     public void SendMail(string userEmail, string firstName, string lastName, int playerScore)
     {
         sendEmailMethod();
-        string diplomaString = Application.dataPath + "/Textures/DIPLOMI/" + (Helpers.isLatvian() ? diplomsLV : diplomsEN);
+        string diplomaString = System.IO.Directory.GetParent(Application.dataPath) + "/DIPLOMI/" + (Helpers.isLatvian() ? diplomsLV : diplomsEN);
+        Debug.LogError("diploma string: " + diplomaString);
         string body = GenerateBody(firstName + " " + lastName, playerScore.ToString());
 
         SimpleEmailSender.Send(userEmail, subject, body, diplomaString, SendCompletedCallback);
@@ -86,9 +87,9 @@ public class sendEmail : MonoBehaviour
     {
         if(Helpers.isLatvian())
         {
-          return  "Sveiks!\nPaldies, ka apmeklēji Getliņi EKO \"Vides izglītības centru\".\nTavs Getliņi EKO poligonu procesu izziņas spēles rezultāts ir:\n\nSpēlētājs:<b> " + playerName +
-                "</b>\nPunktu skaits: <b>" + playerScore +
-                "</b>\n\nPielikumā atradīsi diplomu par dalību spēlē!\n Uz tikšanos nākamreiz!";
+          return  "Sveiks!\nPaldies, ka apmeklēji Getliņi EKO \"Vides izglītības centru\".\nTavs Getliņi EKO poligonu procesu izziņas spēles rezultāts ir:\n\nSpēlētājs: " + playerName +
+                "\nPunktu skaits: " + playerScore +
+                "\n\nPielikumā atradīsi diplomu par dalību spēlē!\n Uz tikšanos nākamreiz!";
         }
         else
         {

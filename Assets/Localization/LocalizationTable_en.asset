@@ -73,7 +73,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19530520394706944
-    m_Localized: "WELCOME TO <I>GELTI\u0145I EKO</I> INFORMATIONAL GAME"
+    m_Localized: "WELCOME TO <I>GETLI\u0145I EKO</I> INFORMATIONAL GAME"
     m_Metadata:
       m_Items: []
   - m_Id: 19533371871309824
@@ -241,7 +241,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19552928312832000
-    m_Localized: LANDFILL
+    m_Localized: STORAGE
     m_Metadata:
       m_Items: []
   - m_Id: 19553019870294016

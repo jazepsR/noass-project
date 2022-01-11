@@ -25,7 +25,7 @@ public class tutorialElement : MonoBehaviour
         {
             objName.text = text;
         }
-        image.sprite = (!Var.isEasy && tileScriptable.imageHard != null) ? tileScriptable.imageHard : tileScriptable.image;
+        image.sprite = (!Var.isEasy && tileScriptable.imageHard != null) ? tileScriptable.imageHard : (tileScriptable.imageEN != null && !Helpers.isLatvian()) ? tileScriptable.imageEN : tileScriptable.image;
     }
 
     // Update is called once per frame

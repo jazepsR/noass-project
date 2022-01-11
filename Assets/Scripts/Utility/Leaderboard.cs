@@ -11,7 +11,7 @@ public class Leaderboard : MonoBehaviour
 {
     List<PlayerDataSave> scoresSave = new List<PlayerDataSave>();
     private string remoteDirectory = "C:/Users/BVS/My Drive/leaderboards";
-    private string remoteDirectory2 = "C:/Users/Jazeps Private/My Drive/leaderboards";//"C:/Users/Jazeps Private/Documents";//
+    private string remoteDirectory2 = "C:/Users/spele/My Drive/leaderboards";//"C:/Users/Jazeps Private/Documents";//
     string path;
     public static Leaderboard instance;
     public VerticalLayoutGroup[] layouts;

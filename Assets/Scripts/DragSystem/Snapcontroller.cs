@@ -51,7 +51,7 @@ public class Snapcontroller : MonoBehaviour
     {
         foreach(SnapPoint snapPoint in possiblePoints)
         {
-            if(!snapPoint.occupied && !snapPoint.isTrash && snapPoint.enabled)
+            if(!snapPoint.occupied && !snapPoint.isTrash && snapPoint.enabled && snapPoint.CanAssign(draggable))
             {
                 snapPoint.AssignDraggable(draggable);
                 break;
@@ -75,7 +75,7 @@ public class Snapcontroller : MonoBehaviour
             foreach (SnapPoint snapPoint in snapPoints)
             {
                 float dist = Vector3.Distance(snapPoint.transform.position, Input.mousePosition);
-                if (dist < closestDistance && snapPoint.enabled)
+                if (dist < closestDistance && snapPoint.enabled && snapPoint.CanAssign(draggable))
                 {
                     closestDistance = dist;
                     closestSnapPoint = snapPoint;

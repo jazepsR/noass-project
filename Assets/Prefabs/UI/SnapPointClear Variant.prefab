@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnapPointClear Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4660279526036442500, guid: 306ae55cc0463244d8c0ba472719dd76, type: 3}
+      propertyPath: canAssing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7610286864613690466, guid: 306ae55cc0463244d8c0ba472719dd76, type: 3}
       propertyPath: m_Color.a
       value: 0

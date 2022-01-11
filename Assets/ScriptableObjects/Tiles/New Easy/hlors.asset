@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: hlors
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 3a402a49e6daab94c831ec8c5d93e4c4, type: 3}
+  imageEN: {fileID: 21300000, guid: f38c4fadf37a34843827cb938884880e, type: 3}
   imageHard: {fileID: 21300000, guid: 5f1ddc2283954014cbe845718e857e97, type: 3}
   isHard: 0
   possibleBgColors:

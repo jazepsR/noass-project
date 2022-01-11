@@ -25,6 +25,7 @@ public class SortingGameController : MonoBehaviour
     public AnimatedButton[] destinationButtons;
     public List<RoundButtonController> roundedButtons = new List<RoundButtonController>();
     bool gameComplete = false;
+    private int activeID = -1;
     private void Awake()
     {
         Instance = this;
@@ -70,6 +71,7 @@ public class SortingGameController : MonoBehaviour
         {
             btn.Setup(15);
         }
+        activeDestination = Destination.Empty;
     }
 
 
@@ -141,31 +143,66 @@ public class SortingGameController : MonoBehaviour
         }
     }
 
-    public bool DestinationSelect(Destination destination, int ID)
+    public bool DestinationSelect(Destination destination, int ID, bool setScore= true)
     {
-        List<Destination> destinations = new List<Destination>( ClawScript.instance.GetCurrentDestinations());
-        if(destinations.Contains(destination))
+        if (currentGameState == sortingGameState.DestinationSelect)
         {
-            ClawScript.instance.Release(2);
-            destinationButtons[ID].SetClickOutcome(true, 1f);
-            roundedButtons[ID].UpdateFill(roundedButtonIncrease);
-            SortingGameGate.instance.Open();
-            tileAnimators.RemoveAt(0);
-            AdvanceTiles();
-            SetFillState();
-            UpdateScore(pointsForCorrectDestination);
-            ToggleDestinationButtons(false);
-            if (CheckRoundedButtons())
+            List<Destination> destinations = new List<Destination>(ClawScript.instance.GetCurrentDestinations());
+            if (destinations.Contains(destination))
             {
-                Invoke("OnGameComplete", 3); 
+                ClawScript.instance.Release(2);
+                destinationButtons[ID].SetClickOutcome(true, 1f);
+                roundedButtons[ID].UpdateFill(roundedButtonIncrease);
+                SortingGameGate.instance.Open();
+                tileAnimators.RemoveAt(0);
+                AdvanceTiles();
+                SetFillState();
+                if (setScore)
+                {
+                    UpdateScore(pointsForCorrectDestination);
+                }
+                if (CheckRoundedButtons())
+                {
+                    Invoke("OnGameComplete", 3);
+                }
+                activeDestination = Destination.Empty;
+                return true;
             }
-            return true;
+            else
+            {
+                if (setScore)
+                {
+                    UpdateScore(-pointsForCorrectDestination);
+                }
+                destinationButtons[ID].SetClickOutcome(false, 1f);
+                activeDestination = Destination.Empty;
+                return false;
+            }
         }
         else
         {
-            UpdateScore(-pointsForCorrectDestination);
-            destinationButtons[ID].SetClickOutcome(false, 1f);
-            return false;
+            List<Destination> destinations = new List<Destination>(ClawScript.instance.GetCurrentDestinations());
+            if (destinations.Contains(destination))
+            {
+                destinationButtons[ID].SetClickOutcome(true, 1f);
+                UpdateScore(pointsForCorrectDestination);
+                ToggleDestinationButtons(false);
+                if (CheckRoundedButtons())
+                {
+                    Invoke("OnGameComplete", 3);
+                }
+                activeDestination = destination;
+                activeID = ID;
+                return true;
+            }
+            else
+            {
+                UpdateScore(-pointsForCorrectDestination);
+                destinationButtons[ID].SetClickOutcome(false, 1f);
+                activeDestination = destination;
+                activeID = ID;
+                return false;
+            }
         }
 
 
@@ -202,12 +239,15 @@ public class SortingGameController : MonoBehaviour
                 }
                 break;
             case sortingGameState.GrabItem:
+                ToggleDestinationButtons(true);
 
 
                 break;
             case sortingGameState.DestinationSelect:
-                ToggleDestinationButtons(true);
-
+                if(activeDestination != Destination.Empty)
+                {
+                    DestinationSelect(activeDestination, activeID,false);
+                }
                 break;
             default:
                 break;

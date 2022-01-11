@@ -10,6 +10,7 @@ Buvnieciba, Koks, Medikamenti, Partikas_Atkritumi, Skidrie_Atkritumi, Spuldzes, 
 public class TileScriptable : ScriptableObject
 {
     public Sprite image;
+    public Sprite imageEN;
     public Sprite imageHard;
     public bool isHard = false;
     public Color[] possibleBgColors;

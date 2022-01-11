@@ -22,6 +22,8 @@ public class WinScreen : MonoBehaviour
     private bool selectionMade = false;
     public PlayerData playerData;
     private bool GDPRSeen = true;
+    public Sprite gdprLV;
+    public Sprite gdprEN;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class WinScreen : MonoBehaviour
         gdprPopup.SetActive(true);
         secondScreenButton.interactable = false;
         EnableInputFields(false);
+        gdprPopup.GetComponent<Image>().sprite = Helpers.isLatvian() ? gdprLV : gdprEN;
     }
 
     private void EnableInputFields(bool enable)
