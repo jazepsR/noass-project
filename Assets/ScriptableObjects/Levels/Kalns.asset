@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7186e0e78e2e51145af7a151746d63d1, type: 3}
+  m_Name: Kalns
+  m_EditorClassIdentifier: 
+  levelName: Kalni
+  levelNameEn: Landfill Hill
+  levelScene: HillGame
+  levelIcon: {fileID: 21300000, guid: 19e60a82e3165c54d9d3484e09a6d7b7, type: 3}
+  levelSelection: {fileID: 21300000, guid: bc44e58fa2795d34294eee825e881acf, type: 3}
+  tutorialSprites:
+  - {fileID: 21300000, guid: 968bed05c019347439c2853e57210cdb, type: 3}
+  - {fileID: 21300000, guid: 027e2fc45bf871a41a9dc78ec18af19d, type: 3}
+  - {fileID: 21300000, guid: 85698f7985e92db4790d4fbc45d1492c, type: 3}
+  - {fileID: 21300000, guid: 21ab4e5e2d374e943b03a30fe89c1aa0, type: 3}
+  - {fileID: 21300000, guid: 50fa799bf3bfcb348b2d8a81823a2f9c, type: 3}
+  - {fileID: 21300000, guid: 2978929c4f355094eac3c8aca380c0be, type: 3}
+  - {fileID: 21300000, guid: 438fc4543f72ac949a0e310cb7c8592a, type: 3}
+  tutorialSpritesEn:
+  - {fileID: 21300000, guid: 6f88c070903a0d34c9dacb19a206d825, type: 3}
+  - {fileID: 21300000, guid: 4e3ed3795aa35904f9e03dde1e989df7, type: 3}
+  - {fileID: 21300000, guid: 90f02fab9d84ea142a9396fbc3e3a59e, type: 3}
+  - {fileID: 21300000, guid: 84f260d17db05d246a0878e813e6cfdf, type: 3}
+  - {fileID: 21300000, guid: 893c879dc7095cf4c82ed6b55a83a7b4, type: 3}
+  - {fileID: 21300000, guid: 10f40a7c69574be4486c9d59317d59f8, type: 3}
+  - {fileID: 21300000, guid: 9c3074e17fcb71641868c23a05184167, type: 3}
+  available: 1
+  tileGroups:
+  - groupName: "PAMATNES sl\u0101ni veido"
+    groupNameEn: FOUNDATION layer consists of
+    tiles:
+    - {fileID: 11400000, guid: bc6f939387a9aac4e89da1b203618a7f, type: 2}
+    - {fileID: 11400000, guid: d327791cfde0465478f22692499776b8, type: 2}
+    - {fileID: 11400000, guid: 44db065488d42c941ba13090b32b3641, type: 2}
+    - {fileID: 11400000, guid: e2a00416da7ed9b4ea5219ef2d2f5b11, type: 2}
+    - {fileID: 11400000, guid: 7ad07dca194ffdb4086ec9fe0c8bd7f6, type: 2}
+    - {fileID: 11400000, guid: aacf15f3673e85b489528f21d8fcdd03, type: 2}
+    currentTiles: []
+  - groupName: "INFILTR\u0100CIJAS sl\u0101ni veido"
+    groupNameEn: INFILTRATION layer consists of
+    tiles:
+    - {fileID: 11400000, guid: e1be8239827f0414eb8e33678185e028, type: 2}
+    - {fileID: 11400000, guid: 8cb503830fefda949b85144cb78a0c3a, type: 2}
+    - {fileID: 11400000, guid: 97ad6f440b3c85e469b9d1549a73dac6, type: 2}
+    - {fileID: 11400000, guid: 7ad07dca194ffdb4086ec9fe0c8bd7f6, type: 2}
+    currentTiles: []
+  - groupName: "ATKRITUMU sl\u0101ni veido"
+    groupNameEn: WASTE layer consists of
+    tiles:
+    - {fileID: 11400000, guid: f2a214a58b467e74fa5b37066f071966, type: 2}
+    - {fileID: 11400000, guid: c32260d7684efdd4caee706b018a24d9, type: 2}
+    - {fileID: 11400000, guid: a2ce66eec79478f4a8ccfa4c18f3c22c, type: 2}
+    - {fileID: 11400000, guid: a34152353ff2bde438368f12d981adb8, type: 2}
+    - {fileID: 11400000, guid: 2126e95b3f33d6547a20e684199baacd, type: 2}
+    - {fileID: 11400000, guid: 354499eae091bbb4fbdf287fd5853627, type: 2}
+    - {fileID: 11400000, guid: ab5707ea729415c45ba2607fbb03b533, type: 2}
+    - {fileID: 11400000, guid: 0c14a7e30ff791b4abd0b041c48e86a1, type: 2}
+    - {fileID: 11400000, guid: 2348cc15bdd23784bb3850db3ddc21c0, type: 2}
+    - {fileID: 11400000, guid: 014cc5e370d08934e9317d9c1a831842, type: 2}
+    - {fileID: 11400000, guid: 5418fca37349b2b44bae69b001258d0c, type: 2}
+    - {fileID: 11400000, guid: 01152b1acd50b4f419be890438565680, type: 2}
+    - {fileID: 11400000, guid: 97cddf67610474943a26b1ee6f5c84ec, type: 2}
+    - {fileID: 11400000, guid: 7e5aa49546ac6304fbb6614628efd96b, type: 2}
+    - {fileID: 11400000, guid: a01b0eeb610d5f4468199284e0492b20, type: 2}
+    - {fileID: 11400000, guid: feebc6bd0e819d74d91bb03d6d6f91d5, type: 2}
+    - {fileID: 11400000, guid: b4a7b71021846d04fb780cc95fa90b26, type: 2}
+    - {fileID: 11400000, guid: edf390bbdcfa43d49b56c693ae3d4327, type: 2}
+    - {fileID: 11400000, guid: e2a00416da7ed9b4ea5219ef2d2f5b11, type: 2}
+    - {fileID: 11400000, guid: e552633e68f8d8c4293bc9a561f25b3a, type: 2}
+    - {fileID: 11400000, guid: c47c7e3011822f4469a93002d6de1b59, type: 2}
+    - {fileID: 11400000, guid: 5e4268d42a4844f4ba4b334bdb76288a, type: 2}
+    - {fileID: 11400000, guid: cc46bf48470c8124981220bcc942a62b, type: 2}
+    - {fileID: 11400000, guid: 7ad07dca194ffdb4086ec9fe0c8bd7f6, type: 2}
+    - {fileID: 11400000, guid: aaad027c824163240b016354d267aff8, type: 2}
+    - {fileID: 11400000, guid: af6c2de28b18dfc4bb8ee07d2acb093f, type: 2}
+    - {fileID: 11400000, guid: aacf15f3673e85b489528f21d8fcdd03, type: 2}
+    currentTiles:
+    - {fileID: 11400000, guid: f2a214a58b467e74fa5b37066f071966, type: 2}
+    - {fileID: 11400000, guid: c32260d7684efdd4caee706b018a24d9, type: 2}
+    - {fileID: 11400000, guid: a2ce66eec79478f4a8ccfa4c18f3c22c, type: 2}
+    - {fileID: 11400000, guid: a34152353ff2bde438368f12d981adb8, type: 2}
+    - {fileID: 11400000, guid: 2126e95b3f33d6547a20e684199baacd, type: 2}
+    - {fileID: 11400000, guid: 6e84c1628f67e4447b371a8dc1432610, type: 2}
+    - {fileID: 11400000, guid: 3d1338a26a300e949a7f9270a026b035, type: 2}
+    - {fileID: 11400000, guid: 354499eae091bbb4fbdf287fd5853627, type: 2}
+    - {fileID: 11400000, guid: a4c40883a96fad5468b13ec2a14170e5, type: 2}
+    - {fileID: 11400000, guid: ab5707ea729415c45ba2607fbb03b533, type: 2}
+    - {fileID: 11400000, guid: 0c14a7e30ff791b4abd0b041c48e86a1, type: 2}
+    - {fileID: 11400000, guid: 2348cc15bdd23784bb3850db3ddc21c0, type: 2}
+    - {fileID: 11400000, guid: 014cc5e370d08934e9317d9c1a831842, type: 2}
+    - {fileID: 11400000, guid: 5418fca37349b2b44bae69b001258d0c, type: 2}
+    - {fileID: 11400000, guid: 01152b1acd50b4f419be890438565680, type: 2}
+    - {fileID: 11400000, guid: e1be8239827f0414eb8e33678185e028, type: 2}
+    - {fileID: 11400000, guid: d85b60b3eaac272469d6eeb45e31f337, type: 2}
+    - {fileID: 11400000, guid: 97cddf67610474943a26b1ee6f5c84ec, type: 2}
+    - {fileID: 11400000, guid: 7a0c39872fd5fac4ea5f359f18cb3356, type: 2}
+    - {fileID: 11400000, guid: 7e5aa49546ac6304fbb6614628efd96b, type: 2}
+  - groupName: "G\u0100ZU SAV\u0100K\u0160ANAS sl\u0101ni veido"
+    groupNameEn: GAS COLLECTION layer consists of
+    tiles:
+    - {fileID: 11400000, guid: a0d679d902e7f5d4c92e3c7d0cf1f212, type: 2}
+    currentTiles: []
+  - groupName: "\u0160\u016ANAS NOSL\u0112G\u0160ANAS sl\u0101ni veido"
+    groupNameEn: CELL'S CLOSURE layer consists of
+    tiles:
+    - {fileID: 11400000, guid: 28c53ff3461f6ce43ad1e3f47ad3cd3f, type: 2}
+    - {fileID: 11400000, guid: d327791cfde0465478f22692499776b8, type: 2}
+    - {fileID: 11400000, guid: e2a00416da7ed9b4ea5219ef2d2f5b11, type: 2}
+    - {fileID: 11400000, guid: 5e4268d42a4844f4ba4b334bdb76288a, type: 2}
+    - {fileID: 11400000, guid: 7ad07dca194ffdb4086ec9fe0c8bd7f6, type: 2}
+    - {fileID: 11400000, guid: aacf15f3673e85b489528f21d8fcdd03, type: 2}
+    - {fileID: 11400000, guid: 43c2faa765b3ba947ba3b4d4dd0ed5e9, type: 2}
+    currentTiles: []

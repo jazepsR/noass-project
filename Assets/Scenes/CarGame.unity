@@ -3437,6 +3437,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7717708919513860325, guid: 684e992f665147b45a2a8027b76614d3, type: 3}
+      propertyPath: levelData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9eadc361a94768e48907d9eeba716948, type: 2}
+    - target: {fileID: 7717708919513860325, guid: 684e992f665147b45a2a8027b76614d3, type: 3}
       propertyPath: levelData.Array.data[0].levelIcon
       value: 
       objectReference: {fileID: 21300000, guid: dfb69701468ea124990eff3dc9c42af8, type: 3}

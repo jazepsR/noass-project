@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7186e0e78e2e51145af7a151746d63d1, type: 3}
+  m_Name: Energy
+  m_EditorClassIdentifier: 
+  levelName: "Ener\u0123ijas Ieguve"
+  levelNameEn: Energy Production
+  levelScene: EnergyGame
+  levelIcon: {fileID: 21300000, guid: 68d24d4a05320fa46b7b030f6d1f4d5e, type: 3}
+  levelSelection: {fileID: 21300000, guid: 8c01d72eea9326e4fb948608c832886f, type: 3}
+  tutorialSprites:
+  - {fileID: 21300000, guid: 968bed05c019347439c2853e57210cdb, type: 3}
+  - {fileID: 21300000, guid: 783dda6bf0ca7914185db465b3ce8878, type: 3}
+  - {fileID: 21300000, guid: 5607b35cbdb646646a21f1224a9745cd, type: 3}
+  - {fileID: 21300000, guid: 3524a8a481476ba46a5aa4ebd31d86a2, type: 3}
+  - {fileID: 21300000, guid: bc8c0dcceb9371242824141e1ca8c29b, type: 3}
+  - {fileID: 21300000, guid: 37533cc0dbc483145aa3808cbe90ce1b, type: 3}
+  - {fileID: 21300000, guid: 3a815f38bb8b7e141bbef7463c566431, type: 3}
+  - {fileID: 21300000, guid: f57027ec9c2157e43bcb4f3c96c7b1d8, type: 3}
+  tutorialSpritesEn:
+  - {fileID: 21300000, guid: 6f88c070903a0d34c9dacb19a206d825, type: 3}
+  - {fileID: 21300000, guid: 6f5f3c401fc7f97499050a0637b144c4, type: 3}
+  - {fileID: 21300000, guid: a6a79b679e7eef44089247aba8756c3c, type: 3}
+  - {fileID: 21300000, guid: 64202f70a4164e84d90fa5c50ea04c14, type: 3}
+  - {fileID: 21300000, guid: 5083ce8c09ec2d44fae5a5b85ebd59ad, type: 3}
+  - {fileID: 21300000, guid: 7a0b8d2f489c7c049a276bc1f01c232e, type: 3}
+  - {fileID: 21300000, guid: a180d0d1aa2361847acd1d7d70c73dc0, type: 3}
+  - {fileID: 21300000, guid: 09995987876f0654db772a0b96914843, type: 3}
+  available: 1
+  tileGroups:
+  - groupName: "Der\u012Bgie"
+    groupNameEn: Useful
+    tiles:
+    - {fileID: 11400000, guid: c81a145ff235a674aa89a2a80670bcfb, type: 2}
+    currentTiles: []
+  - groupName: "Neder\u012Bgie"
+    groupNameEn: Invalid
+    tiles:
+    - {fileID: 11400000, guid: d19c3ab55f0216649acd794d830672fc, type: 2}
+    - {fileID: 11400000, guid: e9343518fe4135e4facf551188f7c0eb, type: 2}
+    - {fileID: 11400000, guid: 9808cdae55f76f24087ba4a4d1cfbc4c, type: 2}
+    - {fileID: 11400000, guid: 8a0c1510668a62a4eb86f08d9fd7c758, type: 2}
+    - {fileID: 11400000, guid: d43755d8189a8dc48980054164ebd355, type: 2}
+    - {fileID: 11400000, guid: 6a32f857c832cee4e9e7b34d11dcc297, type: 2}
+    currentTiles: []

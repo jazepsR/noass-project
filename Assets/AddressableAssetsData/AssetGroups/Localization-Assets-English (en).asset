@@ -16,12 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 28bfe91a5ffd6d94fa98690caa09b5e1
-  m_SerializeEntries:
-  - m_GUID: b62b08f5d23d1b24bb530a6c3a8a31ad
-    m_Address: OUTRO_Azisardziba_ENG
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: fb37b2bf7bd96324a99db6d28f3cb0cc, type: 2}
   m_SchemaSet:

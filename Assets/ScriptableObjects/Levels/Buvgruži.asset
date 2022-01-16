@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7186e0e78e2e51145af7a151746d63d1, type: 3}
+  m_Name: "Buvgru\u017Ei"
+  m_EditorClassIdentifier: 
+  levelName: "B\u016Bvgru\u017Eu P\u0101rstr\u0101de"
+  levelNameEn: Debris Recycling
+  levelScene: RoadConstructionGame
+  levelIcon: {fileID: 21300000, guid: f883835fcedf59541b7eb8f68e4a6a6e, type: 3}
+  levelSelection: {fileID: 21300000, guid: 38346b49164e3764d886735c371cad81, type: 3}
+  tutorialSprites:
+  - {fileID: 21300000, guid: 968bed05c019347439c2853e57210cdb, type: 3}
+  - {fileID: 21300000, guid: 692c4f6f10446da4a9bccd2caa8b346c, type: 3}
+  - {fileID: 21300000, guid: eb8aba55728349f42aeb9af271d88b4c, type: 3}
+  - {fileID: 21300000, guid: 2b20e6a1ba3487b4db2272ca938cb90b, type: 3}
+  - {fileID: 21300000, guid: 2a9a382ad7fd7a6419daf9a2093cc3f6, type: 3}
+  - {fileID: 21300000, guid: 930aa4ec6a1816b49809b2a1d327b4e3, type: 3}
+  - {fileID: 21300000, guid: b0452e60132327245972959827dbdbfa, type: 3}
+  tutorialSpritesEn:
+  - {fileID: 21300000, guid: 6f88c070903a0d34c9dacb19a206d825, type: 3}
+  - {fileID: 21300000, guid: 35ba667c1eaf5064fa3229045adb54ea, type: 3}
+  - {fileID: 21300000, guid: 9ac79b0f0edcd6d4f94543d6cc0f63e0, type: 3}
+  - {fileID: 21300000, guid: 95af64936f8e1a04daac8771ac4bbe3f, type: 3}
+  - {fileID: 21300000, guid: 0d76c9adb81c9b5459ac60d4b6e2f049, type: 3}
+  - {fileID: 21300000, guid: 549a8fff9da39124eb3168c25c08fc3d, type: 3}
+  - {fileID: 21300000, guid: e80e9985737a1174db95c0ba43777e0e, type: 3}
+  available: 1
+  tileGroups:
+  - groupName: "Der\u012Bgie"
+    groupNameEn: Useful
+    tiles:
+    - {fileID: 11400000, guid: d85b60b3eaac272469d6eeb45e31f337, type: 2}
+    - {fileID: 11400000, guid: bc6f939387a9aac4e89da1b203618a7f, type: 2}
+    - {fileID: 11400000, guid: fcde66793fdfa8846877a016bde16961, type: 2}
+    - {fileID: 11400000, guid: a4c40883a96fad5468b13ec2a14170e5, type: 2}
+    - {fileID: 11400000, guid: fe8a0e5147a3ad94b9473bf31a730101, type: 2}
+    - {fileID: 11400000, guid: acc85df40c9fbcc4d97c709cd126b773, type: 2}
+    currentTiles: []
+  - groupName: "Neder\u012Bgie"
+    groupNameEn: Invalid
+    tiles:
+    - {fileID: 11400000, guid: b38ce40e1ed700f48b42db6d24bb5ef2, type: 2}
+    - {fileID: 11400000, guid: e1be8239827f0414eb8e33678185e028, type: 2}
+    - {fileID: 11400000, guid: ab5707ea729415c45ba2607fbb03b533, type: 2}
+    - {fileID: 11400000, guid: 8caf16d2b4e997648bb6e91bbd35d871, type: 2}
+    - {fileID: 11400000, guid: e5842011cf4c67f4dbeccf5d1e684457, type: 2}
+    - {fileID: 11400000, guid: 69d56a8e5e684c9419f9bd3d5eeebf5d, type: 2}
+    - {fileID: 11400000, guid: 108b8e9b1b337b84fb993d63737444ed, type: 2}
+    - {fileID: 11400000, guid: 46bb23bf5371aba49b83e7b7a607df7f, type: 2}
+    - {fileID: 11400000, guid: d327791cfde0465478f22692499776b8, type: 2}
+    - {fileID: 11400000, guid: 28c53ff3461f6ce43ad1e3f47ad3cd3f, type: 2}
+    - {fileID: 11400000, guid: 0021a2f8f80bf4c46af2bc2b2de4729d, type: 2}
+    - {fileID: 11400000, guid: 44db065488d42c941ba13090b32b3641, type: 2}
+    - {fileID: 11400000, guid: 97cddf67610474943a26b1ee6f5c84ec, type: 2}
+    - {fileID: 11400000, guid: feebc6bd0e819d74d91bb03d6d6f91d5, type: 2}
+    - {fileID: 11400000, guid: c47c7e3011822f4469a93002d6de1b59, type: 2}
+    - {fileID: 11400000, guid: 5e4268d42a4844f4ba4b334bdb76288a, type: 2}
+    - {fileID: 11400000, guid: f95272ec0ae9ec7419d99ec1a67848ba, type: 2}
+    - {fileID: 11400000, guid: af6c2de28b18dfc4bb8ee07d2acb093f, type: 2}
+    currentTiles: []

@@ -6618,6 +6618,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7717708919513860325, guid: 684e992f665147b45a2a8027b76614d3, type: 3}
+      propertyPath: levelData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e9cd4b6d70bdb714cbca110e191fb935, type: 2}
+    - target: {fileID: 7717708919513860325, guid: 684e992f665147b45a2a8027b76614d3, type: 3}
       propertyPath: levelData.Array.data[0].levelIcon
       value: 
       objectReference: {fileID: 21300000, guid: 68d24d4a05320fa46b7b030f6d1f4d5e, type: 3}

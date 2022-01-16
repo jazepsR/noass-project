@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Skapis
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 8261e5d1c7fea9a4bab1436365c722c4, type: 3}
+  imageEN: {fileID: 0}
   imageHard: {fileID: 0}
+  isHard: 0
   possibleBgColors:
   - {r: 0.09411766, g: 0.3019608, b: 0.82745105, a: 1}
   - {r: 0.22352943, g: 0.5411765, b: 0.86274517, a: 1}
@@ -33,4 +35,4 @@ MonoBehaviour:
   - {r: 0.3019608, g: 0.6666667, b: 0.6117647, a: 1}
   possibleDestinations: 0900000015000000
   DisplayName: Skapis
-  DisplayNameEng: 
+  DisplayNameEng: Closet

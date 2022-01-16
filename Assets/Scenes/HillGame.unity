@@ -18689,6 +18689,10 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7717708919513860325, guid: 684e992f665147b45a2a8027b76614d3, type: 3}
+      propertyPath: levelData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 634c7777611c1ef41ba729b83fa8898c, type: 2}
+    - target: {fileID: 7717708919513860325, guid: 684e992f665147b45a2a8027b76614d3, type: 3}
       propertyPath: levelData.Array.data[0].levelNameEn
       value: Landfill Hill
       objectReference: {fileID: 0}

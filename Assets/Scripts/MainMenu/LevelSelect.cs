@@ -9,9 +9,9 @@ public enum TutorialStage { gaita, elementi, kopsavilkums};
 public class LevelSelect : MonoBehaviour
 {
     [SerializeField]
-    public LevelData[] levelData;
+    public LevelDataScriptable[] levelData;
     public Button[] gameButtons;
-    private LevelData selectedGame;
+    private LevelDataScriptable selectedGame;
     public Image mainImage;
     public TMP_Text heading;
     public Button startGameButton;
@@ -384,5 +384,5 @@ public class TileGroup
     public string groupName;
     public string groupNameEn;
     public TileScriptable[] tiles;
-    public List<TileScriptable> currentTiles;
+   [HideInInspector] public List<TileScriptable> currentTiles;
 }
