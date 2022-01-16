@@ -11,18 +11,34 @@ public class TileGenerator : MonoBehaviour
     public static TileGenerator instance;
     [HideInInspector] public List<TileScript> tiles = new List<TileScript>();
     public List<Destination> possibleDestinations;
-    public List<TileScriptable> tileTypes;
+    [HideInInspector] public List<TileScriptable> tileTypes = new List<TileScriptable>();
     // Start is called before the first frame update
 
     private void Awake()
     {
         instance = this;
-        snapcontroller = GetComponent<Snapcontroller>(); 
-      //  GeneratePossibleDestinationList();
-    }
+        snapcontroller = GetComponent<Snapcontroller>();
+        SetupTileGroups();
+    //  GeneratePossibleDestinationList();
+}
     void Start()
     {
         
+    }
+
+    private void SetupTileGroups()
+    {
+        TileGroup[] tiles = FindObjectOfType<LevelSelect>().levelData[0].tileGroups;
+        foreach(TileGroup tileGroup in tiles)
+        {
+            foreach(TileScriptable ts in tileGroup.tiles)
+            {
+                if(!tileTypes.Contains(ts))
+                {
+                    tileTypes.Add(ts);
+                }
+            }
+        }
     }
 
     private void Update()
