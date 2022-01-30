@@ -35,11 +35,16 @@ public class TopBarController : MonoBehaviour
         playerName.color = textColor;
         gameName.color = textColor;
         playerName.text = playerData.username.ToUpper();// playerData.firstName.ToUpper()+  " " + playerData.lastName[0] + ".";
-        gameName.text = Helpers.isLatvian()? gameNameString : gameNameStringEN;
         nameUnderlay.color = textColor;
         scoreUnderlay.color = textColor;
         helpBtnImage.color = textColor;
+        SetupHeading();
         UpdateTime();
+    }
+
+    public void SetupHeading()
+    {
+        gameName.text = Helpers.isLatvian() ? gameNameString : gameNameStringEN;
     }
     private void UpdateTime()
     {
@@ -61,7 +66,10 @@ public class TopBarController : MonoBehaviour
 
     public void UpdateScore(int score, int updateBy)
     {
-        
+        if (score > 2500)
+        {
+            score = 2500;
+        }
         this.score.text = score.ToString();
         if (updateBy == 0)
             return;

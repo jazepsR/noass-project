@@ -65,7 +65,7 @@ public class HillPieceController : MonoBehaviour
             {
                 activeBar++;
                 ActivateTargetPoints();
-                activePiece.activeSmallPiece.fill.fillAmount = (float)activeBar / 5f;
+                //activePiece.activeSmallPiece.fill.fillAmount = (float)activeBar / 5f;
                 points += HillGameController.Instance.pointsForCorrectLine;
                 if(activeBar==5)
                 {

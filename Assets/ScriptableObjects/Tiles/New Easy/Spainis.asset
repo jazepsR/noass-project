@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Spainis
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: c344ea530d2f59044ab2ff0635df6d5c, type: 3}
+  imageEN: {fileID: 0}
   imageHard: {fileID: 0}
+  isHard: 0
   possibleBgColors:
   - {r: 0.09411766, g: 0.3019608, b: 0.82745105, a: 1}
   - {r: 0.22352943, g: 0.5411765, b: 0.86274517, a: 1}
@@ -31,6 +33,6 @@ MonoBehaviour:
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.3019608, g: 0.6666667, b: 0.6117647, a: 1}
-  possibleDestinations: 0500000016000000
-  DisplayName: Plastmasas Spainis
+  possibleDestinations: 0500000009000000
+  DisplayName: Plastmasas spainis
   DisplayNameEng: plastic bucket

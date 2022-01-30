@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Banans
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: b530e412b95f627468abbd175af2eca8, type: 3}
+  imageEN: {fileID: 0}
   imageHard: {fileID: 0}
+  isHard: 0
   possibleBgColors:
   - {r: 0.09411766, g: 0.3019608, b: 0.82745105, a: 1}
   - {r: 0.22352943, g: 0.5411765, b: 0.86274517, a: 1}
@@ -31,6 +33,6 @@ MonoBehaviour:
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.3019608, g: 0.6666667, b: 0.6117647, a: 1}
-  possibleDestinations: 1600000007000000
+  possibleDestinations: 07000000
   DisplayName: "Ban\u0101ns"
   DisplayNameEng: banana

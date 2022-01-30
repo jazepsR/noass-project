@@ -43,7 +43,7 @@ public class RoadGameLower : MonoBehaviour
 
     public bool isFull()
     {
-        return mainSliderVal >= maxVal;
+        return mainSliderVal >= 1;
     }
 
     public void AddToSmall()

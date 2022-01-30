@@ -87,13 +87,15 @@ public class sendEmail : MonoBehaviour
     {
         if(Helpers.isLatvian())
         {
-          return  "Sveiks!\nPaldies, ka apmeklēji Getliņi EKO \"Vides izglītības centru\".\nTavs Getliņi EKO poligonu procesu izziņas spēles rezultāts ir:\n\nSpēlētājs: " + playerName +
+          return  "Sveiks!\nPaldies, ka apmeklēji Getliņi EKO \"Vides izglītības centru\".\nTavs Getliņi EKO poligonu procesu izziņas spēles rezultāts ir:\n\nSpēle: "+
+                TopBarController.instance.gameNameString +"\nSpēlētājs: " + playerName +
                 "\nPunktu skaits: " + playerScore +
                 "\n\nPielikumā atradīsi diplomu par dalību spēlē!\n Uz tikšanos nākamreiz!";
         }
         else
         {
-            return "Hi!\nThanks for visiting the Getliņi EKO \"Environmental education center\"!\nYour Getliņi EKO landfill porcesses informational game results are:\n\nPlayer name: " + playerName +
+            return "Hi!\nThanks for visiting the Getliņi EKO \"Environmental education center\"!\nYour Getliņi EKO landfill porcesses brain game results are:\n\nGame: " 
+                +TopBarController.instance.gameNameStringEN+ "\nPlayer name: " + playerName +
                            "\nScore: " + playerScore +
                            "\n\nAttached to this email you will find a diploma!\nSee you next time!";
         }

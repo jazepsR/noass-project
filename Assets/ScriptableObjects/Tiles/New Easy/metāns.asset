@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889c54f1c745c5f4fadebcb46607cc39, type: 3}
   m_Name: "met\u0101ns"
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 3561fa4265862c34eb1ab228303167a9, type: 3}
+  image: {fileID: 21300000, guid: bd4bcb1e755b6eb4886d1401184c0225, type: 3}
   imageEN: {fileID: 21300000, guid: 3e7a24acb262c77499fbc70946bcd8d5, type: 3}
   imageHard: {fileID: 21300000, guid: 04a16d56e00ce5945ac42066f5940eec, type: 3}
   isHard: 0

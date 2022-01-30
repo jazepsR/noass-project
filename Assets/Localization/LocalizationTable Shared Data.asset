@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19513769644765184
-    m_Key: "PIRMS S\u0100C SP\u0112LI,"
+    m_Key: "PIRMS S\u0100C SP\u0112LI, IEVADI NEPIECIE\u0160AMO  INFORM\u0100CIJU"
     m_Metadata:
       m_Items: []
   - m_Id: 19514244230262784
@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19514404582699008
-    m_Key: Ievadi teskstu...
+    m_Key: Ievadi tekstu...
     m_Metadata:
       m_Items: []
   - m_Id: 19514658174513152
@@ -261,7 +261,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19554811156869120
-    m_Key: "INFILTR\u0100TA CAURULES"
+    m_Key: "INFILTR\u0100CIJA"
     m_Metadata:
       m_Items: []
   - m_Id: 19554939213164544
@@ -269,7 +269,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19555096369541120
-    m_Key: "G\u0100ZU SAV\u0100K\u0160ANAS"
+    m_Key: "G\u0100ZES SAV\u0100K\u0160ANA"
     m_Metadata:
       m_Items: []
   - m_Id: 19555188237381632
@@ -306,6 +306,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 19571422894993408
     m_Key: "TURPIN\u0100"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21664561541595136
+    m_Key: "MAIN\u012AT VALODU"
     m_Metadata:
       m_Items: []
   m_Metadata:

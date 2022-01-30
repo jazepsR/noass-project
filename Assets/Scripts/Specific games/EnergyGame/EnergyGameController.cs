@@ -39,7 +39,6 @@ public class EnergyGameController : MonoBehaviour
         Instance = this;
         carSpawner = GetComponent<SimpleSpawner>();
         roundedButtons.AddRange(FindObjectsOfType<RoundButtonController>());
-        SetupRoundedButtons();
     }
     // Start is called before the first frame update
     void Start()
@@ -94,6 +93,10 @@ public class EnergyGameController : MonoBehaviour
                 break;
             }
         }
+        if(factoryBar.value>0.1f)
+        {
+            heaterReady = false;
+        }    
         if (prevHeat != heaterReady)
         {
             generatorButton.SetState(heaterReady);
@@ -199,13 +202,13 @@ public class EnergyGameController : MonoBehaviour
             }
         }
 
-        void SetupRoundedButtons()
+      /*  void SetupRoundedButtons()
         {
             foreach (RoundButtonController roundButton in roundedButtons)
             {
                 roundButton.Setup(pointsToCompleteGame);
             }
-        }
+        }*/
         // Update is called once per frame
 
         public void SetGameState(energyGameState carGameState)

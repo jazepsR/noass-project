@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889c54f1c745c5f4fadebcb46607cc39, type: 3}
   m_Name: "siloks\u0101ns"
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 6cb6eabb5a5a71c46b97f23f8f73060e, type: 3}
+  image: {fileID: 21300000, guid: 7f63dd463e27a27418fdd1d9e651a26f, type: 3}
   imageEN: {fileID: 21300000, guid: 82e3d6125e45905408c9aca709e25622, type: 3}
   imageHard: {fileID: 21300000, guid: 194fb51e38313cc4ea7fa95ffd2d5b3d, type: 3}
   isHard: 0

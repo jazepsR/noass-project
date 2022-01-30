@@ -29,6 +29,7 @@ public class BunkerGameController : MonoBehaviour
     public BunkerController bunker2;
     public AnimatedButton[] destinationButtons;
     bool gameComplete = false;
+    private bool canClick = false;
     private void Awake()
     {
         Instance = this;
@@ -55,40 +56,54 @@ public class BunkerGameController : MonoBehaviour
 
     public void GrabButtonClicked()
     {
+        if (tileAnimators.Count == 0 ||!canClick)
+            return;
+        if (!bunker1.IsEmpty() && !bunker2.IsEmpty())
+        {
+            tileAnimators[0].SetTrigger("error");
+            return;
+        }
         if (Helpers.IsTileAcceptable(tileAnimators[0].GetComponentInChildren<TileScript>(), possibleDestinations))
         {
             ClawScript.instance.StartGrab();
             ClawScript.instance.StartDevliver();
-            Invoke("AdvanceTiles", 2);
+            Invoke("AdvanceTiles", 1.5f);
             SetGameState(bunkerGameState.DeliverItem);
             tileAnimators.RemoveAt(0);
+           // Debug.LogError("clicked grab! REMOVED. Tile animator count: " + tileAnimators.Count);
             UpdateScore(pointsForCorrectGrab);
             deliverButton.SetClickOutcome(true, 0.5f);
             deliverButton.SetState(false);
             discardButton.SetState(false,1f);
+            canClick = false;
         }
         else
         {
+          //  Debug.LogError("clicked grab! Incorrect! Tile animator count: " + tileAnimators.Count);
             UpdateScore(-pointsForCorrectGrab);
             deliverButton.SetClickOutcome(false, 0.5f);
         }
     }
     public void DiscardButtonClicked()
     {
+        if (tileAnimators.Count == 0 || !canClick)
+            return;
         if (!Helpers.IsTileAcceptable(tileAnimators[0].GetComponentInChildren<TileScript>(),possibleDestinations))
         {
             ClawScript.instance.StartGrab();
             ClawScript.instance.StartDiscard();
-            Invoke("AdvanceTiles", 2);
-            Invoke("SetFillState", 4);
+            Invoke("AdvanceTiles", 1.5f);
             tileAnimators.RemoveAt(0);
+          //  Debug.LogError("clicked discard! REMOVED. Tile animator count: " + tileAnimators.Count);
             UpdateScore(pointsForCorrectGrab);
             discardButton.SetClickOutcome(true, 0.5f);
             deliverButton.SetState(false,1f);
             discardButton.SetState(false);
+            canClick = false;
         }
         else
         {
+          //  Debug.LogError("clicked discard! Incorrect! Tile animator count: " + tileAnimators.Count);
             UpdateScore(-pointsForCorrectGrab);
             discardButton.SetClickOutcome(false, 0.5f);
         }
@@ -238,12 +253,14 @@ public class BunkerGameController : MonoBehaviour
             case bunkerGameState.FillConveyor:
                 if (tileAnimators.Count <= 1)
                 {
+                    canClick = true;
                     GameObject p = Instantiate(tileAnimator, tiles);
                     SnapPoint sp = p.GetComponent<SnapPoint>();
                     TileGenerator.instance.GenerateTile(GetDestination(),sp , p.transform);
                     Snapcontroller.instance.snapPoints.Add(sp);
                     tileAnimators.Add(p.GetComponent<Animator>());
-                    if(tileAnimators.Count <= 1)
+                 //   Debug.LogError("Added! Tile animator count: " + tileAnimators.Count);
+                    if (tileAnimators.Count <= 1)
                     {
                         AdvanceTiles();
                     }
@@ -253,7 +270,7 @@ public class BunkerGameController : MonoBehaviour
                     }
                     else
                     {
-                        Invoke("SetFillState", 2f);
+                        Invoke("SetFillState", 1f);
                     }
                 }
                 else
@@ -274,7 +291,7 @@ public class BunkerGameController : MonoBehaviour
                 break;
             case bunkerGameState.DeliverItem:
                 BunerGameTractor.instance.StartMove();
-                Invoke("SetDriveState", 4);
+                Invoke("SetDriveState", 3);
                 break;
             case bunkerGameState.DriveToBunker:
                 BunerGameTractor.instance.DriveToDestination(bunker1.IsEmpty());

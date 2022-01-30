@@ -19,7 +19,7 @@ MonoBehaviour:
   levelSelection: {fileID: 21300000, guid: 38346b49164e3764d886735c371cad81, type: 3}
   tutorialSprites:
   - {fileID: 21300000, guid: 968bed05c019347439c2853e57210cdb, type: 3}
-  - {fileID: 21300000, guid: 692c4f6f10446da4a9bccd2caa8b346c, type: 3}
+  - {fileID: 21300000, guid: b0ba7b45b3ac7e442914c5f6e01b27e7, type: 3}
   - {fileID: 21300000, guid: eb8aba55728349f42aeb9af271d88b4c, type: 3}
   - {fileID: 21300000, guid: 2b20e6a1ba3487b4db2272ca938cb90b, type: 3}
   - {fileID: 21300000, guid: 2a9a382ad7fd7a6419daf9a2093cc3f6, type: 3}
@@ -28,10 +28,10 @@ MonoBehaviour:
   tutorialSpritesEn:
   - {fileID: 21300000, guid: 6f88c070903a0d34c9dacb19a206d825, type: 3}
   - {fileID: 21300000, guid: 35ba667c1eaf5064fa3229045adb54ea, type: 3}
-  - {fileID: 21300000, guid: 9ac79b0f0edcd6d4f94543d6cc0f63e0, type: 3}
-  - {fileID: 21300000, guid: 95af64936f8e1a04daac8771ac4bbe3f, type: 3}
-  - {fileID: 21300000, guid: 0d76c9adb81c9b5459ac60d4b6e2f049, type: 3}
-  - {fileID: 21300000, guid: 549a8fff9da39124eb3168c25c08fc3d, type: 3}
+  - {fileID: 21300000, guid: 666ae277f1880dd489a5f9f4ee620693, type: 3}
+  - {fileID: 21300000, guid: 51b4dfc6480a58e47aa8afd387ee083e, type: 3}
+  - {fileID: 21300000, guid: ea002ad533fb45d44998812182b514be, type: 3}
+  - {fileID: 21300000, guid: aae1860369037be429d851c68948339d, type: 3}
   - {fileID: 21300000, guid: e80e9985737a1174db95c0ba43777e0e, type: 3}
   available: 1
   tileGroups:

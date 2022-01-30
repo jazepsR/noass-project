@@ -94,7 +94,7 @@ public class LevelSelect : MonoBehaviour
         {
             currentStage = TutorialStage.gaita;
             currentTutorialSlide = currentSlide;
-            startGameButton.interactable = selectedGame.available;
+           // startGameButton.interactable = selectedGame.available;
             selectionImage.sprite = selectedGame.levelSelection;
             mainImage.gameObject.SetActive(true);
             elementScreen.SetActive(false);
@@ -122,6 +122,7 @@ public class LevelSelect : MonoBehaviour
             RefreshTexts();
             SetupDifficultyToggles();
         }
+        heading.text = Helpers.isLatvian() ? selectedGame.levelName.ToUpper() : selectedGame.levelNameEn.ToUpper();
 
         selectedGame.SetupElementList();
         SetupElementPage();

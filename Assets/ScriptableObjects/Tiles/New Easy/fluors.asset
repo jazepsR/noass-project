@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889c54f1c745c5f4fadebcb46607cc39, type: 3}
   m_Name: fluors
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 969efdc6715a55441bea9e0bb83840ca, type: 3}
+  image: {fileID: 21300000, guid: bd2a6311466294c4fbc2a536a0bef9b4, type: 3}
   imageEN: {fileID: 21300000, guid: fb678a86c5ae0294486fddef562e36fa, type: 3}
   imageHard: {fileID: 21300000, guid: a957b4f223dcef44d970088ccd309ec0, type: 3}
   isHard: 0

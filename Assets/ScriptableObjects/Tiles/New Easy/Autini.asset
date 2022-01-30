@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Autini
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: c5e698f6e29a5ee4b9995b7f171a187e, type: 3}
+  imageEN: {fileID: 21300000, guid: c5e698f6e29a5ee4b9995b7f171a187e, type: 3}
   imageHard: {fileID: 0}
+  isHard: 0
   possibleBgColors:
   - {r: 0.09411766, g: 0.3019608, b: 0.82745105, a: 1}
   - {r: 0.22352943, g: 0.5411765, b: 0.86274517, a: 1}
@@ -32,5 +34,5 @@ MonoBehaviour:
   - {r: 0.37647063, g: 0.82745105, b: 0.7411765, a: 1}
   - {r: 0.3019608, g: 0.6666667, b: 0.6117647, a: 1}
   possibleDestinations: 0900000015000000
-  DisplayName: pamperi
-  DisplayNameEng: pampers
+  DisplayName: "Auti\u0146biks\u012Btes"
+  DisplayNameEng: Diapers

@@ -20,38 +20,32 @@ MonoBehaviour:
   tutorialSprites:
   - {fileID: 21300000, guid: 968bed05c019347439c2853e57210cdb, type: 3}
   - {fileID: 21300000, guid: d6042996228e9804888c0a7f86ddc57b, type: 3}
-  - {fileID: 21300000, guid: 171cddacf854cc849a9f87f14ec45968, type: 3}
-  - {fileID: 21300000, guid: 0a21d68d386fe2248b5e96e4599213e9, type: 3}
-  - {fileID: 21300000, guid: 1db9b78bdbc1e5a4e94c710a05ee3ce9, type: 3}
-  - {fileID: 21300000, guid: f5716d39b3c84e84e94f7794e3351c8f, type: 3}
-  - {fileID: 21300000, guid: 12f7964df81b3a24d9691f78b2be1c19, type: 3}
-  - {fileID: 21300000, guid: f7616737a0e4a3b4995180c34ad4296b, type: 3}
+  - {fileID: 21300000, guid: 8e521709953354a4e8b39b6319a4818b, type: 3}
+  - {fileID: 21300000, guid: 75887cdb1cbe49f4b8e4d4c390b1a72f, type: 3}
+  - {fileID: 21300000, guid: c362597be7960b94f99e8ffb19c2fdf0, type: 3}
+  - {fileID: 21300000, guid: a9371226e955cfb42ac2649cdeb06556, type: 3}
+  - {fileID: 21300000, guid: 0e8176141db26c648b952e1a40b30fc1, type: 3}
+  - {fileID: 21300000, guid: cf6f007b1d5a4384c9bb210f89b1ffbf, type: 3}
   tutorialSpritesEn:
   - {fileID: 21300000, guid: 6f88c070903a0d34c9dacb19a206d825, type: 3}
   - {fileID: 21300000, guid: 8f3da5855b66b1d48b4f25f9f13e3fe0, type: 3}
-  - {fileID: 21300000, guid: 59b65c708a4de3d41bc48fc08260a9b1, type: 3}
-  - {fileID: 21300000, guid: cb2f069861bcd014bb8aa478b290503b, type: 3}
-  - {fileID: 21300000, guid: 4f0dc34f89d54134bbe7013235932618, type: 3}
-  - {fileID: 21300000, guid: 3b1296626947b9f46af409f8f5ac4200, type: 3}
-  - {fileID: 21300000, guid: cf62430e9ada2ed4b8b9d2fc05e082aa, type: 3}
-  - {fileID: 21300000, guid: 134c4ad3d95ba994cbfaedd530051178, type: 3}
+  - {fileID: 21300000, guid: c6d9f4e33d028b04f93113548ff067c2, type: 3}
+  - {fileID: 21300000, guid: 121a0aa65966ee54994376c8810218ae, type: 3}
+  - {fileID: 21300000, guid: 302ca587ccddac047b59764cdb4e362f, type: 3}
+  - {fileID: 21300000, guid: fd00f014cb066334190116337ab2c6cc, type: 3}
+  - {fileID: 21300000, guid: 6558980a4f695bc49ad2aebaa72db99a, type: 3}
+  - {fileID: 21300000, guid: 5824e4037d12d714cba2d21540496834, type: 3}
   available: 1
   tileGroups:
   - groupName: "\u0160\u0137iro\u0161ana"
     groupNameEn: Sorting
     tiles:
-    - {fileID: 11400000, guid: 57e90624783e560409354c2d22405856, type: 2}
-    - {fileID: 11400000, guid: d6a4f82f0be1e6341ac77fe4eca21dfa, type: 2}
     - {fileID: 11400000, guid: f0952484d97a0864ebfb969ef3c693bf, type: 2}
-    - {fileID: 11400000, guid: 04cd8b050d8fba242b6b393ad7dab30f, type: 2}
-    - {fileID: 11400000, guid: 8a293c8abfb037f489048ec6bb3b24ad, type: 2}
     - {fileID: 11400000, guid: 2e21ae584db5a8047b19909ee1a28979, type: 2}
-    - {fileID: 11400000, guid: f4eb44a778342fb4b85c3195551d4a78, type: 2}
     - {fileID: 11400000, guid: c3a1e6b47f465b6468d4dea8b7765b36, type: 2}
     - {fileID: 11400000, guid: fa1edbc4b4c53b649be448bada932369, type: 2}
     - {fileID: 11400000, guid: 5fb048f58f5e82f4784680624002238c, type: 2}
     - {fileID: 11400000, guid: 23862e3f431bd3542872f7b98b292fad, type: 2}
-    - {fileID: 11400000, guid: b9f142aed8b565046843ab6bb68a15ee, type: 2}
     - {fileID: 11400000, guid: d543acf8b2d574148aa3c371e0a8f842, type: 2}
     - {fileID: 11400000, guid: 69d56a8e5e684c9419f9bd3d5eeebf5d, type: 2}
     - {fileID: 11400000, guid: 8caf16d2b4e997648bb6e91bbd35d871, type: 2}
@@ -64,7 +58,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 832d8db396f276343a069efd2375dc78, type: 2}
     - {fileID: 11400000, guid: a98687fe8fdb88d4786e0a3905fe67aa, type: 2}
     - {fileID: 11400000, guid: e1e3bfce1c00a3b4e8bf4a4539e2063c, type: 2}
-    - {fileID: 11400000, guid: baa2437dc2f45df4a86fa67be0ad2fd2, type: 2}
     - {fileID: 11400000, guid: a01b0eeb610d5f4468199284e0492b20, type: 2}
     - {fileID: 11400000, guid: feebc6bd0e819d74d91bb03d6d6f91d5, type: 2}
     - {fileID: 11400000, guid: edf390bbdcfa43d49b56c693ae3d4327, type: 2}
@@ -75,13 +68,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: af6c2de28b18dfc4bb8ee07d2acb093f, type: 2}
     - {fileID: 11400000, guid: aacf15f3673e85b489528f21d8fcdd03, type: 2}
     currentTiles:
-    - {fileID: 11400000, guid: 57e90624783e560409354c2d22405856, type: 2}
-    - {fileID: 11400000, guid: d6a4f82f0be1e6341ac77fe4eca21dfa, type: 2}
     - {fileID: 11400000, guid: f0952484d97a0864ebfb969ef3c693bf, type: 2}
-    - {fileID: 11400000, guid: 04cd8b050d8fba242b6b393ad7dab30f, type: 2}
-    - {fileID: 11400000, guid: 8a293c8abfb037f489048ec6bb3b24ad, type: 2}
     - {fileID: 11400000, guid: 2e21ae584db5a8047b19909ee1a28979, type: 2}
-    - {fileID: 11400000, guid: f4eb44a778342fb4b85c3195551d4a78, type: 2}
     - {fileID: 11400000, guid: c3a1e6b47f465b6468d4dea8b7765b36, type: 2}
     - {fileID: 11400000, guid: fa1edbc4b4c53b649be448bada932369, type: 2}
     - {fileID: 11400000, guid: 5fb048f58f5e82f4784680624002238c, type: 2}
@@ -97,16 +85,12 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f20ead0d3a06b364a90fb380a896ff43, type: 2}
     - {fileID: 11400000, guid: 8af4138bcf125ff4ea34429305360d70, type: 2}
     - {fileID: 11400000, guid: 832d8db396f276343a069efd2375dc78, type: 2}
-    - {fileID: 11400000, guid: 356c19514f8927b4cb2681aca0ca2366, type: 2}
     - {fileID: 11400000, guid: a98687fe8fdb88d4786e0a3905fe67aa, type: 2}
     - {fileID: 11400000, guid: e1e3bfce1c00a3b4e8bf4a4539e2063c, type: 2}
-    - {fileID: 11400000, guid: baa2437dc2f45df4a86fa67be0ad2fd2, type: 2}
-    - {fileID: 11400000, guid: 43c2faa765b3ba947ba3b4d4dd0ed5e9, type: 2}
   - groupName: "Noglab\u0101\u0161ana"
     groupNameEn: Storage
     tiles:
     - {fileID: 11400000, guid: f2a214a58b467e74fa5b37066f071966, type: 2}
-    - {fileID: 11400000, guid: c32260d7684efdd4caee706b018a24d9, type: 2}
     - {fileID: 11400000, guid: a2ce66eec79478f4a8ccfa4c18f3c22c, type: 2}
     - {fileID: 11400000, guid: a34152353ff2bde438368f12d981adb8, type: 2}
     - {fileID: 11400000, guid: 2126e95b3f33d6547a20e684199baacd, type: 2}
@@ -133,27 +117,24 @@ MonoBehaviour:
     - {fileID: 11400000, guid: aaad027c824163240b016354d267aff8, type: 2}
     - {fileID: 11400000, guid: af6c2de28b18dfc4bb8ee07d2acb093f, type: 2}
     - {fileID: 11400000, guid: aacf15f3673e85b489528f21d8fcdd03, type: 2}
+    - {fileID: 11400000, guid: 356c19514f8927b4cb2681aca0ca2366, type: 2}
+    - {fileID: 11400000, guid: dd100b90f92c851458dd6d55af15669c, type: 2}
     currentTiles:
     - {fileID: 11400000, guid: f2a214a58b467e74fa5b37066f071966, type: 2}
-    - {fileID: 11400000, guid: c32260d7684efdd4caee706b018a24d9, type: 2}
     - {fileID: 11400000, guid: a2ce66eec79478f4a8ccfa4c18f3c22c, type: 2}
     - {fileID: 11400000, guid: a34152353ff2bde438368f12d981adb8, type: 2}
     - {fileID: 11400000, guid: 2126e95b3f33d6547a20e684199baacd, type: 2}
-    - {fileID: 11400000, guid: 6e84c1628f67e4447b371a8dc1432610, type: 2}
-    - {fileID: 11400000, guid: 3d1338a26a300e949a7f9270a026b035, type: 2}
     - {fileID: 11400000, guid: 354499eae091bbb4fbdf287fd5853627, type: 2}
-    - {fileID: 11400000, guid: a4c40883a96fad5468b13ec2a14170e5, type: 2}
     - {fileID: 11400000, guid: ab5707ea729415c45ba2607fbb03b533, type: 2}
     - {fileID: 11400000, guid: 0c14a7e30ff791b4abd0b041c48e86a1, type: 2}
     - {fileID: 11400000, guid: 2348cc15bdd23784bb3850db3ddc21c0, type: 2}
     - {fileID: 11400000, guid: 014cc5e370d08934e9317d9c1a831842, type: 2}
     - {fileID: 11400000, guid: 5418fca37349b2b44bae69b001258d0c, type: 2}
     - {fileID: 11400000, guid: 01152b1acd50b4f419be890438565680, type: 2}
-    - {fileID: 11400000, guid: e1be8239827f0414eb8e33678185e028, type: 2}
-    - {fileID: 11400000, guid: d85b60b3eaac272469d6eeb45e31f337, type: 2}
     - {fileID: 11400000, guid: 97cddf67610474943a26b1ee6f5c84ec, type: 2}
-    - {fileID: 11400000, guid: 7a0c39872fd5fac4ea5f359f18cb3356, type: 2}
     - {fileID: 11400000, guid: 7e5aa49546ac6304fbb6614628efd96b, type: 2}
+    - {fileID: 11400000, guid: 356c19514f8927b4cb2681aca0ca2366, type: 2}
+    - {fileID: 11400000, guid: dd100b90f92c851458dd6d55af15669c, type: 2}
   - groupName: "Biolo\u0123ija"
     groupNameEn: Biological
     tiles:
@@ -184,6 +165,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b9f142aed8b565046843ab6bb68a15ee, type: 2}
     - {fileID: 11400000, guid: baa2437dc2f45df4a86fa67be0ad2fd2, type: 2}
     - {fileID: 11400000, guid: 446e1331ac75a054584a97dc80082159, type: 2}
+    - {fileID: 11400000, guid: 7a0c39872fd5fac4ea5f359f18cb3356, type: 2}
   - groupName: "B\u012Bstamie"
     groupNameEn: Hazardous
     tiles:
@@ -225,7 +207,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 78b07cd9da7f3f3448da72430d249c7f, type: 2}
     - {fileID: 11400000, guid: c2393be3d6ec87a449c2d0b05d3863a2, type: 2}
     - {fileID: 11400000, guid: 9958454fc8cbd184f8fbd201e1e5a8e3, type: 2}
-    - {fileID: 11400000, guid: 0021a2f8f80bf4c46af2bc2b2de4729d, type: 2}
     - {fileID: 11400000, guid: fc54d7cee862b9b4abddf243843fdb4a, type: 2}
     - {fileID: 11400000, guid: 817af4f0555b90649ba9a37e62212078, type: 2}
     - {fileID: 11400000, guid: 8835eb99b18f6024bbe28ac979655fe2, type: 2}

@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 30;
         DisableScreens();
         if (Var.startFromGameSelect)
         {
@@ -58,7 +59,13 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(FadeSplash(0, levelScreen));
         FadeProfileScreen(1, 1);
     }
-     
+
+    public void GoBackFromProfile()
+    {
+        StartCoroutine(FadeSplash(0, profileScreen));
+        FadeSplashScreen(1,1);
+    }
+
     void DisableScreens()
     {
         foreach (GameObject screen in screens)
@@ -75,6 +82,11 @@ public class MainMenu : MonoBehaviour
       StartCoroutine(FadeSplash(target, splashScreen));
     }
 
+    public void FadeSplashScreen(float target, float waitTime = 0)
+    {
+        StartCoroutine(FadeSplash(target, splashScreen, waitTime));
+    }
+
     public void FadeProfileScreen(float target, float waitTime =0)
     {
         StartCoroutine(FadeSplash(target, profileScreen, waitTime));
@@ -83,7 +95,7 @@ public class MainMenu : MonoBehaviour
     public void GoToLevelSelect()
     {
         StartCoroutine(FadeSplash(0, profileScreen));
-        StartCoroutine(FadeSplash(1, levelScreen,1));
+        StartCoroutine(FadeSplash(1, levelScreen,1));       
     }
 
     private IEnumerator FadeSplash(float target, CanvasGroup toFade, float waitTime=0)

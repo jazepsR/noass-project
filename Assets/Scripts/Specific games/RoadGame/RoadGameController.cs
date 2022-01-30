@@ -26,6 +26,7 @@ public class RoadGameController : MonoBehaviour
     public Animator receiveTruckAnim;
     public List<Animator> additionalAnimators;
     bool gameComplete = false;
+    private bool canClick = false;
     private void Awake()
     {
         Instance = this;
@@ -97,8 +98,11 @@ public class RoadGameController : MonoBehaviour
     }
     public void GrabButtonClicked()
     {
+        if (tileAnimators.Count == 0 || !canClick)
+            return;
         if (Helpers.IsTileAcceptable(tileAnimators[0].GetComponentInChildren<TileScript>(), possibleDestinations))
         {
+            canClick = false;
             SetGameState(roadGameState.GrabItem);
             UpdateScore(pointsForCorrectGrab);
             grabButton.SetClickOutcome(true, 0.5f);
@@ -115,8 +119,11 @@ public class RoadGameController : MonoBehaviour
 
     public void DiscardButtonClicked()
     {
+        if (tileAnimators.Count == 0 || !canClick)
+            return;
         if (!Helpers.IsTileAcceptable(tileAnimators[0].GetComponentInChildren<TileScript>(), possibleDestinations))
         {
+            canClick = false;
             SetGameState(roadGameState.DiscardItem);
             UpdateScore(pointsForCorrectGrab);
             discardButton.SetClickOutcome(true, 0.5f);
@@ -162,6 +169,7 @@ public class RoadGameController : MonoBehaviour
     }
     public void AdvanceTiles()
     {
+       // Debug.LogError("Advancing tiles");
         foreach(Animator anim in tileAnimators)
         {
             anim.SetTrigger("move");
@@ -186,6 +194,7 @@ public class RoadGameController : MonoBehaviour
                 Invoke("SetFillState", 2);
                 break;
             case roadGameState.FillConveyor:
+                canClick = true;
                 if (tileAnimators.Count <= 3)
                 {
                     GameObject p = Instantiate(tileAnimator, tiles);
@@ -193,7 +202,7 @@ public class RoadGameController : MonoBehaviour
                     TileGenerator.instance.GenerateTile(GetDestination(),sp , p.transform);
                     Snapcontroller.instance.snapPoints.Add(sp);
                     tileAnimators.Add(p.GetComponent<Animator>());
-                    Invoke("SetFillState", 2);
+                    Invoke("SetFillState", 0.75f);
                     receiveTruckAnim.SetTrigger("leave");
                 }
                 else
@@ -208,12 +217,9 @@ public class RoadGameController : MonoBehaviour
             case roadGameState.DiscardItem:
                 ClawScript.instance.StartDiscard();
                 tileAnimators.RemoveAt(0);
-                Invoke("SetFillState", 2.5f);
-                Invoke("AdvanceTiles", 2);
                 break;
             case roadGameState.GrabItem:
                 ClawScript.instance.StartGrab();
-                Invoke("SetDestinationState", 2.5f);
                 receiveTruckAnim.ResetTrigger("leave");
                 receiveTruckAnim.SetTrigger("toGate");
                 break;
@@ -225,7 +231,7 @@ public class RoadGameController : MonoBehaviour
                 ToggleDestinationButtons(false);
                 UpdateScore(pointsForCorrectDestination);
                 RoadCrusher.instance.StartCrush();
-                ClawScript.instance.Release(1);
+                ClawScript.instance.Release(0.6f);
                 tileAnimators.RemoveAt(0);
                 Invoke("AdvanceTiles", 1);
                 Invoke("SetFillState", 1.5f);
@@ -252,7 +258,7 @@ public class RoadGameController : MonoBehaviour
         SetGameState(roadGameState.FillConveyor);
         if (tileAnimators.Count <= 3)
         {
-            Invoke("AdvanceTiles", 1);
+            Invoke("AdvanceTiles", 0.5f);
         }
     }
 

@@ -10,7 +10,7 @@ public class BunkerController : MonoBehaviour
     public Image[] sliderFill;
     public Animator doorAnim;
     public SnapPoint[] snapPoints;
-    private float processMaterialTime = 30f;
+    private float processMaterialTime = 22.5f;
     private bool processing = false;
     public Sprite fullBar;
     public Sprite emptyBar;

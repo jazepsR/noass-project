@@ -73,7 +73,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19530520394706944
-    m_Localized: "WELCOME TO <I>GETLI\u0145I EKO</I> INFORMATIONAL GAME"
+    m_Localized: "WELCOME TO <I>GETLI\u0145I EKO</I> BRAIN GAME"
     m_Metadata:
       m_Items: []
   - m_Id: 19533371871309824
@@ -197,7 +197,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19549668323602432
-    m_Localized: GLASSWARE
+    m_Localized: GLASS
     m_Metadata:
       m_Items: []
   - m_Id: 19549790658867200
@@ -273,7 +273,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19554811156869120
-    m_Localized: INFILTRATE PIPES
+    m_Localized: INFILTRATION
     m_Metadata:
       m_Items: []
   - m_Id: 19554939213164544
@@ -314,6 +314,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 19571302229061632
     m_Localized: QUIT GAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21664561541595136
+    m_Localized: CHANGE LANGUAGE
     m_Metadata:
       m_Items: []
   references:

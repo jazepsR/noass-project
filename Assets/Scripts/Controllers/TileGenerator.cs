@@ -28,6 +28,7 @@ public class TileGenerator : MonoBehaviour
 
     private void SetupTileGroups()
     {
+        tileTypes = new List<TileScriptable>();
         TileGroup[] tiles = FindObjectOfType<LevelSelect>().levelData[0].tileGroups;
         foreach(TileGroup tileGroup in tiles)
         {

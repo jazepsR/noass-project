@@ -2238,7 +2238,7 @@ MonoBehaviour:
   - {fileID: 1268055461}
   - {fileID: 779069931}
   pointsToCompleteGame: 15
-  pointsForCorrectGrab: 10
+  pointsForCorrectGrab: 5
   pointsForCorrectDestination: 25
   possibleDestinations: 07000000
   deliverButton: {fileID: 5256217351065577120}
@@ -3643,8 +3643,9 @@ GameObject:
   - component: {fileID: 795421059}
   - component: {fileID: 795421061}
   - component: {fileID: 795421060}
+  - component: {fileID: 795421062}
   m_Layer: 5
-  m_Name: body (1)
+  m_Name: wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3707,6 +3708,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795421058}
   m_CullTransparentMesh: 1
+--- !u!114 &795421062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795421058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcea17f9267f374a9e444c5d57830d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -500
 --- !u!1 &802172253
 GameObject:
   m_ObjectHideFlags: 0
@@ -4068,8 +4082,9 @@ GameObject:
   - component: {fileID: 1046461149}
   - component: {fileID: 1046461151}
   - component: {fileID: 1046461150}
+  - component: {fileID: 1046461152}
   m_Layer: 5
-  m_Name: body (2)
+  m_Name: wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4132,6 +4147,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046461148}
   m_CullTransparentMesh: 1
+--- !u!114 &1046461152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046461148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcea17f9267f374a9e444c5d57830d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -500
 --- !u!1 &1062434806
 GameObject:
   m_ObjectHideFlags: 0
@@ -5986,7 +6014,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 157fb3fb4dcfec34186ac52ce79746f6, type: 3}
     - target: {fileID: 8685227676294364330, guid: 267ba6833a37ae84686abe8e6d83f786, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 150
+      value: 124.204
+      objectReference: {fileID: 0}
+    - target: {fileID: 8685227676294364330, guid: 267ba6833a37ae84686abe8e6d83f786, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 85.068
       objectReference: {fileID: 0}
     - target: {fileID: 8685227676294364330, guid: 267ba6833a37ae84686abe8e6d83f786, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5994,7 +6026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8685227676294364330, guid: 267ba6833a37ae84686abe8e6d83f786, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -146.29997
+      value: -142.159
       objectReference: {fileID: 0}
     - target: {fileID: 8685227676686745698, guid: 267ba6833a37ae84686abe8e6d83f786, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6062,7 +6094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8895794221809679368, guid: 267ba6833a37ae84686abe8e6d83f786, type: 3}
       propertyPath: m_text
-      value: "ATT\u012AR\u012A\u0160ANAS\nSIST\u0112MA"
+      value: "ATT\u012AR\u012A\u0160ANAS SIST\u0112MA"
       objectReference: {fileID: 0}
     - target: {fileID: 8895794221809679368, guid: 267ba6833a37ae84686abe8e6d83f786, type: 3}
       propertyPath: m_fontSize
@@ -6985,7 +7017,7 @@ RectTransform:
   - {fileID: 1768645681}
   - {fileID: 88632827}
   m_Father: {fileID: 1985189401}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8719,8 +8751,8 @@ RectTransform:
   - {fileID: 1765185428}
   - {fileID: 349115115}
   - {fileID: 1271781745}
-  - {fileID: 2025377323}
   - {fileID: 1661245630}
+  - {fileID: 2025377323}
   - {fileID: 1467230960}
   - {fileID: 1559905962}
   - {fileID: 1186590843}
@@ -8933,7 +8965,7 @@ RectTransform:
   - {fileID: 1845747786}
   - {fileID: 2014999891}
   m_Father: {fileID: 1985189401}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}

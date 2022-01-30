@@ -35,6 +35,11 @@ public class WinScreen : MonoBehaviour
         gdprPopup.SetActive(true);
         secondScreenButton.interactable = false;
         EnableInputFields(false);
+        SetupWinScreen();
+    }
+
+    public void SetupWinScreen()
+    {
         gdprPopup.GetComponent<Image>().sprite = Helpers.isLatvian() ? gdprLV : gdprEN;
     }
 
@@ -91,6 +96,10 @@ public class WinScreen : MonoBehaviour
 
     public void SetScore(int score)
     {
+        if (score > 2500)
+        {
+            score = 2500;
+        }
         this.score.text = score.ToString();
         scoreVal = score;
     }

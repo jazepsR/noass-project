@@ -47,6 +47,7 @@ public class HillPuzzlePiece : MonoBehaviour
 
     public void CompleteSmallPiece()
     {
+        activeSmallPiece.fill.fillAmount = 1;
         activeSmallPiece.gameObject.SetActive(true);
         availableSmallPieces.Remove(activeSmallPiece);
         activeSmallPiece = null;

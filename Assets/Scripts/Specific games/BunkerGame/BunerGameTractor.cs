@@ -29,6 +29,11 @@ public class BunerGameTractor : MonoBehaviour
         DeliverToDestination(false);
     }
 
+    public void SetFill()
+    {
+        BunkerGameController.Instance.SetGameState(bunkerGameState.FillConveyor);
+    }
+
     public void DeliverToDestination(bool isFirst)
     {
         SnapPoint activeSnap = isFirst ? BunkerGameController.Instance.bunker1.GetAvailableSnapPoint()

@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19513769644765184
-    m_Localized: "PIRMS S\u0100C SP\u0112LI,\nIEVADI NEPIECIE\u0160AMO \nINFROM\u0100CIJU"
+    m_Localized: "PIRMS S\u0100C SP\u0112LI,\nIEVADI NEPIECIE\u0160AMO \nINFORM\u0100CIJU"
     m_Metadata:
       m_Items: []
   - m_Id: 19514244230262784
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19514404582699008
-    m_Localized: Ievadi teskstu...
+    m_Localized: Ievadi tekstu...
     m_Metadata:
       m_Items: []
   - m_Id: 19514658174513152
@@ -269,7 +269,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19554811156869120
-    m_Localized: "INFILTR\u0100TA\nCAURULES"
+    m_Localized: "INFILTR\u0100CIJA"
     m_Metadata:
       m_Items: []
   - m_Id: 19554939213164544
@@ -277,7 +277,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19555096369541120
-    m_Localized: "G\u0100ZU\nSAV\u0100K\u0160ANAS"
+    m_Localized: "G\u0100ZES\nSAV\u0100K\u0160ANA"
     m_Metadata:
       m_Items: []
   - m_Id: 19555188237381632
@@ -310,6 +310,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 19571302229061632
     m_Localized: "BEIGT SP\u0112LI"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21664561541595136
+    m_Localized: "MAIN\u012AT VALODU"
     m_Metadata:
       m_Items: []
   references:

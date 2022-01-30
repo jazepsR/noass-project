@@ -104,5 +104,20 @@ public class ClawScript : MonoBehaviour
         snapPoint.ReleaseDraggable();
     }
 
+    //Only use in bunker game!
+    public void SetFillState()
+    {
+        BunkerGameController.Instance.SetGameState(bunkerGameState.FillConveyor);
+    }
+    //Only use in road game!
+    public void SetFillStateRoad()
+    {
+        RoadGameController.Instance.AdvanceTiles();
+        RoadGameController.Instance.SetGameState(roadGameState.FillConveyor);
+    }
 
+    public void SetDestinationStateRoad()
+    {
+        RoadGameController.Instance.SetGameState(roadGameState.DestinationSelect);
+    }
 }

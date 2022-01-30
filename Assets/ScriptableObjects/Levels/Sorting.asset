@@ -27,10 +27,10 @@ MonoBehaviour:
   tutorialSpritesEn:
   - {fileID: 21300000, guid: 6f88c070903a0d34c9dacb19a206d825, type: 3}
   - {fileID: 21300000, guid: ba1c4ea37a30e964a986bf3c8bd5b888, type: 3}
-  - {fileID: 21300000, guid: 44256c77482690c4db495806d96a2f6b, type: 3}
-  - {fileID: 21300000, guid: 0a0df18421e6ebe4c9dd949e9f053912, type: 3}
-  - {fileID: 21300000, guid: 1179103f899927d488f4ed099923cd85, type: 3}
-  - {fileID: 21300000, guid: 6d4b61f977b6ce4479cbfff85f8e2b5a, type: 3}
+  - {fileID: 21300000, guid: b5adff6fe730e63499b39f02da50fcfe, type: 3}
+  - {fileID: 21300000, guid: 4580332c7c3a0fe4eba717ed97c458b0, type: 3}
+  - {fileID: 21300000, guid: 15c2d66eea3bfb04ba872ea4e18baeb9, type: 3}
+  - {fileID: 21300000, guid: 1f011ceffd312cb4e9079bce62dc4d60, type: 3}
   available: 1
   tileGroups:
   - groupName: "Sp\u0113l\u0113 j\u0101\u0161\u0137iro \u0161\u0101di PAP\u012ARI
@@ -41,19 +41,24 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f0952484d97a0864ebfb969ef3c693bf, type: 2}
     - {fileID: 11400000, guid: 2e21ae584db5a8047b19909ee1a28979, type: 2}
     - {fileID: 11400000, guid: fa1edbc4b4c53b649be448bada932369, type: 2}
-    currentTiles: []
+    currentTiles:
+    - {fileID: 11400000, guid: 98145ce71a419644d8eebeb1c89df430, type: 2}
+    - {fileID: 11400000, guid: f0952484d97a0864ebfb969ef3c693bf, type: 2}
+    - {fileID: 11400000, guid: 2e21ae584db5a8047b19909ee1a28979, type: 2}
+    - {fileID: 11400000, guid: fa1edbc4b4c53b649be448bada932369, type: 2}
   - groupName: "Sp\u0113l\u0113 j\u0101\u0161\u0137iro \u0161\u0101das PLASTMASAS"
     groupNameEn: You will be sorting these PLASTICS
     tiles:
     - {fileID: 11400000, guid: 23862e3f431bd3542872f7b98b292fad, type: 2}
-    - {fileID: 11400000, guid: acbe78efc6301fc49a5d8f9e760b8449, type: 2}
-    - {fileID: 11400000, guid: dd100b90f92c851458dd6d55af15669c, type: 2}
     - {fileID: 11400000, guid: 69d56a8e5e684c9419f9bd3d5eeebf5d, type: 2}
     - {fileID: 11400000, guid: f3749fac126e0e144aff5cf55ac0776d, type: 2}
     - {fileID: 11400000, guid: edf390bbdcfa43d49b56c693ae3d4327, type: 2}
     - {fileID: 11400000, guid: c47c7e3011822f4469a93002d6de1b59, type: 2}
     - {fileID: 11400000, guid: f95272ec0ae9ec7419d99ec1a67848ba, type: 2}
-    currentTiles: []
+    currentTiles:
+    - {fileID: 11400000, guid: 23862e3f431bd3542872f7b98b292fad, type: 2}
+    - {fileID: 11400000, guid: 69d56a8e5e684c9419f9bd3d5eeebf5d, type: 2}
+    - {fileID: 11400000, guid: f3749fac126e0e144aff5cf55ac0776d, type: 2}
   - groupName: "Sp\u0113l\u0113 j\u0101\u0161\u0137iro \u0161\u0101di MET\u0100LI"
     groupNameEn: You will be sorting these METALS
     tiles:
@@ -67,7 +72,16 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f20ead0d3a06b364a90fb380a896ff43, type: 2}
     - {fileID: 11400000, guid: 8af4138bcf125ff4ea34429305360d70, type: 2}
     - {fileID: 11400000, guid: af6c2de28b18dfc4bb8ee07d2acb093f, type: 2}
-    currentTiles: []
+    currentTiles:
+    - {fileID: 11400000, guid: 832d8db396f276343a069efd2375dc78, type: 2}
+    - {fileID: 11400000, guid: c3a1e6b47f465b6468d4dea8b7765b36, type: 2}
+    - {fileID: 11400000, guid: 5fb048f58f5e82f4784680624002238c, type: 2}
+    - {fileID: 11400000, guid: d543acf8b2d574148aa3c371e0a8f842, type: 2}
+    - {fileID: 11400000, guid: 8caf16d2b4e997648bb6e91bbd35d871, type: 2}
+    - {fileID: 11400000, guid: 71482329b28d67a4785146356dfa2a37, type: 2}
+    - {fileID: 11400000, guid: 10063956b8a6a3944923c0af6d837818, type: 2}
+    - {fileID: 11400000, guid: f20ead0d3a06b364a90fb380a896ff43, type: 2}
+    - {fileID: 11400000, guid: 8af4138bcf125ff4ea34429305360d70, type: 2}
   - groupName: "Sp\u0113l\u0113 j\u0101\u0161\u0137iro \u0161\u0101di BIO ATKRITUMI"
     groupNameEn: You will be sorting these BIOLOGICAL WASTE
     tiles:
@@ -86,21 +100,34 @@ MonoBehaviour:
     - {fileID: 11400000, guid: feebc6bd0e819d74d91bb03d6d6f91d5, type: 2}
     - {fileID: 11400000, guid: cc46bf48470c8124981220bcc942a62b, type: 2}
     - {fileID: 11400000, guid: 7a0c39872fd5fac4ea5f359f18cb3356, type: 2}
-    currentTiles: []
+    currentTiles:
+    - {fileID: 11400000, guid: 43c2faa765b3ba947ba3b4d4dd0ed5e9, type: 2}
+    - {fileID: 11400000, guid: 446e1331ac75a054584a97dc80082159, type: 2}
+    - {fileID: 11400000, guid: 57e90624783e560409354c2d22405856, type: 2}
+    - {fileID: 11400000, guid: d6a4f82f0be1e6341ac77fe4eca21dfa, type: 2}
+    - {fileID: 11400000, guid: 04cd8b050d8fba242b6b393ad7dab30f, type: 2}
+    - {fileID: 11400000, guid: 8a293c8abfb037f489048ec6bb3b24ad, type: 2}
+    - {fileID: 11400000, guid: 22151719013c44e499f8a17f3524a36f, type: 2}
+    - {fileID: 11400000, guid: f4eb44a778342fb4b85c3195551d4a78, type: 2}
+    - {fileID: 11400000, guid: 69f396e0b852f4845994c42dafa143ee, type: 2}
+    - {fileID: 11400000, guid: b9f142aed8b565046843ab6bb68a15ee, type: 2}
+    - {fileID: 11400000, guid: baa2437dc2f45df4a86fa67be0ad2fd2, type: 2}
+    - {fileID: 11400000, guid: 7a0c39872fd5fac4ea5f359f18cb3356, type: 2}
   - groupName: "Sp\u0113l\u0113 j\u0101\u0161\u0137iro \u0161\u0101di STIKLI"
     groupNameEn: You will be sorting these GLASS
     tiles:
     - {fileID: 11400000, guid: e1e3bfce1c00a3b4e8bf4a4539e2063c, type: 2}
     - {fileID: 11400000, guid: a98687fe8fdb88d4786e0a3905fe67aa, type: 2}
     - {fileID: 11400000, guid: 7ad07dca194ffdb4086ec9fe0c8bd7f6, type: 2}
-    currentTiles: []
+    currentTiles:
+    - {fileID: 11400000, guid: e1e3bfce1c00a3b4e8bf4a4539e2063c, type: 2}
+    - {fileID: 11400000, guid: a98687fe8fdb88d4786e0a3905fe67aa, type: 2}
   - groupName: "Sp\u0113l\u0113 j\u0101no\u0161\u0137ir \u0161\u0101di NE\u0160\u0136IROJAMIE
       ATKRITUMI"
     groupNameEn: You will be sorting these UNSORTED WASTE
     tiles:
     - {fileID: 11400000, guid: 7e5aa49546ac6304fbb6614628efd96b, type: 2}
     - {fileID: 11400000, guid: f2a214a58b467e74fa5b37066f071966, type: 2}
-    - {fileID: 11400000, guid: c32260d7684efdd4caee706b018a24d9, type: 2}
     - {fileID: 11400000, guid: a2ce66eec79478f4a8ccfa4c18f3c22c, type: 2}
     - {fileID: 11400000, guid: a34152353ff2bde438368f12d981adb8, type: 2}
     - {fileID: 11400000, guid: 2126e95b3f33d6547a20e684199baacd, type: 2}
@@ -117,7 +144,22 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 5e4268d42a4844f4ba4b334bdb76288a, type: 2}
     - {fileID: 11400000, guid: f95272ec0ae9ec7419d99ec1a67848ba, type: 2}
     - {fileID: 11400000, guid: aaad027c824163240b016354d267aff8, type: 2}
-    currentTiles: []
+    - {fileID: 11400000, guid: dd100b90f92c851458dd6d55af15669c, type: 2}
+    currentTiles:
+    - {fileID: 11400000, guid: 7e5aa49546ac6304fbb6614628efd96b, type: 2}
+    - {fileID: 11400000, guid: f2a214a58b467e74fa5b37066f071966, type: 2}
+    - {fileID: 11400000, guid: a2ce66eec79478f4a8ccfa4c18f3c22c, type: 2}
+    - {fileID: 11400000, guid: a34152353ff2bde438368f12d981adb8, type: 2}
+    - {fileID: 11400000, guid: 2126e95b3f33d6547a20e684199baacd, type: 2}
+    - {fileID: 11400000, guid: 354499eae091bbb4fbdf287fd5853627, type: 2}
+    - {fileID: 11400000, guid: ab5707ea729415c45ba2607fbb03b533, type: 2}
+    - {fileID: 11400000, guid: 0c14a7e30ff791b4abd0b041c48e86a1, type: 2}
+    - {fileID: 11400000, guid: 2348cc15bdd23784bb3850db3ddc21c0, type: 2}
+    - {fileID: 11400000, guid: 014cc5e370d08934e9317d9c1a831842, type: 2}
+    - {fileID: 11400000, guid: 5418fca37349b2b44bae69b001258d0c, type: 2}
+    - {fileID: 11400000, guid: 01152b1acd50b4f419be890438565680, type: 2}
+    - {fileID: 11400000, guid: 97cddf67610474943a26b1ee6f5c84ec, type: 2}
+    - {fileID: 11400000, guid: dd100b90f92c851458dd6d55af15669c, type: 2}
   - groupName: "Sp\u0113l\u0113 j\u0101no\u0161\u0137ir \u0161\u0101di B\u012ASTAMIE
       ATKRITUMI"
     groupNameEn: You will be sorting these HAZARDOUS WASTE
@@ -149,4 +191,23 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 2c4bc0e6aa38ba941a32b56f550226d4, type: 2}
     - {fileID: 11400000, guid: f9b7fab0df91d6e4ea555211f2833d87, type: 2}
     - {fileID: 11400000, guid: c05618ddcb890034db84e1b102581642, type: 2}
-    currentTiles: []
+    currentTiles:
+    - {fileID: 11400000, guid: 915f7debf25cf3f4aae4f04f5490bd53, type: 2}
+    - {fileID: 11400000, guid: ba998c69f98bc584284c6ee5f8bb8d52, type: 2}
+    - {fileID: 11400000, guid: 5aabb7f56a5136c48bdb3442a88666c8, type: 2}
+    - {fileID: 11400000, guid: 0137f028c7df2cd48ad78c17eccfb615, type: 2}
+    - {fileID: 11400000, guid: 008dbcd82bc3bee4faef3e6bbd7a0a60, type: 2}
+    - {fileID: 11400000, guid: e5842011cf4c67f4dbeccf5d1e684457, type: 2}
+    - {fileID: 11400000, guid: 91eecb892d4ebf14bb50b29bf90e6c96, type: 2}
+    - {fileID: 11400000, guid: 78b07cd9da7f3f3448da72430d249c7f, type: 2}
+    - {fileID: 11400000, guid: c2393be3d6ec87a449c2d0b05d3863a2, type: 2}
+    - {fileID: 11400000, guid: 9958454fc8cbd184f8fbd201e1e5a8e3, type: 2}
+    - {fileID: 11400000, guid: fc54d7cee862b9b4abddf243843fdb4a, type: 2}
+    - {fileID: 11400000, guid: 817af4f0555b90649ba9a37e62212078, type: 2}
+    - {fileID: 11400000, guid: 8835eb99b18f6024bbe28ac979655fe2, type: 2}
+    - {fileID: 11400000, guid: c216005154ddd974788269694c39c2aa, type: 2}
+    - {fileID: 11400000, guid: b46d3370681f274458149e3abda45a4c, type: 2}
+    - {fileID: 11400000, guid: b57771e2982553648bdc5d5555505ab2, type: 2}
+    - {fileID: 11400000, guid: d703e499aa31833488609a234d6d5747, type: 2}
+    - {fileID: 11400000, guid: 834647378228b874a9230ac16e56250f, type: 2}
+    - {fileID: 11400000, guid: c05618ddcb890034db84e1b102581642, type: 2}

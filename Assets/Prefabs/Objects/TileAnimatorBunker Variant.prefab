@@ -26,6 +26,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3259612326814391524, guid: 464c3132bfa15a644bbb846591666887, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3259612326814391529, guid: 464c3132bfa15a644bbb846591666887, type: 3}
       propertyPath: m_Name
       value: TileAnimatorBunker Variant

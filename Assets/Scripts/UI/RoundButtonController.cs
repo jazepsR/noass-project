@@ -20,6 +20,7 @@ public class RoundButtonController : MonoBehaviour
     public void Setup(int max)
     {
         this.max = max;
+        current = 0;
         fill.fillAmount = 0;
     }
 

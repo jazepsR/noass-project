@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889c54f1c745c5f4fadebcb46607cc39, type: 3}
   m_Name: formaldehins
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 972751c8091f634439ab8e24e10ef4de, type: 3}
+  image: {fileID: 21300000, guid: dc921a35a916b984aa1877e58e25172a, type: 3}
   imageEN: {fileID: 21300000, guid: 58f265e8911b91f449f5e1ba8f5e42b8, type: 3}
   imageHard: {fileID: 21300000, guid: fe7b052bf9c358846a6e298101d33b5f, type: 3}
   isHard: 0
