@@ -103,6 +103,7 @@ public class LevelSelect : MonoBehaviour
             if (currentSlide == 0)
             {
                 prevSlideBtn.interactable = false;
+                startGameButton.gameObject.SetActive(true);
             }
             nextSlideBtn.interactable = true;
             RefreshTexts();
@@ -123,7 +124,6 @@ public class LevelSelect : MonoBehaviour
             SetupDifficultyToggles();
         }
         heading.text = Helpers.isLatvian() ? selectedGame.levelName.ToUpper() : selectedGame.levelNameEn.ToUpper();
-
         selectedGame.SetupElementList();
         SetupElementPage();
     }
@@ -176,6 +176,7 @@ public class LevelSelect : MonoBehaviour
     public void NextTutorialSlide()
     {
         prevSlideBtn.interactable = true;
+        startGameButton.gameObject.SetActive(false);
         switch (currentStage)
         {
             case TutorialStage.gaita:
@@ -230,6 +231,7 @@ public class LevelSelect : MonoBehaviour
     public void PrevTutorialSlide()
     {
         nextSlideBtn.interactable = true;
+        startGameButton.gameObject.SetActive(false);
         switch (currentStage)
         {
             case TutorialStage.gaita:
@@ -241,6 +243,7 @@ public class LevelSelect : MonoBehaviour
                 if(currentTutorialSlide == 0)
                 {
                     prevSlideBtn.interactable = false;
+                    startGameButton.gameObject.SetActive(true);
                 }
                 break;
             case TutorialStage.elementi:
@@ -311,7 +314,6 @@ public class LevelSelect : MonoBehaviour
     {
         ValidateButtons();
         Sprite[] activeSprites = Helpers.isLatvian() ? selectedGame.tutorialSprites : selectedGame.tutorialSpritesEn;
-
         mainImage.sprite = activeSprites[currentTutorialSlide];
     }
     public void ValidateButtons()

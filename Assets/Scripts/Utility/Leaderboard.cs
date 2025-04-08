@@ -17,6 +17,10 @@ public class Leaderboard : MonoBehaviour
     public VerticalLayoutGroup[] layouts;
     public TMP_Text textPrefab;
     int tempInt = 0;
+    private int scoresToShow = 15;
+    private string lastNameAdded = "";
+    private int lastScoreAdded = -1;
+    bool boldedResult = false;
     // add some values to the collection here
     private void Awake()
     {
@@ -56,6 +60,8 @@ public class Leaderboard : MonoBehaviour
     public void AddScoreToLeaderboard(string nickname, int score)
     {
         scoresSave.Add(new PlayerDataSave(nickname, score, System.DateTime.Now));
+        lastNameAdded = nickname;
+        lastScoreAdded = score;
        // LogLeaderboard();
         Save();
     }
@@ -63,25 +69,59 @@ public class Leaderboard : MonoBehaviour
     public void SetupLeaderboardVisualisation()
     {
         Sort();
-        for (int i =0;i< scoresSave.Count;i++)
+        boldedResult = false;
+        for (int i =0;i< scoresToShow; i++)
         {
-            AddEntry(scoresSave[i], i);
+            if(i< scoresSave.Count)
+                AddEntry(scoresSave[i], i);
+        }
+        if(!boldedResult)
+        {
+            AddToLayout("-", layouts[0]);
+            AddToLayout("-", layouts[1]);
+            AddToLayout("-", layouts[2]);
+            AddToLayout("-", layouts[3]);
+            for (int i = 0; i < scoresSave.Count; i++)
+            {
+                if (ShouldBoldResult(scoresSave[i]))
+                {
+                    AddEntry(scoresSave[i], i);
+                    break;
+                }
+            }
+
         }
     }
-
+    private bool ShouldBoldResult(PlayerDataSave playerData)
+    {
+      return  playerData.playerName == lastNameAdded && playerData.score == lastScoreAdded && !boldedResult;
+    }
 
     private void AddEntry(PlayerDataSave playerData, int ID)
     {
-        AddToLayout((ID+1).ToString() + ".", layouts[0]);
-        AddToLayout(playerData.score.ToString(), layouts[1]);
-        AddToLayout(playerData.playerName, layouts[2]);
-        AddToLayout(playerData.date.ToShortDateString(), layouts[3]);
+        bool shouldBeBold = ShouldBoldResult(playerData);
+        if (shouldBeBold)
+        {
+            AddToLayout("<b>"+(ID + 1).ToString() + ".</b>", layouts[0]);
+            AddToLayout("<b>" + playerData.score.ToString() + "</b>", layouts[1]);
+            AddToLayout("<b>" + playerData.playerName + "</b>", layouts[2]);
+            AddToLayout("<b>" + playerData.date.ToShortDateString() + "</b>", layouts[3]); 
+            boldedResult = true;
+        }
+        else
+        {
+            AddToLayout((ID + 1).ToString() + ".", layouts[0]);
+            AddToLayout(playerData.score.ToString(), layouts[1]);
+            AddToLayout(playerData.playerName, layouts[2]);
+            AddToLayout(playerData.date.ToShortDateString(), layouts[3]);
+        }
     }
 
     private void AddToLayout(string text, VerticalLayoutGroup layout)
     {
         TMP_Text obj = Instantiate(textPrefab, layout.transform);
         obj.text = text;
+        
     }
 
     public void Sort()

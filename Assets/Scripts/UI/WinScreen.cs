@@ -119,14 +119,14 @@ public class WinScreen : MonoBehaviour
         }
     }
 
-    public void SendEmail()
+    public void SetupLeaderboard()
     {
         Leaderboard.instance.Load();
         Leaderboard.instance.AddScoreToLeaderboard(TopBarController.instance.playerData.username, scoreVal);
         Leaderboard.instance.SetupLeaderboardVisualisation();
         if (gdprConsentYes.isOn)
         {
-           sendEmail.instance.SendMail(playerData.email, playerData.firstName, playerData.lastName, scoreVal);
+         //  sendEmail.instance.SendMail(playerData.email, playerData.firstName, playerData.lastName, scoreVal);
         }
     }
 

@@ -17,16 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 4cae55fd9bc61c645b838237c409a50e
   m_SerializeEntries:
-  - m_GUID: bff8582339758ca499245289a3b46fec
-    m_Address: English (en)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
   - m_GUID: 82c03664a4659784a87d8dea2a6faf63
     m_Address: Latvian (lv)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bff8582339758ca499245289a3b46fec
+    m_Address: English (en)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: fb37b2bf7bd96324a99db6d28f3cb0cc, type: 2}
   m_SchemaSet:
