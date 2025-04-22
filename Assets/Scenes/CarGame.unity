@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3508,10 +3509,6 @@ PrefabInstance:
     - target: {fileID: 6994858856103183441, guid: 684e992f665147b45a2a8027b76614d3, type: 3}
       propertyPath: gameNameStringEN
       value: CARGO CONTROL
-      objectReference: {fileID: 0}
-    - target: {fileID: 6994858856103183441, guid: 684e992f665147b45a2a8027b76614d3, type: 3}
-      propertyPath: secondsRemaining
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7717708919513860325, guid: 684e992f665147b45a2a8027b76614d3, type: 3}
       propertyPath: levelData.Array.size
